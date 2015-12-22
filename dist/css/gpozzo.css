@@ -30,6 +30,9 @@ footer {
     footer p a:active {
       color: #00261C; }
 
+textarea {
+  width: 100%; }
+
 @media print {
   #contenedorNav {
     display: none; } }
