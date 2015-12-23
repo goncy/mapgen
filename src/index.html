@@ -14,20 +14,24 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                  <img id="logo-brand" src="img/logo-brand.png" alt="">
+                  <img id="logo-brand" src="img/logo-brand.png" alt="Logo {{meta.cliente.nombre}}">
               	</a>
             </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
+                  {% if extras.editable %}
                     <li class="dropdown active">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-expanded="false">
                         	Agregar item <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" id="catList" role="menu"></ul>
                     </li>
+                  {% endif %}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                  {% if extras.editable %}
                     <li><a role="button" onclick="guardar()">Guardar datos</a></li>
+                  {% endif %}
                 </ul>
             </div>
         </div>
@@ -36,19 +40,20 @@
     <input id="pac-input" class="controls" type="text" placeholder="Buscar dirección">
     <div id="map"></div>
 
-    <!-- Footer -->
-    {% if opciones.footer.mostrar %}
-      {% include "./src/html/partials/footer.html" %}
-    {% endif %}
-    <!-- Fin Footer -->
-
     <script type='text/javascript' src="js/gpozzo.js"></script>
 
-    <!-- Analytics -->
     {% if opciones.analytics.mostrar %}
+      <!-- Analytics -->
       {% include "./src/html/partials/analytics.html" %}
+      <!-- Fin Analytics -->
     {% endif %}
-    <!-- Fin Analytics -->
+
 </body>
+
+{% if opciones.footer.mostrar %}
+  <!-- Footer -->
+  {% include "./src/html/partials/footer.html" %}
+  <!-- Fin Footer -->
+{% endif %}
 
 </html>

@@ -2,8 +2,10 @@ function setStage() {
   //Crear contenedor de markers y lista de categorias
   categorias.forEach(function(cat) {
     markerContainer[cat] = [];
-    $("#catList")
-      .append("<li><a style='text-transform:capitalize' role='button' onclick='itemSeleccionado = \"" + cat + "\"'>" + cat + "</a></li>");
+    {% if extras.editable %}
+      $("#catList")
+        .append("<li><a style='text-transform:capitalize' role='button' onclick='itemSeleccionado = \"" + cat + "\"'>" + cat + "</a></li>");
+    {% endif %}
   });
 
   window.infowindow = new google.maps.InfoWindow();

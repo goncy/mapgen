@@ -21,41 +21,43 @@ function loadMarker(location, loadedMarker) {
     .removeAllRanges();
 }
 
-function addMarker(location) {
+{% if extras.editable %}
+  function addMarker(location) {
 
-  {% if opciones.markers.maximosSesion %}
-    //Max markers
-    {% include "./options/maxMarkers.js" %}
-  {% endif %}
+    {% if opciones.markers.maximosSesion %}
+      //Max markers
+      {% include "./options/maxMarkers.js" %}
+    {% endif %}
 
-  var marker = new google.maps.Marker({
-    position: location,
-    map: mapa,
-    draggable: true,
-    icon: getIcon(itemSeleccionado),
-    iconBu: getIcon(itemSeleccionado),
-    id: 0,
-    texto: "",
-    fecha: "nuevo",
-    tipo: itemSeleccionado
-  });
+    var marker = new google.maps.Marker({
+      position: location,
+      map: mapa,
+      draggable: true,
+      icon: getIcon(itemSeleccionado),
+      iconBu: getIcon(itemSeleccionado),
+      id: 0,
+      texto: "",
+      fecha: "nuevo",
+      tipo: itemSeleccionado
+    });
 
-  {% if opciones.infowindow.mostrar %}
-    //Mostrar infowindow
-    {% include "./options/infowindow.mostrar.new.js" %}
-  {% endif %}
+    {% if opciones.infowindow.mostrar %}
+      //Mostrar infowindow
+      {% include "./options/infowindow.mostrar.new.js" %}
+    {% endif %}
 
-  google.maps.event.trigger(marker, 'click');
-  pushMarker(marker);
+    google.maps.event.trigger(marker, 'click');
+    pushMarker(marker);
 
-  document.getSelection()
-    .removeAllRanges();
-}
+    document.getSelection()
+      .removeAllRanges();
+  }
 
-function pushMarker(marker) {
-  cant_markers++;
-  markerContainer[marker.tipo].push(marker);
-}
+
+  function pushMarker(marker) {
+    cant_markers++;
+    markerContainer[marker.tipo].push(marker);
+  }
 
 function getArrayMarkers() {
   var arrayMarkers = new Array();
@@ -74,3 +76,4 @@ function getArrayMarkers() {
   }
   return arrayMarkers;
 }
+{% endif %}
