@@ -1,114 +1,13 @@
-html,
-body,
-#map {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
+$client-primary: #FF302F;
+$client-secondary: #222222;
 
-body {
-  padding-top: 50px;
-}
-
-footer {
-  width: 100%;
-  height: 35px;
-  font-family: Verdana, Geneva, sans-serif;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: #ffffff;
-
-  p {
-    margin: 6px 0;
-
-    a {
-      &:link {
-        color: #168039;
-      }
-
-      &:visited {
-        color: #044D29;
-      }
-
-      &:hover {
-        color: #45BF55;
-      }
-
-      &:active {
-        color: #00261C;
-      }
-    }
-  }
-}
-
-textarea {
-  width: 100%;
-}
-
-@media print {
-  #contenedorNav {
-    display: none;
-  }
-}
-
-#pac-input {
-  position: absolute;
-  background-color: #fff;
-  font-family: "Roboto";
-  font-size: 15px;
-  font-weight: 300;
-  margin-left: 12px;
-  padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
-  width: 300px;
-
-  &:focus {
-    border-color: #4d90fe;
-  }
-}
+@import "partials/mains";
+@import "partials/gmaps";
+@import "partials/toastr";
+@import "partials/helpers";
+@import "partials/tags";
 
 #logo-brand {
   max-height: 32px;
   margin-top: -4px;
-}
-
-.pac-container {
-  font-family: Roboto;
-}
-
-#toast-container {
-  margin-top: 95px;
-  z-index: 900;
-
-  .toast {
-    opacity: 1 !important;
-  }
-}
-
-#GMapsID div div a div img {
-  display: none;
-}
-
-.gmnoprint a,
-.gmnoprint span {
-  display: none;
-}
-
-.controls {
-  margin-top: 12px;
-  border: 1px solid transparent;
-  border-radius: 2px 0 0 2px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  height: 32px;
-  outline: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-.hidden {
-  visibility: hidden;
-  display: none;
 }
