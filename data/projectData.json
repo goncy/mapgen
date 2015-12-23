@@ -36,6 +36,10 @@
     },
     "footer": {
       "mostrar": true
+    },
+    "analytics": {
+      "mostrar": true,
+      "ua": "UA-62524880-1"
     }
   },
   "paths": {
