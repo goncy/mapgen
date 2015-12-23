@@ -1,6 +1,7 @@
 function loadMarker(location, loadedMarker) {
   var marker = new google.maps.Marker({
     position: location,
+    solucionado: false,
     map: mapa,
     draggable: false,
     icon: getIcon(loadedMarker.tipo),
@@ -11,26 +12,9 @@ function loadMarker(location, loadedMarker) {
     tipo: loadedMarker.tipo
   });
 
+  //Nunjucks: opciones.markerSolucionable
   {% if extras.solucionable %}
-    google.maps.event.addListener(marker, 'rightclick', function() {
-
-        {% if opciones.markers.maximosRemove %}
-          //Max markers remove
-          {% include "./options/maxMarkersRemove.js" %}
-        {% endif %}
-
-        infowindow.close();
-        if (marker.solucionado == false) {
-            marker.setIcon('img/icons/tilde.png');
-            marker.solucionado = true;
-            solucionados.push(marker);
-            cant_solucionados++;
-        } else {
-            marker.setIcon(marker.iconBu);
-            marker.solucionado = false;
-            cant_solucionados--;
-        }
-    });
+    {% include "./extras/loadedMarkerSolucionable.js" %}
   {% endif %}
 
   //Nunjucks: opciones.infowindow
@@ -63,6 +47,10 @@ function loadMarker(location, loadedMarker) {
       tipo: itemSeleccionado
     });
 
+    {% if extras.solucionable %}
+      {% include "./extras/newMarkerSolucionable.js" %}
+    {% endif %}
+
     {% if opciones.infowindow.mostrar %}
       //Mostrar infowindow
       {% include "./options/infowindow.mostrar.new.js" %}
@@ -75,11 +63,19 @@ function loadMarker(location, loadedMarker) {
       .removeAllRanges();
   }
 
-
   function pushMarker(marker) {
     cant_markers++;
     markerContainer[marker.tipo].push(marker);
   }
+
+  {% if extras.solucionable %}
+    function removeMarker(marker) {
+        marker.setMap(null);
+        cant_markers--;
+
+        markerContainer[marker.tipo].splice(markerContainer[marker.tipo].indexOf(marker), 1);
+    }
+  {% endif %}
 
 function getArrayMarkers() {
   var arrayMarkers = new Array();

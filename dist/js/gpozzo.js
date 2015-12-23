@@ -4,6 +4,15 @@ var categorias = ['poda' ,'iluminacion' ,'camaras' ,'inseguridad' ,'bacheo' ,'ot
 var markerContainer = {};
 
 
+  var itemSeleccionado = categorias[0];
+  var cant_markers = 0;
+  var emptyTextArea = '<h4><textarea rows="4" id="obtener_texto" placeholder="Descripcion del motivo" maxlength="255"></textarea><br><button type="button" class="btn btn-default" id="guardar_texto">Guardar</button></h4>';
+
+
+
+  var solucionados = [];
+  var cant_solucionados = 0;
+
 
 
 //OnLoad function
@@ -11,6 +20,9 @@ function setStage() {
   //Crear contenedor de markers y lista de categorias
   categorias.forEach(function(cat) {
     markerContainer[cat] = [];
+    
+      $("#catList")
+        .append("<li><a style='text-transform:capitalize' role='button' onclick='itemSeleccionado = \"" + cat + "\"'>" + cat + "</a></li>");
     
   });
 
@@ -116,6 +128,16 @@ function setStage() {
   });
 
   
+    //Eventos de marker
+    google.maps.event.addListener(path, 'dblclick', function(event) {
+  addMarker(event.latLng);
+});
+
+google.maps.event.addListener(path, 'click', function(event) {
+  infowindow.close();
+});
+
+  
 }
 
 
@@ -123,6 +145,7 @@ function setStage() {
 function loadMarker(location, loadedMarker) {
   var marker = new google.maps.Marker({
     position: location,
+    solucionado: false,
     map: mapa,
     draggable: false,
     icon: getIcon(loadedMarker.tipo),
@@ -132,6 +155,34 @@ function loadMarker(location, loadedMarker) {
     fecha: loadedMarker.ts,
     tipo: loadedMarker.tipo
   });
+
+  //Nunjucks: opciones.markerSolucionable
+  
+    google.maps.event.addListener(marker, 'rightclick', function() {
+
+    
+      //Max markers remove
+      if (cant_solucionados >= 2) {
+  alert("¡No podes borrar tantos puntos!");
+  return;
+}
+
+    
+
+    infowindow.close();
+    if (marker.solucionado == false) {
+        marker.setIcon('img/icons/tilde.png');
+        marker.solucionado = true;
+        solucionados.push(marker);
+        cant_solucionados++;
+    } else {
+        marker.setIcon(marker.iconBu);
+        marker.solucionado = false;
+        cant_solucionados--;
+    }
+});
+
+  
 
   //Nunjucks: opciones.infowindow
   
@@ -152,9 +203,118 @@ function loadMarker(location, loadedMarker) {
 }
 
 
+  function addMarker(location) {
+
+    
+      //Max markers add
+      if (cant_markers >= 3) {
+  alert("¡No podes agregar tantos puntos!, por favor, guardá para seguir cargando puntos");
+  return;
+}
+
+    
+
+    var marker = new google.maps.Marker({
+      position: location,
+      map: mapa,
+      draggable: true,
+      icon: getIcon(itemSeleccionado),
+      iconBu: getIcon(itemSeleccionado),
+      id: 0,
+      texto: "",
+      fecha: "nuevo",
+      tipo: itemSeleccionado
+    });
+
+    
+      google.maps.event.addListener(marker, 'rightclick', function(event) {
+    infowindow.close();
+    removeMarker(marker);
+});
+
+    
+
+    
+      //Mostrar infowindow
+      google.maps.event.addListener(marker, 'click', function() {
+  infowindow.close();
+  google.maps.event.clearListeners(infowindow, 'domready');
+  if (marker.texto) infowindow.setContent('<h4>' + marker.texto + '</h4>');
+  else {
+    infowindow.setContent(emptyTextArea);
+    google.maps.event.addListener(infowindow, 'domready', function() {
+      $('#guardar_texto')
+        .on('click', function() {
+          marker.texto = $('#obtener_texto')
+            .val();
+          infowindow.close();
+        });
+    });
+  }
+  infowindow.open(mapa, marker);
+});
+
+    
+
+    google.maps.event.trigger(marker, 'click');
+    pushMarker(marker);
+
+    document.getSelection()
+      .removeAllRanges();
+  }
+
+  function pushMarker(marker) {
+    cant_markers++;
+    markerContainer[marker.tipo].push(marker);
+  }
+
+  
+    function removeMarker(marker) {
+        marker.setMap(null);
+        cant_markers--;
+
+        markerContainer[marker.tipo].splice(markerContainer[marker.tipo].indexOf(marker), 1);
+    }
+  
+
+function getArrayMarkers() {
+  var arrayMarkers = new Array();
+  var removeHtml = /(<([^>]+)>)/ig;
+
+  for (var cat in markerContainer) {
+    for (var i = markerContainer[cat].length - 1; i >= 0; i--) {
+      var objeto = {
+        lat: markerContainer[cat][i].position.lat(),
+        lng: markerContainer[cat][i].position.lng(),
+        tipo: cat,
+        texto: textoReplace(markerContainer[cat][i].texto)
+      };
+      arrayMarkers.push(objeto);
+    }
+  }
+  return arrayMarkers;
+}
+
 
 
 //Save functions
+
+  //Funcion de guardar
+  function guardar() {
+    var arrayMarkers = getArrayMarkers();
+
+    if (arrayMarkers.length > 0) {
+      $.post('php/dataHandler.php', {
+        action: 'push_markers',
+        markers: arrayMarkers
+      }, function(data) {
+        if (data == true) alert("Agregado correctamente, gracias por su colaboracion");
+        if (data == false) alert("Hubo un error, pruebe nuevamente mas tarde, gracias!");
+        vaciarArrays();
+        location.reload();
+      }, "json");
+    }
+  }
 
 
 
@@ -163,6 +323,25 @@ function getIcon(categoria) {
   return categoria ? 'img/icons/' + categoria + '.png' : 'img/icons/otro.png';
 }
 
+
+  function textoReplace(texto) {
+    var removeHtml = /(<([^>]+)>)/ig;
+    return texto ? texto.replace(removeHtml, "") : "";
+  }
+
+  function vaciarArrays() {
+    for (var cat in markerContainer) {
+      markerContainer[cat] = [];
+    }
+  }
+
+  window.onbeforeunload = function() {
+    var hook = getArrayMarkers()
+      .length ? true : false;
+    if (hook) {
+      return "¡No guardaste los puntos permamentemente en el mapa!, por favor, cerrá esta ventana y presioná 'Guardar datos' en la esquina superior derecha"
+    }
+  }
 
 
 

@@ -9,5 +9,6 @@ var markerContainer = {};
 {% endif %}
 
 {% if extras.solucionable %}
+  var solucionados = [];
   var cant_solucionados = 0;
 {% endif %}
