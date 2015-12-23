@@ -11,6 +11,28 @@ function loadMarker(location, loadedMarker) {
     tipo: loadedMarker.tipo
   });
 
+  {% if extras.solucionable %}
+    google.maps.event.addListener(marker, 'rightclick', function() {
+
+        {% if opciones.markers.maximosRemove %}
+          //Max markers remove
+          {% include "./options/maxMarkersRemove.js" %}
+        {% endif %}
+
+        infowindow.close();
+        if (marker.solucionado == false) {
+            marker.setIcon('img/icons/tilde.png');
+            marker.solucionado = true;
+            solucionados.push(marker);
+            cant_solucionados++;
+        } else {
+            marker.setIcon(marker.iconBu);
+            marker.solucionado = false;
+            cant_solucionados--;
+        }
+    });
+  {% endif %}
+
   //Nunjucks: opciones.infowindow
   {% if opciones.infowindow.mostrar %}
     //Mostrar infowindow
@@ -24,9 +46,9 @@ function loadMarker(location, loadedMarker) {
 {% if extras.editable %}
   function addMarker(location) {
 
-    {% if opciones.markers.maximosSesion %}
-      //Max markers
-      {% include "./options/maxMarkers.js" %}
+    {% if opciones.markers.maximosAdd %}
+      //Max markers add
+      {% include "./options/maxMarkersAdd.js" %}
     {% endif %}
 
     var marker = new google.maps.Marker({

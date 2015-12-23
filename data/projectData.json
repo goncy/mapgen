@@ -15,7 +15,8 @@
   "extras": {
     "zona": "quilmes",
     "gps": true,
-    "editable": false
+    "editable": true,
+    "solucionable": true
   },
   "opciones": {
     "infowindow": {
@@ -32,7 +33,8 @@
       ]
     },
     "markers": {
-      "maximosSesion": 3
+      "maximosAdd": 3,
+      "maximosRemove": 2
     },
     "footer": {
       "mostrar": true
