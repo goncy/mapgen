@@ -1,4 +1,5 @@
-var categorias = ["camaras", "poda", "iluminacion", "inseguridad", "bacheo", "otro"];
+//Cargamos las categorias desde nunjucks
+var categorias = [{% for categoria in categorias -%}'{{ categoria }}'{{"" if loop.last else ","}}{%- endfor %}];
 var itemSeleccionado = categorias[0];
 var markerContainer = {};
 
