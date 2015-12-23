@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Club Bernal - Mapa interactivo de reclamos del partido de Quilmes</title>
-    <meta name="description" content="Mapa interactivo del partido de Quilmes, marca tu reclamos y hace que sea visible por todos los vecinos y autoridades, colabora con el barrio y hagamos juntos un Quilmes mas seguro">
+    <title>{{meta.cliente.nombre}} - {{meta.titulo}}</title>
+    <meta name="description" content="{{meta.descripcion}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places,geometry"></script>
@@ -17,7 +17,7 @@
     <link rel="icon" href="img/favicon-png.png">
 </head>
 
-<body onload="setStage()">
+<body onload="setStage()" style="padding-bottom:{{ '35' if opciones.footer.mostrar else '0' }}px">
     <nav id="contenedorNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -28,7 +28,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                	Club Atletico Bernal
+                  <img id="logo-brand" src="img/logo-brand.png" alt="">
               	</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
@@ -50,9 +50,11 @@
     <input id="pac-input" class="controls" type="text" placeholder="Buscar dirección">
     <div id="map"></div>
 
-    <footer>
-        <p class="text-center"><a class="text-center" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type"> Mapa interactivo</span> por <a xmlns:cc="http://creativecommons.org/ns#" href="mailto:gonzalo.pozzo4@gmail.com" property="cc:attributionName" rel="cc:attributionURL">Gonzalo Pozzo</a> | 11-4163-4695</p>
-    </footer>
+    <!-- Footer -->
+    {% if opciones.footer.mostrar %}
+      {% include "./src/html/partials/footer.html" %}
+    {% endif %}
+    <!-- Fin Footer -->
 
     <script type='text/javascript' src="js/gpozzo.js"></script>
 

@@ -8,7 +8,6 @@ body,
   overflow: hidden; }
 
 body {
-  padding-bottom: 35px;
   padding-top: 50px; }
 
 footer {
@@ -20,7 +19,7 @@ footer {
   left: 0;
   background: #ffffff; }
   footer p {
-    margin: 6px 0px; }
+    margin: 6px 0; }
     footer p a:link {
       color: #168039; }
     footer p a:visited {
@@ -40,7 +39,7 @@ textarea {
 #pac-input {
   position: absolute;
   background-color: #fff;
-  font-family: Roboto;
+  font-family: "Roboto";
   font-size: 15px;
   font-weight: 300;
   margin-left: 12px;
@@ -49,6 +48,10 @@ textarea {
   width: 300px; }
   #pac-input:focus {
     border-color: #4d90fe; }
+
+#logo-brand {
+  max-height: 32px;
+  margin-top: -4px; }
 
 .pac-container {
   font-family: Roboto; }

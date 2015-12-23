@@ -1,4 +1,16 @@
 {
+  "meta":{
+    "cliente": {
+      "nombre": "Club Bernal",
+      "mail": "info@clubbernal.com.ar"
+    },
+    "desarrollador": {
+      "nombre": "Gonzalo Pozzo",
+      "mail": "gonzalo.pozzo4@gmail.com"
+    },
+    "titulo": "Mapa de reclamos del partido de quilmes",
+    "descripcion": "Lorem ipsum dolor sit amet"
+  },
   "categorias": ["poda", "iluminacion", "camaras", "inseguridad", "bacheo", "otros"],
   "extras": {
     "zona": "quilmes",
@@ -21,6 +33,9 @@
     },
     "markers": {
       "maximosSesion": 3
+    },
+    "footer": {
+      "mostrar": true
     }
   },
   "paths": {
