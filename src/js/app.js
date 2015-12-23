@@ -1,5 +1,5 @@
 //Cargamos las categorias desde nunjucks
-var categorias = [{% for categoria in categorias -%}'{{ categoria }}'{{"" if loop.last else ","}}{%- endfor %}];
+var categorias = [{% for categoria in categorias -%} '{{ categoria }}' {{"" if loop.last else ","}} {%- endfor %}];
 var itemSeleccionado = categorias[0];
 var markerContainer = {};
 
@@ -10,7 +10,8 @@ function setStage() {
   //Crear contenedor de markers y lista de categorias
   categorias.forEach(function(cat) {
     markerContainer[cat] = [];
-    $("#catList").append("<li><a style='text-transform:capitalize' role='button' onclick='itemSeleccionado = \""+cat+"\"'>"+cat+"</a></li>");
+    $("#catList")
+      .append("<li><a style='text-transform:capitalize' role='button' onclick='itemSeleccionado = \"" + cat + "\"'>" + cat + "</a></li>");
   });
 
   window.infowindow = new google.maps.InfoWindow();
@@ -61,14 +62,32 @@ function setStage() {
     };
   }, "json");
 
-  //Eventos de marker
-  google.maps.event.addListener(mapa, 'dblclick', function(event) {
-    addMarker(event.latLng);
-  });
+  //Extras
+  {% if extras.zona %}
+    //Zona
+    if("{{paths[extras.zona]}}".length){
+      var path = new google.maps.Polygon({
+        strokeColor: "#7790D9",
+        fillColor: "#A3BFD9",
+        strokeOpacity: 1,
+        strokeWeight: 1,
+        fillOpacity: 0.25,
+        map: mapa,
+        paths: google.maps.geometry.encoding.decodePath("{{paths[extras.zona]}}")
+      });
+    }
+  {% endif %}
 
-  google.maps.event.addListener(mapa, 'click', function(event) {
-    infowindow.close();
-  });
+  {% if extras.gps %}
+    // GPS
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            mapa.setCenter(pos);
+            mapa.setZoom(16);
+        });
+    }
+  {% endif %}
 
   //Searchbox
   var input = (document.getElementById('pac-input'));
@@ -93,6 +112,17 @@ function setStage() {
     var bounds = mapa.getBounds();
     searchBox.setBounds(bounds);
   });
+
+  {% if extras.editable %}
+    //Eventos de marker
+    google.maps.event.addListener({{ "path" if extras.zona else "mapa" }}, 'dblclick', function(event) {
+      addMarker(event.latLng);
+    });
+
+    google.maps.event.addListener({{ "path" if extras.zona else "mapa" }}, 'click', function(event) {
+      infowindow.close();
+    });
+  {% endif %}
 }
 
 function loadMarker(location, loadedMarker) {
@@ -108,14 +138,20 @@ function loadMarker(location, loadedMarker) {
     tipo: loadedMarker.tipo
   });
 
-  google.maps.event.addListener(marker, 'click', function() {
-    infowindow.close();
-    if (marker.texto) infowindow.setContent('<h4><small>ID: ' + marker.id + ' - Agregado: ' + marker.fecha + '</small><br>' + marker.texto + '</h4>');
-    else infowindow.setContent('<h4><small>ID: ' + marker.id + ' - Agregado: ' + marker.fecha + '</small></h4>');
-    infowindow.open(mapa, marker);
-  });
+  //Nunjucks: opciones.infowindow
+  {% if opciones.infowindow.mostrar %}
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.close();
+      //Nunjucks: opciones.infowindow
+      if (marker.texto) infowindow.setContent('<h4><small>' + {% for opcion in opciones.infowindow.datos -%} '{{ opcion.nombre }}: '+marker.{{ opcion.dato }} {{"" if loop.last else "+ ' - ' +"}} {%- endfor %} + '</small><br>' + marker.texto + '</h4>');
+      else infowindow.setContent('<h4><small>' + {% for opcion in opciones.infowindow.datos -%} '{{ opcion.nombre }}: '+marker.{{ opcion.dato }} {{"" if loop.last else "+ ' - ' +"}} {%- endfor %} + '</small></h4>');
 
-  document.getSelection().removeAllRanges();
+      infowindow.open(mapa, marker);
+    });
+  {% endif %}
+
+  document.getSelection()
+    .removeAllRanges();
 }
 
 function addMarker(location) {
@@ -136,26 +172,31 @@ function addMarker(location) {
     tipo: itemSeleccionado
   });
 
-  google.maps.event.addListener(marker, 'click', function() {
-    infowindow.close();
-    google.maps.event.clearListeners(infowindow, 'domready');
-    if (marker.texto) infowindow.setContent('<h4>' + marker.texto + '</h4>');
-    else {
-      infowindow.setContent(emptyTextArea);
-      google.maps.event.addListener(infowindow, 'domready', function() {
-        $('#guardar_texto').on('click', function() {
-            marker.texto = $('#obtener_texto').val();
-            infowindow.close();
-          });
-      });
-    }
-    infowindow.open(mapa, marker);
-  });
+  {% if opciones.infowindow.mostrar %}
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.close();
+      google.maps.event.clearListeners(infowindow, 'domready');
+      if (marker.texto) infowindow.setContent('<h4>' + marker.texto + '</h4>');
+      else {
+        infowindow.setContent(emptyTextArea);
+        google.maps.event.addListener(infowindow, 'domready', function() {
+          $('#guardar_texto')
+            .on('click', function() {
+              marker.texto = $('#obtener_texto')
+                .val();
+              infowindow.close();
+            });
+        });
+      }
+      infowindow.open(mapa, marker);
+    });
+  {% endif %}
 
   google.maps.event.trigger(marker, 'click');
   pushMarker(marker);
 
-  document.getSelection().removeAllRanges();
+  document.getSelection()
+    .removeAllRanges();
 }
 
 function pushMarker(marker) {

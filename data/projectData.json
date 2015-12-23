@@ -1,6 +1,26 @@
 {
   "categorias": ["poda", "iluminacion", "camaras", "inseguridad", "bacheo", "otros"],
+  "extras": {
+    "zona": "quilmes",
+    "gps": true,
+    "editable": true
+  },
+  "opciones": {
+    "infowindow": {
+      "mostrar": true,
+      "datos": [
+        {
+          "nombre": "ID",
+          "dato": "id"
+        },
+        {
+          "nombre": "Agregado",
+          "dato": "fecha"
+        }
+      ]
+    }
+  },
   "paths": {
-    "quilmes": 
+    "quilmes": "jctrEnzubJlwBpsC`QdIb{@~~@p~@``AnxBhdChk@eb@fbDssBdEtIxa@ub@zo@_`@fvAoaAkVcPum@s@}FaGm`@uAc{AohDl]iYqlFcbMdA~MuLr@cc@t^oBpG}JNgHfIrArO_JeIw^hZqg@paAcMiC`FhKkRpd@}FvIwW}LvW`VaJ?gSyQhKt^"
   }
 }
