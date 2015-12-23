@@ -18,6 +18,9 @@
           "dato": "fecha"
         }
       ]
+    },
+    "markers": {
+      "maximosSesion": 3
     }
   },
   "paths": {

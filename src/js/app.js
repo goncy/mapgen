@@ -155,10 +155,13 @@ function loadMarker(location, loadedMarker) {
 }
 
 function addMarker(location) {
-  if (cant_markers >= 3) {
-    alert("¡No podes agregar tantos puntos!, por favor, guardá para seguir cargando puntos");
-    return;
-  }
+
+  {% if opciones.marker.maximosSesion %}
+    if (cant_markers > {{opciones.marker.maximosSesion}}) {
+      alert("¡No podes agregar tantos puntos!, por favor, guardá para seguir cargando puntos");
+      return;
+    }
+  {% endif %}
 
   var marker = new google.maps.Marker({
     position: location,
