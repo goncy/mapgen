@@ -77,21 +77,38 @@ function loadMarker(location, loadedMarker) {
     }
   {% endif %}
 
-function getArrayMarkers() {
-  var arrayMarkers = new Array();
-  var removeHtml = /(<([^>]+)>)/ig;
+  function getArrayMarkers() {
+    var arrayMarkers = new Array();
+    var removeHtml = /(<([^>]+)>)/ig;
 
-  for (var cat in markerContainer) {
-    for (var i = markerContainer[cat].length - 1; i >= 0; i--) {
-      var objeto = {
-        lat: markerContainer[cat][i].position.lat(),
-        lng: markerContainer[cat][i].position.lng(),
-        tipo: cat,
-        texto: textoReplace(markerContainer[cat][i].texto)
-      };
-      arrayMarkers.push(objeto);
+    for (var cat in markerContainer) {
+      for (var i = markerContainer[cat].length - 1; i >= 0; i--) {
+        var objeto = {
+          lat: markerContainer[cat][i].position.lat(),
+          lng: markerContainer[cat][i].position.lng(),
+          tipo: cat,
+          texto: textoReplace(markerContainer[cat][i].texto)
+        };
+        arrayMarkers.push(objeto);
+      }
     }
+    return arrayMarkers;
   }
-  return arrayMarkers;
-}
+
+  {% if extras.solucionable %}
+    function getArraySolucionados(){
+        var arraySolucionados = new Array();
+        var removeHtml = /(<([^>]+)>)/ig;
+
+        //Solucionados
+        for (var i = solucionados.length - 1; i >= 0; i--) {
+            var objeto = {
+                id: solucionados[i].id
+            };
+            if (solucionados[i].solucionado == true) arraySolucionados.push(objeto);
+        };
+
+        return arraySolucionados;
+    }
+  {% endif %}
 {% endif %}

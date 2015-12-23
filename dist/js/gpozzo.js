@@ -159,7 +159,7 @@ function loadMarker(location, loadedMarker) {
   //Nunjucks: opciones.markerSolucionable
   
     google.maps.event.addListener(marker, 'rightclick', function() {
-
+  
     
       //Max markers remove
       if (cant_solucionados >= 2) {
@@ -277,23 +277,40 @@ function loadMarker(location, loadedMarker) {
     }
   
 
-function getArrayMarkers() {
-  var arrayMarkers = new Array();
-  var removeHtml = /(<([^>]+)>)/ig;
+  function getArrayMarkers() {
+    var arrayMarkers = new Array();
+    var removeHtml = /(<([^>]+)>)/ig;
 
-  for (var cat in markerContainer) {
-    for (var i = markerContainer[cat].length - 1; i >= 0; i--) {
-      var objeto = {
-        lat: markerContainer[cat][i].position.lat(),
-        lng: markerContainer[cat][i].position.lng(),
-        tipo: cat,
-        texto: textoReplace(markerContainer[cat][i].texto)
-      };
-      arrayMarkers.push(objeto);
+    for (var cat in markerContainer) {
+      for (var i = markerContainer[cat].length - 1; i >= 0; i--) {
+        var objeto = {
+          lat: markerContainer[cat][i].position.lat(),
+          lng: markerContainer[cat][i].position.lng(),
+          tipo: cat,
+          texto: textoReplace(markerContainer[cat][i].texto)
+        };
+        arrayMarkers.push(objeto);
+      }
     }
+    return arrayMarkers;
   }
-  return arrayMarkers;
-}
+
+  
+    function getArraySolucionados(){
+        var arraySolucionados = new Array();
+        var removeHtml = /(<([^>]+)>)/ig;
+
+        //Solucionados
+        for (var i = solucionados.length - 1; i >= 0; i--) {
+            var objeto = {
+                id: solucionados[i].id
+            };
+            if (solucionados[i].solucionado == true) arraySolucionados.push(objeto);
+        };
+
+        return arraySolucionados;
+    }
+  
 
 
 
@@ -314,6 +331,22 @@ function getArrayMarkers() {
         location.reload();
       }, "json");
     }
+
+    
+      var arraySolucionados = getArraySolucionados();
+
+      if (arraySolucionados.length > 0) {
+          $.post('php/dataHandler.php', {
+              action: 'solucionar_markers',
+              solucionados: arraySolucionados
+          }, function(data) {
+              if (data == true) alert("Corregido, gracias por su colaboracion");
+              if (data == false) alert("Hubo un error, pruebe nuevamente mas tarde, gracias!");
+              vaciarArrays();
+              location.reload();
+          }, "json");
+      }
+    
   }
 
 

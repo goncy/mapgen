@@ -1,5 +1,5 @@
 google.maps.event.addListener(marker, 'rightclick', function() {
-
+  
     {% if opciones.markers.maximosRemove %}
       //Max markers remove
       {% include "../options/maxMarkersRemove.js" %}
