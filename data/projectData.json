@@ -7,30 +7,30 @@
     "nombre": "Gonzalo Pozzo",
     "mail": "gonzalo.pozzo4@gmail.com"
   },
-  "meta":{
+  "meta": {
     "titulo": "Mapa de reclamos del partido de quilmes",
     "descripcion": "Lorem ipsum dolor sit amet"
   },
-  "categorias": ["poda",  "iluminacion", "camaras", "inseguridad", "bacheo", "otros"],
+  "categorias": ["poda", "iluminacion", "camaras", "inseguridad", "bacheo",
+    "otros"
+  ],
   "extras": {
     "zona": "quilmes",
     "gps": false,
     "editable": true,
-    "solucionable": false
+    "solucionable": false,
+    "comoLlegar": true
   },
   "opciones": {
     "infowindow": {
       "mostrar": true,
-      "datos": [
-        {
-          "nombre": "ID",
-          "dato": "id"
-        },
-        {
-          "nombre": "Agregado",
-          "dato": "fecha"
-        }
-      ]
+      "datos": [{
+        "nombre": "ID",
+        "dato": "id"
+      }, {
+        "nombre": "Agregado",
+        "dato": "fecha"
+      }]
     },
     "markers": {
       "maximosAdd": 3,
@@ -45,8 +45,8 @@
     },
     "mapa": {
       "initzoom": 13,
-      "minzoom": 13,
-      "center":{
+      "minzoom": 1,
+      "center": {
         "lat": -34.737911,
         "lng": -58.292906
       },
