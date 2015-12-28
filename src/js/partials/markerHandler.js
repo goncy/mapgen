@@ -1,6 +1,6 @@
 function loadMarker(location, loadedMarker) {
   if(categorias.indexOf(loadedMarker.tipo) === -1) return;
-  
+
   var marker = new google.maps.Marker({
     position: location,
     solucionado: false,
@@ -22,7 +22,7 @@ function loadMarker(location, loadedMarker) {
   //Nunjucks: opciones.infowindow
   {% if opciones.infowindow.mostrar %}
     //Mostrar infowindow
-    {% include "./options/infowindow.mostrar.loaded.js" %}
+    {% include "./options/infowindowMostrarLoaded.js" %}
   {% endif %}
 
   document.getSelection()
@@ -55,7 +55,7 @@ function loadMarker(location, loadedMarker) {
 
     {% if opciones.infowindow.mostrar %}
       //Mostrar infowindow
-      {% include "./options/infowindow.mostrar.new.js" %}
+      {% include "./options/infowindowMostrarNew.js" %}
     {% endif %}
 
     google.maps.event.trigger(marker, 'click');

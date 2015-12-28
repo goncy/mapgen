@@ -4,6 +4,7 @@
   "devDependencies": {
     "browserify": "^12.0.1",
     "del": "^2.2.0",
+    "font-awesome": "^4.5.0",
     "gulp": "^3.8.6",
     "gulp-concat": "^2.6.0",
     "gulp-data": "^1.2.1",
