@@ -2,6 +2,7 @@
   "name": "app-mapa",
   "version": "0.1.0",
   "devDependencies": {
+    "bootstrap-sass": "^3.3.6",
     "browserify": "^12.0.1",
     "del": "^2.2.0",
     "font-awesome": "^4.5.0",
@@ -19,6 +20,7 @@
     "nunjucks": "^2.2.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",
+    "toastr": "^2.1.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "yargs": "*"
