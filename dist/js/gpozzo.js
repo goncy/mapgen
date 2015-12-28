@@ -10,9 +10,6 @@ var markerContainer = {};
 
 
 
-  var solucionados = [];
-  var cant_solucionados = 0;
-
 
 
 //OnLoad function
@@ -92,16 +89,6 @@ function setStage() {
   
 
   
-    // GPS
-    if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-        var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        mapa.setCenter(pos);
-        mapa.setZoom(16);
-    });
-}
-
-  
 
   //Searchbox
   var input = (document.getElementById('pac-input'));
@@ -143,6 +130,8 @@ google.maps.event.addListener(path, 'click', function(event) {
 
 //Marker handler
 function loadMarker(location, loadedMarker) {
+  if(categorias.indexOf(loadedMarker.tipo) === -1) return;
+  
   var marker = new google.maps.Marker({
     position: location,
     solucionado: false,
@@ -157,31 +146,6 @@ function loadMarker(location, loadedMarker) {
   });
 
   //Nunjucks: opciones.markerSolucionable
-  
-    google.maps.event.addListener(marker, 'rightclick', function() {
-  
-    
-      //Max markers remove
-      if (cant_solucionados >= 2) {
-  alert("¡No podes borrar tantos puntos!");
-  return;
-}
-
-    
-
-    infowindow.close();
-    if (marker.solucionado == false) {
-        marker.setIcon('img/icons/tilde.png');
-        marker.solucionado = true;
-        solucionados.push(marker);
-        cant_solucionados++;
-    } else {
-        marker.setIcon(marker.iconBu);
-        marker.solucionado = false;
-        cant_solucionados--;
-    }
-});
-
   
 
   //Nunjucks: opciones.infowindow
@@ -227,12 +191,6 @@ function loadMarker(location, loadedMarker) {
     });
 
     
-      google.maps.event.addListener(marker, 'rightclick', function(event) {
-    infowindow.close();
-    removeMarker(marker);
-});
-
-    
 
     
       //Mostrar infowindow
@@ -269,13 +227,6 @@ function loadMarker(location, loadedMarker) {
   }
 
   
-    function removeMarker(marker) {
-        marker.setMap(null);
-        cant_markers--;
-
-        markerContainer[marker.tipo].splice(markerContainer[marker.tipo].indexOf(marker), 1);
-    }
-  
 
   function getArrayMarkers() {
     var arrayMarkers = new Array();
@@ -295,21 +246,6 @@ function loadMarker(location, loadedMarker) {
     return arrayMarkers;
   }
 
-  
-    function getArraySolucionados(){
-        var arraySolucionados = new Array();
-        var removeHtml = /(<([^>]+)>)/ig;
-
-        //Solucionados
-        for (var i = solucionados.length - 1; i >= 0; i--) {
-            var objeto = {
-                id: solucionados[i].id
-            };
-            if (solucionados[i].solucionado == true) arraySolucionados.push(objeto);
-        };
-
-        return arraySolucionados;
-    }
   
 
 
@@ -332,20 +268,6 @@ function loadMarker(location, loadedMarker) {
       }, "json");
     }
 
-    
-      var arraySolucionados = getArraySolucionados();
-
-      if (arraySolucionados.length > 0) {
-          $.post('php/dataHandler.php', {
-              action: 'solucionar_markers',
-              solucionados: arraySolucionados
-          }, function(data) {
-              if (data == true) alert("Corregido, gracias por su colaboracion");
-              if (data == false) alert("Hubo un error, pruebe nuevamente mas tarde, gracias!");
-              vaciarArrays();
-              location.reload();
-          }, "json");
-      }
     
   }
 

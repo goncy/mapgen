@@ -1,4 +1,6 @@
 function loadMarker(location, loadedMarker) {
+  if(categorias.indexOf(loadedMarker.tipo) === -1) return;
+  
   var marker = new google.maps.Marker({
     position: location,
     solucionado: false,

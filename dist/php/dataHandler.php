@@ -28,7 +28,7 @@
 	}else if ($action === "push_markers") {
 
 		$arrayMarkers = $_POST['markers'];
-		if (count($arrayMarkers)>=6){
+		if (count($arrayMarkers)>=10){
 			print "false";
 			return;
 		}
@@ -51,7 +51,7 @@
 	}else if ($action === "solucionar_markers") {
 
 		$arraySolucionados = $_POST['solucionados'];
-		if (count($arraySolucionados)>=3){
+		if (count($arraySolucionados)>=10){
 			print "false";
 			return;
 		}

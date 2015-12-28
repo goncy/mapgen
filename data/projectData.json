@@ -1,22 +1,22 @@
 {
+  "cliente": {
+    "nombre": "Club Bernal",
+    "mail": "info@clubbernal.com.ar"
+  },
+  "desarrollador": {
+    "nombre": "Gonzalo Pozzo",
+    "mail": "gonzalo.pozzo4@gmail.com"
+  },
   "meta":{
-    "cliente": {
-      "nombre": "Club Bernal",
-      "mail": "info@clubbernal.com.ar"
-    },
-    "desarrollador": {
-      "nombre": "Gonzalo Pozzo",
-      "mail": "gonzalo.pozzo4@gmail.com"
-    },
     "titulo": "Mapa de reclamos del partido de quilmes",
     "descripcion": "Lorem ipsum dolor sit amet"
   },
-  "categorias": ["poda", "iluminacion", "camaras", "inseguridad", "bacheo", "otros"],
+  "categorias": ["poda",  "iluminacion", "camaras", "inseguridad", "bacheo", "otros"],
   "extras": {
     "zona": "quilmes",
-    "gps": true,
+    "gps": false,
     "editable": true,
-    "solucionable": true
+    "solucionable": false
   },
   "opciones": {
     "infowindow": {
@@ -42,6 +42,19 @@
     "analytics": {
       "mostrar": false,
       "ua": "UA-62524880-1"
+    },
+    "mapa": {
+      "initzoom": 13,
+      "minzoom": 13,
+      "center":{
+        "lat": -34.737911,
+        "lng": -58.292906
+      },
+      "mapTypeControl": true,
+      "disableDefaultUI": true,
+      "zoomControl": true,
+      "scaleControl": true,
+      "streetViewControl": true
     }
   },
   "paths": {

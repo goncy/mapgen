@@ -11,23 +11,23 @@ function setStage() {
   window.infowindow = new google.maps.InfoWindow();
   window.mapa = new google.maps.Map(
     document.getElementById('map'), {
-      zoom: 13,
-      center: new google.maps.LatLng(-34.737911, -58.292906),
-      disableDefaultUI: true,
+      zoom: {{opciones.mapa.initzoom}},
+      center: new google.maps.LatLng({{opciones.mapa.center.lat}}, {{opciones.mapa.center.lng}}),
+      disableDefaultUI: {{opciones.mapa.disableDefaultUI}},
       disableDoubleClickZoom: true,
-      mapTypeControl: true,
-      minZoom: 13,
-      zoomControl: true,
+      mapTypeControl: {{opciones.mapa.mapTypeControl}},
+      minZoom: {{opciones.mapa.minzoom}},
+      zoomControl: {{opciones.mapa.zoomControl}},
       zoomControlOptions: {
         style: google.maps.ZoomControlStyle.LARGE,
         position: google.maps.ControlPosition.RIGHT_TOP
       },
-      scaleControl: true,
-      streetViewControl: true,
+      scaleControl: {{opciones.mapa.scaleControl}},
+      streetViewControl: {{opciones.mapa.streetViewControl}},
       streetViewControlOptions: {
         position: google.maps.ControlPosition.RIGHT_TOP
       },
-      mapTypeControl: true,
+      mapTypeControl: {{opciones.mapa.mapTypeControl}},
       mapTypeControlOptions: {
         position: google.maps.ControlPosition.BOTTOM_CENTER,
         style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
