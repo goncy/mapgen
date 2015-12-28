@@ -1,6 +1,7 @@
 $client-primary: #FF302F;
 $client-secondary: #222222;
 
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "partials/mains";
 @import "partials/gmaps";
 @import "partials/toastr";
