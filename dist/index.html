@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Club Bernal - Mapa interactivo de reclamos del partido de Quilmes</title>
-    <meta name="description" content="Mapa interactivo del partido de Quilmes, marca tu reclamos y hace que sea visible por todos los vecinos y autoridades, colabora con el barrio y hagamos juntos un Quilmes mas seguro">
+    <title>Club Bernal - Mapa de reclamos del partido de quilmes</title>
+    <meta name="description" content="Lorem ipsum dolor sit amet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places,geometry"></script>
@@ -13,11 +13,12 @@
 
     <link rel="stylesheet" type="text/css" href="css/gpozzo.css">
 
-    <link rel="apple-touch-icon" href="bin/favicon-png.png">
+    <link rel="apple-touch-icon" href="img/favicon-png.png">
     <link rel="icon" href="img/favicon-png.png">
 </head>
 
-<body onload="setStage()">
+
+<body onload="setStage()" style="padding-bottom:35px">
     <nav id="contenedorNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -28,27 +29,24 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                	Club Atletico Bernal
+                  <img id="logo-brand" src="img/logo-brand.png" alt="Logo Club Bernal">
               	</a>
             </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
+                  
                     <li class="dropdown active">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-expanded="false">
                         	Agregar item <span class="caret"></span>
                         </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#" onclick="itemSeleccionado = 'bacheo'; tutorialHandler('dos');">Bacheo</a></li>
-                            <li><a href="#" onclick="itemSeleccionado = 'camaras'; tutorialHandler('dos');">Falta de camaras</a></li>
-                            <li><a href="#" onclick="itemSeleccionado = 'podas'; tutorialHandler('dos');">Poda o limpieza</a></li>
-                            <li><a href="#" onclick="itemSeleccionado = 'inseguridad'; tutorialHandler('dos');">Zona insegura</a></li>
-                            <li><a href="#" onclick="itemSeleccionado = 'iluminacion'; tutorialHandler('dos');">Iluminacion erronea</a></li>
-                            <li><a href="#" onclick="itemSeleccionado = 'otro'; tutorialHandler('dos');">Otro</a></li>
-                        </ul>
+                        <ul class="dropdown-menu" id="catList" role="menu"></ul>
                     </li>
+                  
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                  
                     <li><a role="button" onclick="guardar()">Guardar datos</a></li>
+                  
                 </ul>
             </div>
         </div>
@@ -57,28 +55,19 @@
     <input id="pac-input" class="controls" type="text" placeholder="Buscar dirección">
     <div id="map"></div>
 
-    <footer>
-        <p class="text-center"><a class="text-center" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type"> Mapa interactivo</span> por <a xmlns:cc="http://creativecommons.org/ns#" href="mailto:gonzalo.pozzo4@gmail.com" property="cc:attributionName" rel="cc:attributionURL">Gonzalo Pozzo</a> | 11-4163-4695</p>
-    </footer>
-
     <script type='text/javascript' src="js/gpozzo.js"></script>
 
-    <script>
-        (function(i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function() {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    
 
-        ga('create', 'UA-62524880-1', 'auto');
-        ga('send', 'pageview');
-    </script>
 </body>
+
+
+  <!-- Footer -->
+  <footer>
+    <p class="text-center"><a class="text-center" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type"> Mapa de reclamos del partido de quilmes</span> por <a xmlns:cc="http://creativecommons.org/ns#" href="mailto:gonzalo.pozzo4@gmail.com" property="cc:attributionName" rel="cc:attributionURL">Gonzalo Pozzo</a></p>
+</footer>
+
+  <!-- Fin Footer -->
+
 
 </html>
