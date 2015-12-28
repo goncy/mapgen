@@ -22,7 +22,6 @@ El *Mapa Interactivo* desarrollado por *Gonzalo Pozzo* posee las siguientes func
 Todas las funcionalidades son opcionales.
 
 # Funcionalidades a ser implementadas
-* Botón *"Como llegar aquí"* en los registros.
 * Sistema de sub categorías.
 * Sistema de filtrado de registros.
 * Puntos fijos no editables/agregables/filtrables por nadie mas que un administrador.
