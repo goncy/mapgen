@@ -16,13 +16,34 @@ function loadMarker(location, loadedMarker) {
 
   //Nunjucks: opciones.markerSolucionable
   {% if extras.solucionable %}
-    {% include "./extras/loadedMarkerSolucionable.js" %}
+    google.maps.event.addListener(marker, 'rightclick', function() {
+
+        {% if opciones.markers.maximosRemove %}
+          //Max markers remove
+          if (cant_solucionados >= {{opciones.markers.maximosRemove}}) {
+            toastr.error("¡No podes borrar tantos puntos!");
+            return;
+          }
+        {% endif %}
+
+        infowindow.close();
+        if (marker.solucionado == false) {
+            marker.setIcon('img/icons/tilde.png');
+            marker.solucionado = true;
+            solucionados.push(marker);
+            cant_solucionados++;
+        } else {
+            marker.setIcon(marker.iconBu);
+            marker.solucionado = false;
+            cant_solucionados--;
+        }
+    });
   {% endif %}
 
   //Nunjucks: opciones.infowindow
   {% if opciones.infowindow.mostrar %}
     //Mostrar infowindow
-    {% include "./options/infowindowMostrarLoaded.js" %}
+    {% include "./options/markerContentLoaded.js" %}
   {% endif %}
 
   document.getSelection()
@@ -34,7 +55,10 @@ function loadMarker(location, loadedMarker) {
 
     {% if opciones.markers.maximosAdd %}
       //Max markers add
-      {% include "./options/maxMarkersAdd.js" %}
+      if (cant_markers >= {{opciones.markers.maximosAdd}}) {
+        toastr.error("¡No podes agregar tantos puntos!, por favor, guardá para seguir cargando puntos");
+        return;
+      }
     {% endif %}
 
     var marker = new google.maps.Marker({
@@ -50,12 +74,15 @@ function loadMarker(location, loadedMarker) {
     });
 
     {% if extras.solucionable %}
-      {% include "./extras/newMarkerSolucionable.js" %}
+      google.maps.event.addListener(marker, 'rightclick', function(event) {
+          infowindow.close();
+          removeMarker(marker);
+      });
     {% endif %}
 
     {% if opciones.infowindow.mostrar %}
       //Mostrar infowindow
-      {% include "./options/infowindowMostrarNew.js" %}
+      {% include "./options/markerContentNew.js" %}
     {% endif %}
 
     google.maps.event.trigger(marker, 'click');

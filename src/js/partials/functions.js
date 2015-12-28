@@ -1,4 +1,5 @@
-{% if extras.comoLlegar %}
-  //Como llegar
-  {% include "./extras/comoLlegar.js" %}
-{% endif %}
+//Como llegar
+{% include "./extras/comoLlegar.js" %}
+
+//Save functions
+{% include "./functions/save.js" %}
