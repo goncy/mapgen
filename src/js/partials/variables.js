@@ -5,13 +5,13 @@ var markerContainer = {};
 {% if extras.editable %}
   var itemSeleccionado = categorias[0];
   var cant_markers = 0;
+
+  {% if extras.solucionable %}
+    var solucionados = [];
+    var cant_solucionados = 0;
+  {% endif %}
 {% endif %}
 
-{% if extras.editable %}
+{% if extras.comoLlegar %}
   var avisoBorrado = false;
-{% endif %}
-
-{% if extras.solucionable %}
-  var solucionados = [];
-  var cant_solucionados = 0;
 {% endif %}

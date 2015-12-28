@@ -7,9 +7,6 @@
 //Marker handler
 {% include "./src/js/partials/markerHandler.js" %}
 
-//Save functions
-{% include "./src/js/partials/save.js" %}
-
 //Helpers
 {% include "./src/js/partials/helpers.js" %}
 

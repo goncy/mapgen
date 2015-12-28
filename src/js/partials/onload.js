@@ -64,6 +64,7 @@ function setStage() {
     }
   );
 
+  //Get from db
   $.post('php/dataHandler.php', {
     action: 'get_markers'
   }, function(data) {
@@ -72,17 +73,6 @@ function setStage() {
       loadMarker(markerLatlng, data[i]);
     };
   }, "json");
-
-  //Extras
-  {% if extras.zona %}
-    //Zona
-    {% include "./extras/zona.js" %}
-  {% endif %}
-
-  {% if extras.gps %}
-    // GPS
-    {% include "./extras/gps.js" %}
-  {% endif %}
 
   //Searchbox
   var input = (document.getElementById('pac-input'));
@@ -107,6 +97,17 @@ function setStage() {
     var bounds = mapa.getBounds();
     searchBox.setBounds(bounds);
   });
+
+  //Extras
+  {% if extras.zona %}
+    //Zona
+    {% include "./extras/zona.js" %}
+  {% endif %}
+
+  {% if extras.gps %}
+    // GPS
+    {% include "./extras/gps.js" %}
+  {% endif %}
 
   {% if extras.editable %}
     //Eventos de marker
