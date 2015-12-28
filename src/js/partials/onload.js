@@ -8,6 +8,23 @@ function setStage() {
     {% endif %}
   });
 
+  toastr.options = {
+    closeButton: true,
+    debug: false,
+    newestOnTop: true,
+    progressBar: true,
+    positionClass: "toast-top-right",
+    preventDuplicates: false,
+    showDuration: "300",
+    hideDuration: "200",
+    timeOut: "7000",
+    extendedTimeOut: "7000",
+    showEasing: "linear",
+    hideEasing: "linear",
+    showMethod: "slideDown",
+    hideMethod: "slideUp"
+  }
+
   window.infowindow = new google.maps.InfoWindow();
   window.mapa = new google.maps.Map(
     document.getElementById('map'), {

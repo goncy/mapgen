@@ -12,3 +12,6 @@
 
 //Helpers
 {% include "./src/js/partials/helpers.js" %}
+
+//Functions
+{% include "./src/js/partials/functions.js" %}

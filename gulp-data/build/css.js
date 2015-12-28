@@ -14,9 +14,7 @@ var cssVendors = {
 }
 
 gulp.task('build:css', function() {
-  return gulp.src(['./src/{sass,css}/**/*.{scss,css}', cssVendors.toastr,
-      cssVendors.bootstrap, cssVendors.fontAwesome
-    ])
+  return gulp.src(['./src/{sass,css}/*.{scss,css}', cssVendors.toastr, cssVendors.bootstrap, cssVendors.fontAwesome])
     .pipe(sass())
     .pipe(concat('gpozzo.css'))
     .pipe(gulpif(argv.env === "prod", minifyCss()))
