@@ -1,3 +1,3 @@
 #TODO
-* Pasar de jQuery a nativo inline el proceso de creado de lineas.
-* Separar proceso de recorridos a archivo separado.
+* Hacer refactor a codigo para ordenar por mismo nivel los import de nunjucks.
+* Eliminar jquery on click de los botones por id.
