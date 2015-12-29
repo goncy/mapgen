@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     gulpif = require('gulp-if'),
     nunjucksRender = require('gulp-nunjucks-render'),
     data = require('gulp-data'),
-    projectData = require('../../data/projectData.json'),
+    projectData = require('../../build.json'),
     argv = require('yargs').default('env', 'local').argv;
 
 var jsVendors = {

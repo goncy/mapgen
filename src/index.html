@@ -20,12 +20,15 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                   {% if extras.editable %}
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         	Agregar item <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" id="catList" role="menu"></ul>
                     </li>
+                  {% endif %}
+                  {% if extras.filtrable %}
+                    <li><a role="button" data-toggle="modal" data-target="#modal-filtros">Filtrar</a></li>
                   {% endif %}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -41,6 +44,12 @@
     <div id="map"></div>
 
     <script type='text/javascript' src="js/gpozzo.js"></script>
+
+    {% if extras.filtrable %}
+      <!-- Analytics -->
+      {% include "./src/html/partials/filtros.html" %}
+      <!-- Fin Analytics -->
+    {% endif %}
 
     {% if opciones.analytics.mostrar %}
       <!-- Analytics -->

@@ -1,11 +1,21 @@
 function setStage() {
   //Crear contenedor de markers y lista de categorias
-  categorias.forEach(function(cat) {
-    markerContainer[cat] = [];
+  window.categorias.forEach(function(cat) {
+    window.markerContainer[cat.label] = [];
+    window.listaCategorias.push(cat.label);
+
     {% if extras.editable %}
+
       $("#catList")
-        .append("<li><a style='text-transform:capitalize' role='button' onclick='itemSeleccionado = \"" + cat + "\"'>" + cat + "</a></li>");
+        .append("<li><a role='button' onclick='itemSeleccionado = \"" + cat.label + "\"'>" + cat.value + "</a></li>");
+
+        {% if extras.filtrable %}
+          $("#filtro-categorias")
+            .append("<option value='"+cat.label+"'>"+cat.value+"</option>");
+        {% endif %}
+
     {% endif %}
+
   });
 
   toastr.options = {
@@ -76,7 +86,7 @@ function setStage() {
 
   //Searchbox
   var input = (document.getElementById('pac-input'));
-  mapa.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  window.mapa.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
   var searchBox = new google.maps.places.SearchBox((input));
 
@@ -90,7 +100,7 @@ function setStage() {
       bounds.extend(place.geometry.location);
     }
 
-    mapa.fitBounds(bounds);
+    window.mapa.fitBounds(bounds);
   });
 
   google.maps.event.addListener(mapa, 'bounds_changed', function() {

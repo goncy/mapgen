@@ -3,8 +3,8 @@ var gulp = require('gulp'),
     gulpif = require('gulp-if'),
     nunjucksRender = require('gulp-nunjucks-render'),
     data = require('gulp-data'),
-    projectData = require('../../data/projectData.json'),
-    minifyHTML = require('gulp-minify-html');
+    projectData = require('../../build.json'),
+    minifyHTML = require('gulp-htmlmin');
 
 gulp.task('build:html', function(){
   return gulp.src('./src/*.{html,nunjucks}')

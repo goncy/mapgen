@@ -1,5 +1,5 @@
 function loadMarker(location, loadedMarker) {
-  if(categorias.indexOf(loadedMarker.tipo) === -1) return;
+  if(listaCategorias.indexOf(loadedMarker.tipo) === -1) return;
 
   var marker = new google.maps.Marker({
     position: location,
@@ -46,6 +46,8 @@ function loadMarker(location, loadedMarker) {
     {% include "./options/markerContentLoaded.js" %}
   {% endif %}
 
+  markerContainer[marker.tipo].push(marker);
+
   document.getSelection()
     .removeAllRanges();
 }
@@ -86,15 +88,12 @@ function loadMarker(location, loadedMarker) {
     {% endif %}
 
     google.maps.event.trigger(marker, 'click');
-    pushMarker(marker);
+
+    markerContainer[marker.tipo].push(marker);
+    cant_markers++;
 
     document.getSelection()
       .removeAllRanges();
-  }
-
-  function pushMarker(marker) {
-    cant_markers++;
-    markerContainer[marker.tipo].push(marker);
   }
 
   {% if extras.solucionable %}
@@ -112,6 +111,7 @@ function loadMarker(location, loadedMarker) {
 
     for (var cat in markerContainer) {
       for (var i = markerContainer[cat].length - 1; i >= 0; i--) {
+        if(markerContainer[cat][i].fecha !== "nuevo") continue;
         var objeto = {
           lat: markerContainer[cat][i].position.lat(),
           lng: markerContainer[cat][i].position.lng(),
@@ -131,10 +131,10 @@ function loadMarker(location, loadedMarker) {
 
         //Solucionados
         for (var i = solucionados.length - 1; i >= 0; i--) {
-            var objeto = {
-                id: solucionados[i].id
-            };
-            if (solucionados[i].solucionado == true) arraySolucionados.push(objeto);
+          var objeto = {
+              id: solucionados[i].id
+          };
+          if (solucionados[i].solucionado == true) arraySolucionados.push(objeto);
         };
 
         return arraySolucionados;
