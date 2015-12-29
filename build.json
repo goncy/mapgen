@@ -21,7 +21,7 @@
   ],
   "extras": {
     "zona": "quilmes",
-    "gps": false,
+    "gps": true,
     "editable": true,
     "solucionable": true,
     "comoLlegar": true,

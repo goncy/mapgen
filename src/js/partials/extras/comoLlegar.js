@@ -9,9 +9,10 @@
               var ln = new google.maps.Polyline({
                 path: recorrido,
                 geodesic: true,
-                strokeColor: '#FF0000',
+                strokeColor: '#'+(Math.random()*0xFFFFFF<<0).toString(16),
                 strokeOpacity: 1.0,
-                strokeWeight: 5,
+                strokeWeight: 8,
+                zIndex: 9999,
                 map: mapa
               });
 
