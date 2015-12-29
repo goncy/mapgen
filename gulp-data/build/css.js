@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
   sass = require('gulp-sass'),
   concat = require('gulp-concat'),
-  minifyCss = require('gulp-minify-css'),
+  minifyCss = require('gulp-cssnano'),
   gulpif = require('gulp-if'),
   argv = require('yargs')
   .default('env', 'local')

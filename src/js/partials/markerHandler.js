@@ -46,6 +46,8 @@ function loadMarker(location, loadedMarker) {
     {% include "./options/markerContentLoaded.js" %}
   {% endif %}
 
+  markerContainer[marker.tipo].push(marker);
+
   document.getSelection()
     .removeAllRanges();
 }
@@ -86,15 +88,12 @@ function loadMarker(location, loadedMarker) {
     {% endif %}
 
     google.maps.event.trigger(marker, 'click');
-    pushMarker(marker);
+
+    markerContainer[marker.tipo].push(marker);
+    cant_markers++;
 
     document.getSelection()
       .removeAllRanges();
-  }
-
-  function pushMarker(marker) {
-    cant_markers++;
-    markerContainer[marker.tipo].push(marker);
   }
 
   {% if extras.solucionable %}

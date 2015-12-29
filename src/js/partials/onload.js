@@ -5,6 +5,11 @@ function setStage() {
     {% if extras.editable %}
       $("#catList")
         .append("<li><a style='text-transform:capitalize' role='button' onclick='itemSeleccionado = \"" + cat + "\"'>" + cat + "</a></li>");
+
+        {% if extras.filtrable %}
+          $("#filtro-categorias")
+            .append("<option style='text-transform:capitalize' value='"+cat+"'>"+cat+"</option>");
+        {% endif %}
     {% endif %}
   });
 
