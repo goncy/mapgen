@@ -11,14 +11,13 @@
     "titulo": "Mapa de reclamos del partido de quilmes",
     "descripcion": "Lorem ipsum dolor sit amet"
   },
-  "categorias": ["poda", "iluminacion", "camaras", "inseguridad", "bacheo", "otro"],
-  "categoriasObj": [
-    {"label": "poda", "value": "Poda"},
-    {"label": "iluminacion", "value": "Iluminacion"},
-    {"label": "camaras", "value": "Camaras"},
+  "categorias": [
+    {"label": "poda", "value": "Poda y limpieza"},
+    {"label": "iluminacion", "value": "Iluminacion Erronea"},
+    {"label": "camaras", "value": "Falta de camaras"},
     {"label": "inseguridad", "value": "Inseguridad"},
     {"label": "bacheo", "value": "Bacheo"},
-    {"label": "otro", "value": "Otro"},
+    {"label": "otro", "value": "Otro"}
   ],
   "extras": {
     "zona": "quilmes",
@@ -26,7 +25,7 @@
     "editable": true,
     "solucionable": true,
     "comoLlegar": true,
-    "filtrable": false
+    "filtrable": true
   },
   "opciones": {
     "infowindow": {
