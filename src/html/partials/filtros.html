@@ -1,0 +1,31 @@
+<!-- Modal Filtros -->
+<div class="modal fade" id="modal-filtros" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Filtrar</h4>
+            </div>
+            <br>
+            <form style="padding:0px 10px">
+                <div class="form-group">
+                    <label class="control-label" for="filtro-desde">Desde: </label>
+                    <input class="form-control" id="filtro-desde" required type="date">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="filtro-hasta">Hasta: </label>
+                    <input class="form-control" id="filtro-hasta" required type="date">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="filtro-categorias">Categorias (ctrl+click): </label>
+                    <select id="filtro-categorias" class="form-control" multiple></select>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="filtrar()">Filtrar</button>
+                <button type="button" class="btn btn-default" onclick="reiniciarFiltros()">Reiniciar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin modal -->
