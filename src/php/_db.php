@@ -1,10 +1,10 @@
 ﻿<?php
     function crearConexion(){
         //Datos para la conexión con el servidor
-        $servidor   = "localhost";
-        $nombreBD   = "mapa";
-        $usuario    = "root";
-        $contrasena = "root";
+        $servidor   = "{{db.sv}}";
+        $nombreBD   = "{{db.db}}";
+        $usuario    = "{{db.usr}}";
+        $contrasena = "{{db.psw}}";
         //Creando la conexión, nuevo objeto mysqli
         $conexion = new mysqli($servidor,$usuario,$contrasena,$nombreBD);
         //Si sucede algún error la función muere e imprimir el error

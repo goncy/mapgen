@@ -1,5 +1,6 @@
 {% if extras.comoLlegar %}
   function comoLlegar(lat,lng){
+    console.log("ejecutando");
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         $.get('https://maps.googleapis.com/maps/api/directions/json?origin='+position.coords.latitude+','+position.coords.longitude+'&destination='+lat+','+lng, function(data) {

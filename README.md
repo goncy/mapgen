@@ -18,13 +18,13 @@ El *Mapa Interactivo* desarrollado por *Gonzalo Pozzo* posee las siguientes func
 * Seteo de zoom mínimo.
 * Seteo de centro por defecto.
 * Seteo de configuraciones de control.
+* Sistema de filtrado de registros.
+* Puntos fijos no editables/agregables por nadie mas que un administrador.
 
 Todas las funcionalidades son opcionales.
 
 # Funcionalidades a ser implementadas
 * Sistema de sub categorías.
-* Sistema de filtrado de registros.
-* Puntos fijos no editables/agregables/filtrables por nadie mas que un administrador.
 * Etc y recomendaciones que vayan surgiendo.
 
 # Adaptable

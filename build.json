@@ -12,16 +12,16 @@
     "descripcion": "Lorem ipsum dolor sit amet"
   },
   "categorias": [
-    {"label": "poda", "value": "Poda y limpieza"},
-    {"label": "iluminacion", "value": "Iluminacion Erronea"},
-    {"label": "camaras", "value": "Falta de camaras"},
-    {"label": "inseguridad", "value": "Inseguridad"},
-    {"label": "bacheo", "value": "Bacheo"},
-    {"label": "otro", "value": "Otro"}
+    {"label": "poda", "value": "Poda y limpieza", "estatica": true},
+    {"label": "iluminacion", "value": "Iluminacion Erronea", "estatica": false},
+    {"label": "camaras", "value": "Falta de camaras", "estatica": false},
+    {"label": "inseguridad", "value": "Inseguridad", "estatica": false},
+    {"label": "bacheo", "value": "Bacheo", "estatica": false},
+    {"label": "otro", "value": "Otro", "estatica": false}
   ],
   "extras": {
     "zona": "quilmes",
-    "gps": true,
+    "gps": false,
     "editable": true,
     "solucionable": true,
     "comoLlegar": true,
@@ -65,5 +65,11 @@
   },
   "paths": {
     "quilmes": "jctrEnzubJlwBpsC`QdIb{@~~@p~@``AnxBhdChk@eb@fbDssBdEtIxa@ub@zo@_`@fvAoaAkVcPum@s@}FaGm`@uAc{AohDl]iYqlFcbMdA~MuLr@cc@t^oBpG}JNgHfIrArO_JeIw^hZqg@paAcMiC`FhKkRpd@}FvIwW}LvW`VaJ?gSyQhKt^"
+  },
+  "db":{
+    "sv": "localhost",
+    "db": "mapa",
+    "usr": "root",
+    "psw": "root"
   }
 }

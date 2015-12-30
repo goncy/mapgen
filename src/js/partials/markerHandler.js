@@ -15,29 +15,33 @@ function loadMarker(location, loadedMarker) {
   });
 
   //Nunjucks: opciones.markerSolucionable
-  {% if extras.solucionable %}
-    google.maps.event.addListener(marker, 'rightclick', function() {
+  {% if extras.editable %}
+    {% if extras.solucionable %}
+      google.maps.event.addListener(marker, 'rightclick', function() {
 
-        {% if opciones.markers.maximosRemove %}
-          //Max markers remove
-          if (cant_solucionados >= {{opciones.markers.maximosRemove}}) {
-            toastr.error("¡No podes borrar tantos puntos!");
-            return;
+          {% if opciones.markers.maximosRemove %}
+            //Max markers remove
+            if (marker.solucionado == false && cant_solucionados >= {{opciones.markers.maximosRemove}}) {
+              toastr.error("¡No podes borrar tantos puntos!");
+              return;
+            }
+          {% endif %}
+
+          if(categoriasFijas.indexOf(marker.tipo) >= 0) return;
+
+          infowindow.close();
+          if (marker.solucionado == false) {
+              marker.setIcon('img/icons/tilde.png');
+              marker.solucionado = true;
+              solucionados.push(marker);
+              cant_solucionados++;
+          } else {
+              marker.setIcon(marker.iconBu);
+              marker.solucionado = false;
+              cant_solucionados--;
           }
-        {% endif %}
-
-        infowindow.close();
-        if (marker.solucionado == false) {
-            marker.setIcon('img/icons/tilde.png');
-            marker.solucionado = true;
-            solucionados.push(marker);
-            cant_solucionados++;
-        } else {
-            marker.setIcon(marker.iconBu);
-            marker.solucionado = false;
-            cant_solucionados--;
-        }
-    });
+      });
+    {% endif %}
   {% endif %}
 
   //Nunjucks: opciones.infowindow

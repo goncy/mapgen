@@ -15,3 +15,8 @@ gulp.task('clean:js', function() {
 gulp.task('clean:img', function() {
   return del('./dist/img/**');
 });
+
+// ALL
+gulp.task('clean:all', function() {
+  return del(['./dist/**/*', './dist']);
+});

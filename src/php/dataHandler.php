@@ -13,7 +13,7 @@
 
 	if ($action === "get_markers") {
 
-		$consulta = "SELECT * FROM markers WHERE solucionado = 0";
+		$consulta = "SELECT * FROM markers WHERE solucionado = 0 AND id > 1";
 		$result = mysqli_query($con, $consulta);
 
 		$row_container = array();
@@ -25,7 +25,7 @@
 
 		$row_container = json_encode($row_container);
 		echo $row_container;
-	}else if ($action === "push_markers") {
+	}{% if extras.editable %} else if ($action === "push_markers") {
 
 		$arrayMarkers = $_POST['markers'];
 		if (count($arrayMarkers)>=10){
@@ -48,7 +48,7 @@
 		print "true";
 		$stmt->close();
 
-	}else if ($action === "solucionar_markers") {
+	}{% if extras.solucionable %} else if ($action === "solucionar_markers") {
 
 		$arraySolucionados = $_POST['solucionados'];
 		if (count($arraySolucionados)>=10){
@@ -68,7 +68,7 @@
 		$stmt->close();
 
 		print "true";
-	}
+	}{% endif %}{% endif %}
 
 	$con->close();
 ?>

@@ -4,21 +4,26 @@
 
       var desde = $('#filtro-desde').val();
       var hasta = $('#filtro-hasta').val();
-      var catFiltradas = $('#filtro-categorias').val();
+      var catFiltradas = $('#filtro-categorias').val() || [];
 
-      if (!desde || !hasta || !catFiltradas) {
+      if (!desde || !hasta) {
           alert('Marque fecha de inicio, final y categorias');
           return;
       }
 
       for (var cat in markerContainer) {
         for (var mk in markerContainer[cat]) {
-          var estaEnFecha = markerContainer[cat][mk].fecha <= hasta && markerContainer[cat][mk].fecha >= desde ? true : false;
-          var estaEnCategoria = catFiltradas.indexOf(markerContainer[cat][mk].tipo) >= 0 ? true : false;
-          if (!estaEnFecha || !estaEnCategoria){
-              markerContainer[cat][mk].setMap(null);
+          if(categoriasFijas.indexOf(markerContainer[cat][mk].tipo) >= 0 ){
+            markerContainer[cat][mk].setMap(mapa);
+            continue;
+          }else{
+            var estaEnFecha = markerContainer[cat][mk].fecha <= hasta && markerContainer[cat][mk].fecha >= desde ? true : false;
+            var estaEnCategoria = catFiltradas.indexOf(markerContainer[cat][mk].tipo) >= 0 ? true : false;
+            if (!estaEnFecha || !estaEnCategoria){
+                markerContainer[cat][mk].setMap(null);
+            }
+            else markerContainer[cat][mk].setMap(mapa);
           }
-          else markerContainer[cat][mk].setMap(mapa);
         }
       };
 

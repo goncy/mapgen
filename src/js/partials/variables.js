@@ -1,6 +1,8 @@
 //Cargamos las categorias desde nunjucks
-var categorias = [{% for categoria in categorias -%}{ label: '{{categoria.label}}', value: '{{categoria.value}}'} {{"" if loop.last else ","}} {%- endfor %}];
+var categorias = [{% for categoria in categorias -%}{ label: '{{categoria.label}}', value: '{{categoria.value}}', estatica: {{categoria.estatica}}} {{"" if loop.last else ","}} {%- endfor %}];
+
 var listaCategorias = [];
+var categoriasFijas = [];
 var markerContainer = {};
 
 {% if extras.editable %}

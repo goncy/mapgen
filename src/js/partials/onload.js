@@ -3,17 +3,17 @@ function setStage() {
   window.categorias.forEach(function(cat) {
     window.markerContainer[cat.label] = [];
     window.listaCategorias.push(cat.label);
+    if(cat.estatica) window.categoriasFijas.push(cat.label);
 
     {% if extras.editable %}
 
       $("#catList")
         .append("<li><a role='button' onclick='itemSeleccionado = \"" + cat.label + "\"'>" + cat.value + "</a></li>");
+    {% endif %}
 
-        {% if extras.filtrable %}
-          $("#filtro-categorias")
-            .append("<option value='"+cat.label+"'>"+cat.value+"</option>");
-        {% endif %}
-
+    {% if extras.filtrable %}
+      $("#filtro-categorias")
+        .append("<option value='"+cat.label+"'>"+cat.value+"</option>");
     {% endif %}
 
   });
