@@ -1,26 +1,21 @@
 {
   "cliente": {
-    "nombre": "Club Bernal",
-    "mail": "info@clubbernal.com.ar"
+    "nombre": "Cliente",
+    "mail": "info@cliente.com"
   },
   "desarrollador": {
     "nombre": "Gonzalo Pozzo",
     "mail": "gonzalo.pozzo4@gmail.com"
   },
   "meta": {
-    "titulo": "Mapa de reclamos del partido de quilmes",
-    "descripcion": "Lorem ipsum dolor sit amet"
+    "titulo": "Mapa",
+    "descripcion": "descripcion"
   },
   "categorias": [
-    {"value": "poda", "label": "Poda y limpieza", "estatica": true},
-    {"value": "iluminacion", "label": "Iluminacion Erronea", "estatica": false},
-    {"value": "camaras", "label": "Falta de camaras", "estatica": false},
-    {"value": "inseguridad", "label": "Inseguridad", "estatica": false},
-    {"value": "bacheo", "label": "Bacheo", "estatica": false},
-    {"value": "otro", "label": "Otro", "estatica": false}
+    {"label": "Poda y limpieza", "value": "poda", "estatica": true},
   ],
   "extras": {
-    "zona": "quilmes",
+    "zona": "",
     "gps": false,
     "editable": true,
     "solucionable": true,
@@ -47,7 +42,7 @@
     },
     "analytics": {
       "mostrar": false,
-      "ua": "UA-62524880-1"
+      "ua": ""
     },
     "mapa": {
       "initzoom": 13,

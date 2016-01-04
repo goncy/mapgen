@@ -1,19 +1,19 @@
 function setStage() {
   //Crear contenedor de markers y lista de categorias
   window.categorias.forEach(function(cat) {
-    window.markerContainer[cat.label] = [];
-    window.listaCategorias.push(cat.label);
-    if(cat.estatica) window.categoriasFijas.push(cat.label);
+    window.markerContainer[cat.value] = [];
+    window.listaCategorias.push(cat.value);
+    if(cat.estatica) window.categoriasFijas.push(cat.value);
 
     {% if extras.editable %}
 
       $("#catList")
-        .append("<li><a role='button' onclick='itemSeleccionado = \"" + cat.label + "\"'>" + cat.value + "</a></li>");
+        .append("<li><a role='button' onclick='itemSeleccionado = \"" + cat.value + "\"'>" + cat.label + "</a></li>");
     {% endif %}
 
     {% if extras.filtrable %}
       $("#filtro-categorias")
-        .append("<option value='"+cat.label+"'>"+cat.value+"</option>");
+        .append("<option value='"+cat.value+"'>"+cat.label+"</option>");
     {% endif %}
 
   });

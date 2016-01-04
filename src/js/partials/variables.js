@@ -6,7 +6,7 @@ var categoriasFijas = [];
 var markerContainer = {};
 
 {% if extras.editable %}
-  var itemSeleccionado = categorias[0].label;
+  var itemSeleccionado = categorias[0].value;
   var cant_markers = 0;
 
   {% if extras.solucionable %}
