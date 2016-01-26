@@ -15,7 +15,7 @@ function loadMarker(location, loadedMarker) {
   });
 
   //Nunjucks: opciones.markerSolucionable
-  {% if extras.editable %}
+  {% if extras.agregable %}
     {% if extras.solucionable %}
       google.maps.event.addListener(marker, 'rightclick', function() {
 
@@ -56,7 +56,7 @@ function loadMarker(location, loadedMarker) {
     .removeAllRanges();
 }
 
-{% if extras.editable %}
+{% if extras.agregable %}
   function addMarker(location) {
 
     {% if opciones.markers.maximosAdd %}

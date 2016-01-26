@@ -5,7 +5,7 @@ function setStage() {
     window.listaCategorias.push(cat.value);
     if(cat.estatica) window.categoriasFijas.push(cat.value);
 
-    {% if extras.editable %}
+    {% if extras.agregable %}
 
       $("#catList")
         .append("<li><a role='button' onclick='itemSeleccionado = \"" + cat.value + "\"'>" + cat.label + "</a></li>");
@@ -119,8 +119,8 @@ function setStage() {
     {% include "./extras/gps.js" %}
   {% endif %}
 
-  {% if extras.editable %}
+  {% if extras.agregable %}
     //Eventos de marker
-    {% include "./extras/editable.js" %}
+    {% include "./extras/agregable.js" %}
   {% endif %}
 }

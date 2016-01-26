@@ -1,15 +1,15 @@
 {
   "cliente": {
-    "nombre": "Club Bernal",
-    "mail": "info@clubbernal.com.ar"
+    "nombre": "Gonzalo Pozzo",
+    "mail": "gonzalo.pozzo4@gmail.com"
   },
   "desarrollador": {
     "nombre": "Gonzalo Pozzo",
     "mail": "gonzalo.pozzo4@gmail.com"
   },
   "meta": {
-    "titulo": "Mapa de reclamos del partido de quilmes",
-    "descripcion": "Lorem ipsum dolor sit amet"
+    "titulo": "Ejemplos",
+    "descripcion": "Ejemplos del generador de mapas"
   },
   "categorias": [
     {"value": "poda", "label": "Poda y limpieza", "estatica": true},
@@ -21,8 +21,8 @@
   ],
   "extras": {
     "zona": "quilmes",
-    "gps": false,
-    "editable": true,
+    "gps": true,
+    "agregable": true,
     "solucionable": true,
     "comoLlegar": true,
     "filtrable": true

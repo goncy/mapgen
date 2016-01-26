@@ -25,7 +25,7 @@
 
 		$row_container = json_encode($row_container);
 		echo $row_container;
-	}{% if extras.editable %} else if ($action === "push_markers") {
+	}{% if extras.agregable %} else if ($action === "push_markers") {
 
 		$arrayMarkers = $_POST['markers'];
 		if (count($arrayMarkers)>=10){

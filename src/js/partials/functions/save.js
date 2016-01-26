@@ -1,4 +1,4 @@
-{% if extras.editable %}
+{% if extras.agregable %}
   //Funcion de guardar
   function guardar() {
     var arrayMarkers = getArrayMarkers();

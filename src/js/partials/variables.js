@@ -5,7 +5,7 @@ var listaCategorias = [];
 var categoriasFijas = [];
 var markerContainer = {};
 
-{% if extras.editable %}
+{% if extras.agregable %}
   var itemSeleccionado = categorias[0].value;
   var cant_markers = 0;
 
