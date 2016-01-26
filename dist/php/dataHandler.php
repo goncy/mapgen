@@ -1,7 +1,7 @@
 <?php
     function crearConexion(){
         //Datos para la conexión con el servidor
-        $servidor   = "107.180.2.73";
+        $servidor   = "localhost";
         $nombreBD   = "gpozzo-mapa";
         $usuario    = "gpozzo-admin";
         $contrasena = "Gonzalo1";
