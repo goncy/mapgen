@@ -1,200 +1,105 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Ejemplos del generador de mapas">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Generador de mapas por Gonzalo Pozzo - Ejemplos</title>
-  <link rel="stylesheet" href="https://bootswatch.com/united/bootstrap.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places,geometry,drawing"></script>
-  <link rel="stylesheet" type="text/css" href="css/gpozzo.css">
-  <link rel="apple-touch-icon" href="img/favicon-png.png">
-  <link rel="icon" href="img/favicon-png.png">
-</head>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-<body onload="setStage()" style="margin-top: 0px;padding-top: 0px">
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Gonzalo Pozzo</a>
+    <title>Mapgen by goncy</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Mapgen</h1>
+        <h2>Generador de mapa dinamico</h2>
+        <a href="https://github.com/goncy/mapgen" class="button"><small>View project on</small> GitHub</a>
       </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active" data-toggle="modal" data-target="#contacto"><a href="#">Contacto</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <div class="col-sm-12">
-    <div class="row">
-      <div class="col-md-9 col-sm-12">
-        <main style="height:840px;box-shadow:2px 2px 5px 0px rgba(50, 50, 50, 0.75);">
-          <nav id="contenedorNav" style="margin-bottom: 0px" class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">
-                  <img id="logo-brand" src="img/logo-brand.png" alt="Logo Gonzalo Pozzo">
-                </a>
-              </div>
-              <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Agregar item <span class="caret"></span>
-                        </a>
-                    <ul class="dropdown-menu" id="catList" role="menu"></ul>
-                  </li>
-                  <li><a role="button" data-toggle="modal" data-target="#modal-filtros">Filtrar</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                  <li><a role="button" onclick="guardar()">Guardar datos</a></li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-          <input id="pac-input" class="controls" type="text" placeholder="Buscar dirección">
-          <div id="map" style="height:790px;"></div>
-          <script type='text/javascript' src="js/gpozzo.js"></script>
-          <!-- Filtrable -->
-          <!-- Modal Filtros -->
-          <div class="modal fade" id="modal-filtros" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title">Filtrar</h4>
-                </div>
-                <br>
-                <form style="padding:0px 10px">
-                  <div class="form-group">
-                    <label class="control-label" for="filtro-desde">Desde: </label>
-                    <input class="form-control" id="filtro-desde" required type="date">
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="filtro-hasta">Hasta: </label>
-                    <input class="form-control" id="filtro-hasta" required type="date">
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="filtro-categorias">Categorias (ctrl+click): </label>
-                    <select id="filtro-categorias" class="form-control" multiple></select>
-                  </div>
-                </form>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-primary" onclick="filtrar()">Filtrar</button>
-                  <button type="button" class="btn btn-default" onclick="reiniciarFiltros()">Reiniciar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Fin modal -->
-          <!-- Fin Filtrable -->
-        </main>
-      </div>
-      <div class="col-md-3 col-sm-12">
-        <h2 style="margin-top: 0px">Funciones disponibles</h2>
-        <ul class="list-group">
-          <li class="list-group-item">
-            Nombre de cliente
-          </li>
-          <li class="list-group-item">
-            Mail de cliente
-          </li>
-          <li class="list-group-item">
-            Titulo para buscadores
-          </li>
-          <li class="list-group-item">
-            Descripcion para buscadores
-          </li>
-          <li class="list-group-item">
-            Categorias personalizables
-          </li>
-          <li class="list-group-item">
-            Zona delimitada (Quilmes)
-          </li>
-          <li class="list-group-item">
-            Ubicación automatica por GPS
-          </li>
-          <li class="list-group-item">
-            Usuario puede agregar puntos
-          </li>
-          <li class="list-group-item">
-            Usuario puede solucionar puntos
-          </li>
-          <li class="list-group-item">
-            Boton "Como llegar"
-          </li>
-          <li class="list-group-item">
-            Filtrado por puntos
-          </li>
-          <li class="list-group-item">
-            Categorias estaticas (No se filtran ni borran)
-          </li>
-          <li class="list-group-item">
-            Ventana con descripcion al tocar un punto
-          </li>
-          <li class="list-group-item">
-            Personalizacion de ventana de información
-          </li>
-          <li class="list-group-item">
-            Cantidad máxima de eliminación y agregado de puntos
-          </li>
-          <li class="list-group-item">
-            Pié de pagina con información
-          </li>
-          <li class="list-group-item">
-            Google Analytics
-          </li>
-          <li class="list-group-item">
-            Configuración de mapa (Zoom inicial, Zoom minimo, Centrado, Control de zoom, Control de escala, Street view, Default UI)
-          </li>
-          <li class="list-group-item">
-            Configuracion de base de datos privada
-          </li>
-        </ul>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="mapa-interactivo" class="anchor" href="#mapa-interactivo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mapa interactivo</h1>
+
+<p>El <em>Mapa Interactivo</em> desarrollado por <em>Gonzalo Pozzo</em> posee las siguientes funcionalidades.</p>
+
+<ul>
+<li>Personalización con el nombre/mail del cliente.</li>
+<li>Personalización con el nombre/mail del desarrollador/mantenedor.</li>
+<li>Títulos y descripciones meta para SEO.</li>
+<li>Infinidad de categorías (No posee sub-categorías).</li>
+<li>Delimitación de zona.</li>
+<li>Autolocalizacion GPS.</li>
+<li>Ingreso a usuarios libres o administrador de nuevos registros.</li>
+<li>Eliminación a usuarios libres o administrador de registros existentes.</li>
+<li>Posibilidad de visualizar datos previamente ingresados en una ventana.</li>
+<li>Personalización de los datos a visualizar en la ventana.</li>
+<li>Máximo ingreso de registros por sesión.</li>
+<li>Máxima eliminación de registros por sesión.</li>
+<li>Pie de página fijo con información del cliente/desarrollador/mantenedor.</li>
+<li>Trackeo de estadísticas por Google Analytics.</li>
+<li>Seteo de zoom mínimo.</li>
+<li>Seteo de centro por defecto.</li>
+<li>Seteo de configuraciones de control.</li>
+<li>Sistema de filtrado de registros.</li>
+<li>Puntos fijos no editables/agregables por nadie mas que un administrador.</li>
+</ul>
+
+<p>Todas las funcionalidades son opcionales.</p>
+
+<h1>
+<a id="funcionalidades-a-ser-implementadas" class="anchor" href="#funcionalidades-a-ser-implementadas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Funcionalidades a ser implementadas</h1>
+
+<ul>
+<li>Sistema de sub categorías.</li>
+<li>Etc y recomendaciones que vayan surgiendo.</li>
+</ul>
+
+<h1>
+<a id="adaptable" class="anchor" href="#adaptable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Adaptable</h1>
+
+<ul>
+<li>Al sistema haber sido generado de 0, es posible el desarrollo de nuevos módulos específicos para cada cliente con previo acuerdo.</li>
+</ul>
+
+<h1>
+<a id="requisitos" class="anchor" href="#requisitos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requisitos</h1>
+
+<p>El <em>Mapa Interactivo</em> es un sistema web, en caso de utilizarse internamente en una empresa, se necesitara de una pc o servidor interno para correr, estos costos correrán por el cliente o se le presupuestará la implementación de uno. En caso de ser una web o un proyecto remoto, además del servidor sera necesario un dominio, cual correrá con las mismas condiciones que el ítem anterior.</p>
+
+<h1>
+<a id="organizaciones-benéficas-proyectos-caritativos-sociales-etc" class="anchor" href="#organizaciones-ben%C3%A9ficas-proyectos-caritativos-sociales-etc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Organizaciones benéficas, proyectos caritativos, sociales, etc.</h1>
+
+<p>El <em>Mapa Interactivo</em> será de <em>implementación gratuita</em> para estos grupos, no poseeran mantenimiento y se realizará la configuración inicial con mutuo acuerdo. No se realizará ninguna tarea de mantenimiento, <em>sin excepciones</em>.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/goncy/mapgen/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/goncy/mapgen/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/goncy/mapgen"></a> is maintained by <a href="https://github.com/goncy">goncy</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
       </div>
     </div>
-  </div>
-  <!-- Modal -->
-  <div class="modal fade" id="contacto" tabindex="-1" role="dialog" aria-labelledby="contacto">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="contacto">Contacto</h4>
-        </div>
-        <div class="modal-body">
-          <div class="list-group">
-            <a href="mailto:gonzalo.pozzo4@gmail.com" class="list-group-item">
-              <h4 class="list-group-item-heading">gonzalo.pozzo4@gmail.com</h4>
-              <p class="list-group-item-text">Consultas generales, preguntas, dudas.</p>
-            </a>
-            <a href="#" class="list-group-item">
-              <h4 class="list-group-item-heading">11-4163-4695</h4>
-              <p class="list-group-item-text">Definiciones, dudas inmediatas.</p>
-            </a>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
+
+  
+  </body>
+</html>
