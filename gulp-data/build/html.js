@@ -3,12 +3,13 @@ var gulp = require('gulp'),
     gulpif = require('gulp-if'),
     nunjucksRender = require('gulp-nunjucks-render'),
     data = require('gulp-data'),
-    projectData = require('../../build.json'),
-    minifyHTML = require('gulp-htmlmin');
+    argv = require('yargs').default('cliente', 'default').argv,
+    minifyHTML = require('gulp-htmlmin'),
+    templateData = require('../../builds/' + argv.cliente + '/build.json');
 
 gulp.task('build:html', function(){
   return gulp.src('./src/*.{html,nunjucks}')
-    .pipe(data(projectData))
+    .pipe(data(templateData))
     .pipe(nunjucksRender())
     .pipe(gulpif(argv.env === "prod", minifyHTML()))
     .pipe(gulp.dest('./dist/'));

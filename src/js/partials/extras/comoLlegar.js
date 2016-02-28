@@ -1,5 +1,3 @@
-{ % if extras.comoLlegar % }
-
 function comoLlegar(lat, lng) {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -61,4 +59,4 @@ function comoLlegar(lat, lng) {
   }
 
   infowindow.close();
-} { % endif % }
+}

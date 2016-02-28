@@ -1,26 +1,23 @@
 {
   "cliente": {
-    "nombre": "Union nacional de clubes de barrio, Quilmes",
-    "mail": "uniondeclubesquilmes@.com"
+    "nombre": "Cliente",
+    "mail": "info@cliente.com"
   },
   "desarrollador": {
     "nombre": "Gonzalo Pozzo",
     "mail": "gonzalo.pozzo4@gmail.com"
   },
   "meta": {
-    "titulo": "Union nacional de clubes de barrio, Quilmes",
-    "descripcion": "Clubes de barrio, Quilmes"
+    "titulo": "Mapa",
+    "descripcion": "descripcion"
   },
   "categorias": [
-    {"value": "club", "label": "Clubes", "estatica": true},
-    {"value": "socfomento", "label": "Sociedades de fomento", "estatica": false},
-    {"value": "ctrojubilado", "label": "Centros de jubilados", "estatica": false},
-    {"value": "otro", "label": "Otras instituciones", "estatica": false}
+    {"label": "Poda y limpieza", "value": "poda", "estatica": true}
   ],
   "extras": {
-    "zona": "quilmes",
-    "gps": true,
-    "agregable": true,
+    "zona": "",
+    "gps": false,
+    "editable": true,
     "solucionable": true,
     "comoLlegar": true,
     "filtrable": true
@@ -37,15 +34,15 @@
       }]
     },
     "markers": {
-      "maximosAdd": 10,
-      "maximosRemove": 10
+      "maximosAdd": 3,
+      "maximosRemove": 2
     },
     "footer": {
       "mostrar": true
     },
     "analytics": {
       "mostrar": false,
-      "ua": "UA-62524880-1"
+      "ua": ""
     },
     "mapa": {
       "initzoom": 13,
@@ -68,6 +65,6 @@
     "sv": "localhost",
     "db": "mapa",
     "usr": "root",
-    "psw": ""
+    "psw": "root"
   }
 }
