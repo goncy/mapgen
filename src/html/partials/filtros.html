@@ -8,14 +8,16 @@
             </div>
             <br>
             <form style="padding:0px 10px">
-                <div class="form-group">
-                    <label class="control-label" for="filtro-desde">Desde: </label>
-                    <input class="form-control" id="filtro-desde" required type="date">
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="filtro-hasta">Hasta: </label>
-                    <input class="form-control" id="filtro-hasta" required type="date">
-                </div>
+                {% if extras.filtrable.fecha %}
+                    <div class="form-group">
+                        <label class="control-label" for="filtro-desde">Desde: </label>
+                        <input class="form-control" id="filtro-desde" required type="date">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="filtro-hasta">Hasta: </label>
+                        <input class="form-control" id="filtro-hasta" required type="date">
+                    </div>
+                {% endif %}
                 <div class="form-group">
                     <label class="control-label" for="filtro-categorias">Categorias (ctrl+click): </label>
                     <select id="filtro-categorias" class="form-control" multiple></select>

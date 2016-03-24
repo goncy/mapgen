@@ -13,7 +13,7 @@ gulp.task('clean', ["clean:all"]);
 gulp.task('copy', function(cb){
   runSequence(
     "clean",
-    ["copy:fonts", "copy:img"],
+    ["copy:fonts", "copy:img", "copy:db"],
     cb);
 });
 

@@ -1,6 +1,6 @@
 function comoLlegar(lat, lng) {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (position) {
+      navigator.geolocation.getCurrentPosition(function (position) {
 
       var directionsService = new google.maps.DirectionsService;
       var directionsDisplay = new google.maps.DirectionsRenderer;

@@ -3,8 +3,9 @@ var gulp = require('gulp'),
   argv = require('yargs').default('cliente', 'default').argv,
   templateData = require('../../builds/' + argv.cliente + '/build.json');
 
-gulp.task('copy:fonts', function() {
-  gulp.src('./src/assets/fonts/**')
-    .pipe(gulp.dest('./dist/fonts/'))
-    .pipe(gulpif(templateData.admin.panel, gulp.dest('./dist/admin/fonts/')));
+var dbFile = templateData.admin.panel ? "./src/full.sql" : "./src/simple.sql";
+
+gulp.task('copy:db', function() {
+  gulp.src(dbFile)
+    .pipe(gulp.dest('./dist/'))
 });

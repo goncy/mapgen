@@ -14,7 +14,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                  <img id="logo-brand" src="img/logo-brand.png" alt="Logo {{cliente.nombre}}">
+                  <img id="logo-brand" src="img/logo.png" alt="Logo {{cliente.nombre}}">
               	</a>
             </div>
             <div class="collapse navbar-collapse">
@@ -27,8 +27,11 @@
                         <ul class="dropdown-menu" id="catList" role="menu"></ul>
                     </li>
                   {% endif %}
-                  {% if extras.filtrable %}
+                  {% if extras.filtrable.mostrar %}
                     <li><a role="button" data-toggle="modal" data-target="#modal-filtros">Filtrar</a></li>
+                    {% if extras.filtrable.exportar %}
+                    <li><a role="button" data-toggle="modal" onclick="exportar()">Exportar</a></li>
+                    {% endif %}
                   {% endif %}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -45,7 +48,7 @@
 
     <script type='text/javascript' src="js/gpozzo.js"></script>
 
-    {% if extras.filtrable %}
+    {% if extras.filtrable.mostrar %}
       <!-- Filtrable -->
       {% include "./src/html/partials/filtros.html" %}
       <!-- Fin Filtrable -->

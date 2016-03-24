@@ -1,29 +1,36 @@
-{% if extras.filtrable %}
+{% if extras.filtrable.mostrar %}
   function filtrar() {
       infowindow.close();
 
-      var desde = $('#filtro-desde').val();
-      var hasta = $('#filtro-hasta').val();
+      var desde = $('#filtro-desde').val() || "";
+      var hasta = $('#filtro-hasta').val() || "";
       var catFiltradas = $('#filtro-categorias').val() || [];
+      var debeFiltrarPorFecha = true;
 
-      if (!desde || !hasta) {
-          alert('Marque fecha de inicio, final y categorias');
+      if ((desde && !hasta) || (!desde && hasta)) {
+          alert('Marque ambas fechas de inicio y final para filtrar por fecha');
           return;
-      }
+      } else if (!desde && !hasta) {
+        debeFiltrarPorFecha = false;
+      };
 
       for (var cat in markerContainer) {
         for (var mk in markerContainer[cat]) {
-          if(categoriasFijas.indexOf(markerContainer[cat][mk].tipo) >= 0 ){
-            markerContainer[cat][mk].setMap(mapa);
-            continue;
-          }else{
-            var estaEnFecha = markerContainer[cat][mk].fecha <= hasta && markerContainer[cat][mk].fecha >= desde ? true : false;
-            var estaEnCategoria = catFiltradas.indexOf(markerContainer[cat][mk].tipo) >= 0 ? true : false;
+          var estaEnFecha = markerContainer[cat][mk].fecha <= hasta && markerContainer[cat][mk].fecha >= desde ? true : false;
+          var estaEnCategoria = catFiltradas.indexOf(markerContainer[cat][mk].tipo) >= 0 ? true : false;
+          if (debeFiltrarPorFecha) {
             if (!estaEnFecha || !estaEnCategoria){
                 markerContainer[cat][mk].setMap(null);
+            } else {
+              markerContainer[cat][mk].setMap(mapa);
             }
-            else markerContainer[cat][mk].setMap(mapa);
-          }
+          } else {
+            if (!estaEnCategoria){
+                markerContainer[cat][mk].setMap(null);
+            } else {
+              markerContainer[cat][mk].setMap(mapa);
+            }
+          };
         }
       };
 

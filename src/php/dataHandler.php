@@ -11,64 +11,72 @@
 
 	$action = $_POST['action'];
 
-	if ($action === "get_markers") {
+	{% if extras.filtrable.mostrar %}
+		if ($action === "get_markers") {
 
-		$consulta = "SELECT * FROM markers WHERE solucionado = 0 AND id > 1";
-		$result = mysqli_query($con, $consulta);
+			$consulta = "SELECT * FROM markers WHERE solucionado = 0 AND id > 1";
+			$result = mysqli_query($con, $consulta);
 
-		$row_container = array();
+			$row_container = array();
 
-		//Validamos si el nombre del administrador existe en la base de datos o es correcto
-		while($row = mysqli_fetch_array($result)){
-			array_push($row_container, $row);
+			//Validamos si el nombre del administrador existe en la base de datos o es correcto
+			while($row = mysqli_fetch_array($result)){
+				array_push($row_container, $row);
+			}
+
+			$row_container = json_encode($row_container);
+			echo $row_container;
 		}
+	{% endif %}
+	{% if extras.agregable %}
+		if ($action === "push_markers") {
 
-		$row_container = json_encode($row_container);
-		echo $row_container;
-	}{% if extras.agregable %} else if ($action === "push_markers") {
+			$arrayMarkers = $_POST['markers'];
+			if (count($arrayMarkers)>=10){
+				print "false";
+				return;
+			}
 
-		$arrayMarkers = $_POST['markers'];
-		if (count($arrayMarkers)>=10){
-			print "false";
-			return;
+			$stmt = $con->prepare("INSERT INTO markers (lat, lng, tipo, texto) VALUES (?, ?, ?, ?)");
+
+			foreach($arrayMarkers as $key){
+				$lat = $key['lat'];
+				$lng = $key['lng'];
+				$tipo = $key['tipo'];
+				$texto = $key['texto'];
+
+				$stmt->bind_param("ddss", $lat,$lng,$tipo,$texto);
+				$stmt->execute();
+			}
+
+			print "true";
+			$stmt->close();
+
 		}
+		{% if extras.solucionable %}
+			else if ($action === "solucionar_markers") {
 
-		$stmt = $con->prepare("INSERT INTO markers (lat, lng, tipo, texto) VALUES (?, ?, ?, ?)");
+				$arraySolucionados = $_POST['solucionados'];
+				if (count($arraySolucionados)>=10){
+					print "false";
+					return;
+				}
 
-		foreach($arrayMarkers as $key){
-			$lat = $key['lat'];
-			$lng = $key['lng'];
-			$tipo = $key['tipo'];
-			$texto = $key['texto'];
+				$stmt = $con->prepare("UPDATE markers SET solucionado = 1 WHERE id = ?");
 
-			$stmt->bind_param("ddss", $lat,$lng,$tipo,$texto);
-			$stmt->execute();
-		}
+				foreach($arraySolucionados as $key){
+					$id = $key['id'];
 
-		print "true";
-		$stmt->close();
+					$stmt->bind_param("i",$id);
+					$stmt->execute();
+				}
 
-	}{% if extras.solucionable %} else if ($action === "solucionar_markers") {
+				$stmt->close();
 
-		$arraySolucionados = $_POST['solucionados'];
-		if (count($arraySolucionados)>=10){
-			print "false";
-			return;
-		}
-
-		$stmt = $con->prepare("UPDATE markers SET solucionado = 1 WHERE id = ?");
-
-		foreach($arraySolucionados as $key){
-			$id = $key['id'];
-
-			$stmt->bind_param("i",$id);
-			$stmt->execute();
-		}
-
-		$stmt->close();
-
-		print "true";
-	}{% endif %}{% endif %}
+				print "true";
+			}
+		{% endif %}
+	{% endif %}
 
 	$con->close();
 ?>

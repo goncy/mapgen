@@ -1,29 +1,35 @@
 {
   "cliente": {
-    "nombre": "Union nacional de clubes de barrio, Quilmes",
-    "mail": "uniondeclubesquilmes@.com"
+    "nombre": "Cliente",
+    "mail": "info@cliente.com",
+    "web": "www.cliente.web",
+    "telefono": "4444-4444"
   },
   "desarrollador": {
     "nombre": "Gonzalo Pozzo",
     "mail": "gonzalo.pozzo4@gmail.com"
   },
   "meta": {
-    "titulo": "Union nacional de clubes de barrio, Quilmes",
-    "descripcion": "Clubes de barrio, Quilmes"
+    "titulo": "Mapa",
+    "descripcion": "descripcion"
   },
   "categorias": [
-    {"value": "club", "label": "Clubes", "estatica": true},
-    {"value": "socfomento", "label": "Sociedades de fomento", "estatica": false},
-    {"value": "ctrojubilado", "label": "Centros de jubilados", "estatica": false},
-    {"value": "otro", "label": "Otras instituciones", "estatica": false}
+    {"label": "Robo", "value": "brojo", "estatica": false},
+    {"label": "Comisaria", "value": "comisaria", "estatica": true},
+    {"label": "Intento de robo", "value": "mamarillo", "estatica": false}
   ],
   "extras": {
-    "zona": "quilmes",
-    "gps": true,
+    "zona": "",
+    "gps": false,
     "agregable": true,
+    "editable": true,
     "solucionable": true,
     "comoLlegar": true,
-    "filtrable": true
+    "filtrable": {
+      "mostrar": true,
+      "fecha": false,
+      "exportar": true
+    }
   },
   "opciones": {
     "infowindow": {
@@ -37,15 +43,15 @@
       }]
     },
     "markers": {
-      "maximosAdd": 10,
-      "maximosRemove": 10
+      "maximosAdd": 3,
+      "maximosRemove": 2
     },
     "footer": {
       "mostrar": true
     },
     "analytics": {
       "mostrar": false,
-      "ua": "UA-62524880-1"
+      "ua": ""
     },
     "mapa": {
       "initzoom": 13,
@@ -66,7 +72,7 @@
   },
   "db":{
     "sv": "localhost",
-    "db": "mapa",
+    "db": "comisaria",
     "usr": "root",
     "psw": ""
   }

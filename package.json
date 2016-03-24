@@ -7,14 +7,17 @@
     "del": "^2.2.0",
     "font-awesome": "^4.5.0",
     "gulp": "^3.8.6",
+    "gulp-add-src": "^0.2.0",
     "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "*",
     "gulp-data": "^1.2.1",
     "gulp-debug": "^2.1.2",
-    "gulp-if": "*",
-    "gulp-imagemin": "^2.4.0",
-    "gulp-cssnano": "*",
     "gulp-htmlmin": "*",
+    "gulp-if": "*",
+    "gulp-image-resize": "^0.7.1",
+    "gulp-imagemin": "^2.4.0",
     "gulp-nunjucks-render": "^1.0.0",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.1",
     "gulp-uglify": "*",
     "nunjucks": "^2.2.0",
@@ -24,5 +27,9 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "yargs": "*"
+  },
+  "dependencies": {
+    "jspdf": "^1.2.61",
+    "lodash": "^4.6.1"
   }
 }

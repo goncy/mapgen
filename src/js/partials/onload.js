@@ -11,7 +11,7 @@ function setStage() {
         .append("<li><a role='button' onclick='itemSeleccionado = \"" + cat.value + "\"'>" + cat.label + "</a></li>");
     {% endif %}
 
-    {% if extras.filtrable %}
+    {% if extras.filtrable.mostrar %}
       $("#filtro-categorias")
         .append("<option value='"+cat.value+"'>"+cat.label+"</option>");
     {% endif %}
@@ -74,15 +74,17 @@ function setStage() {
     }
   );
 
-  //Get from db
-  $.post('php/dataHandler.php', {
-    action: 'get_markers'
-  }, function(data) {
-    for (var i = data.length - 1; i >= 0; i--) {
-      var markerLatlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-      loadMarker(markerLatlng, data[i]);
-    };
-  }, "json");
+  {% if extras.mostrarRegistros %}
+    //Get from db
+    $.post('php/dataHandler.php', {
+      action: 'get_markers'
+    }, function(data) {
+      for (var i = data.length - 1; i >= 0; i--) {
+        var markerLatlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+        loadMarker(markerLatlng, data[i]);
+      };
+    }, "json");
+  {% endif %}
 
   //Searchbox
   var input = (document.getElementById('pac-input'));

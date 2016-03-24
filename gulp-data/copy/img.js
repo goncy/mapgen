@@ -1,10 +1,10 @@
 var gulp = require('gulp'),
-  gulpif = require('gulp-if'),
   imagemin = require('gulp-imagemin'),
-  argv = require('yargs')
-        .default('cliente', 'default')
-        .default('env', 'local')
-        .argv;
+  debug = require('gulp-debug'),
+  imageResize = require('gulp-image-resize'),
+  argv = require('yargs').default('cliente', 'default').argv,
+  gulpif = require('gulp-if'),
+  templateData = require('../../builds/' + argv.cliente + '/build.json');
 
 gulp.task('copy:img', function() {
   return gulp.src(['./src/assets/img/**', './builds/' + argv.cliente + '/img/**'])
@@ -14,5 +14,6 @@ gulp.task('copy:img', function() {
         removeViewBox: false
       }]
     })))
-    .pipe(gulp.dest('./dist/img/'));
+    .pipe(gulp.dest('./dist/img/'))
+    .pipe(gulpif(templateData.admin.panel, gulp.dest('./dist/admin/img/')));
 });

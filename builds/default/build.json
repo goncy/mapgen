@@ -1,7 +1,9 @@
 {
   "cliente": {
     "nombre": "Cliente",
-    "mail": "info@cliente.com"
+    "mail": "info@cliente.com",
+    "web": "www.cliente.web",
+    "telefono": "4444-4444"
   },
   "desarrollador": {
     "nombre": "Gonzalo Pozzo",
@@ -15,12 +17,35 @@
     {"label": "Poda y limpieza", "value": "poda", "estatica": true}
   ],
   "extras": {
-    "zona": "",
+    "zona": "quilmes",
     "gps": false,
-    "editable": true,
+    "agregable": false,
+    "editable": false,
     "solucionable": true,
     "comoLlegar": true,
-    "filtrable": true
+    "mostrarRegistros": true,
+    "filtrable": {
+      "mostrar": true,
+      "fecha": false,
+      "exportar": false
+    }
+  },
+  "admin": {
+    "panel": true,
+    "extras": {
+      "zona": "",
+      "gps": false,
+      "agregable": true,
+      "editable": true,
+      "solucionable": true,
+      "comoLlegar": true,
+      "mostrarRegistros": true,
+      "filtrable": {
+        "mostrar": true,
+        "fecha": false,
+        "exportar": true
+      }
+    }
   },
   "opciones": {
     "infowindow": {
@@ -65,6 +90,6 @@
     "sv": "localhost",
     "db": "mapa",
     "usr": "root",
-    "psw": "root"
+    "psw": ""
   }
 }
