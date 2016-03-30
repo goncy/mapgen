@@ -19,7 +19,6 @@
 
 			$row_container = array();
 
-			//Validamos si el nombre del administrador existe en la base de datos o es correcto
 			while($row = mysqli_fetch_array($result)){
 				array_push($row_container, $row);
 			}
@@ -32,7 +31,7 @@
 		if ($action === "push_markers") {
 
 			$arrayMarkers = $_POST['markers'];
-			if (count($arrayMarkers)>=10){
+			if (count($arrayMarkers)>={{markers.maximosAdd}}){
 				print "false";
 				return;
 			}
@@ -57,7 +56,7 @@
 			else if ($action === "solucionar_markers") {
 
 				$arraySolucionados = $_POST['solucionados'];
-				if (count($arraySolucionados)>=10){
+				if (count($arraySolucionados)>={{markers.maximosRemove}}){
 					print "false";
 					return;
 				}
