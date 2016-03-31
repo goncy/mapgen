@@ -1,33 +1,35 @@
 {
   "cliente": {
-    "nombre": "Cliente",
-    "mail": "info@cliente.com",
-    "web": "www.cliente.web",
-    "telefono": "4444-4444"
+    "nombre": "Adrogué bus",
+    "mail": "info@adroguebus.com.ar",
+    "web": "www.adroguebus.com.ar",
+    "telefono": "0810-999-5309"
   },
   "desarrollador": {
     "nombre": "Gonzalo Pozzo",
     "mail": "gonzalo.pozzo4@gmail.com"
   },
   "meta": {
-    "titulo": "Mapa",
-    "descripcion": "descripcion"
+    "titulo": "Novedades - Adrogué bus",
+    "descripcion": "Novedades de Adrogué bus"
   },
   "categorias": [
-    {"label": "Poda y limpieza", "value": "poda", "estatica": true}
+    {"label": "Costa Atlantica", "value": "catlantica", "estatica": false},
+    {"label": "Excursiones dia completo", "value": "excursiones", "estatica": false},
+    {"label": "Eventos", "value": "eventos", "estatica": false}
   ],
   "extras": {
-    "zona": "quilmes",
+    "zona": "",
     "gps": false,
     "agregable": false,
     "editable": false,
-    "solucionable": true,
+    "solucionable": false,
     "comoLlegar": true,
     "mostrarRegistros": true,
     "filtrable": {
       "mostrar": true,
       "fecha": false,
-      "exportar": false
+      "exportar": true
     }
   },
   "admin": {
@@ -73,8 +75,8 @@
       "initzoom": 13,
       "minzoom": 1,
       "center": {
-        "lat": -34.737911,
-        "lng": -58.292906
+        "lat": -34.7978432,
+        "lng": -58.3952827
       },
       "mapTypeControl": true,
       "disableDefaultUI": true,
@@ -82,8 +84,8 @@
       "scaleControl": true,
       "streetViewControl": true
     },
-    diseño: {
-      navbar: "default"
+    "diseño": {
+      "navbar": "default"
     }
   },
   "paths": {
@@ -93,6 +95,6 @@
     "sv": "localhost",
     "db": "mapa",
     "usr": "root",
-    "psw": ""
+    "psw": "root"
   }
 }

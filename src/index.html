@@ -4,7 +4,7 @@
 {% include "./src/html/partials/header.html" %}
 
 <body onload="setStage()" style="padding-bottom:{{ '35' if opciones.footer.mostrar else '0' }}px">
-    <nav id="contenedorNav" class="navbar navbar-inverse navbar-fixed-top">
+    <nav id="contenedorNav" class="navbar navbar-{{opciones.diseño.navbar}} navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

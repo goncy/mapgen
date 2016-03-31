@@ -14,7 +14,7 @@ gulp.task('build:php', function() {
             .pipe(data(adminTemplateData))
             .pipe(nunjucksRender({ ext: '.php' }))
             .pipe(gulp.dest('./dist/admin/php/'));
-        gulp.src('./src/admin/*.php')
+        gulp.src('./src/admin/**.php')
             .pipe(data(adminTemplateData))
             .pipe(nunjucksRender({ ext: '.php' }))
             .pipe(gulp.dest('./dist/admin'))

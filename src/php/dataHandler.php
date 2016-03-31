@@ -14,7 +14,7 @@
 	{% if extras.filtrable.mostrar %}
 		if ($action === "get_markers") {
 
-			$consulta = "SELECT * FROM markers WHERE solucionado = 0 AND id > 1";
+			$consulta = "SELECT * FROM markers WHERE solucionado = 0";
 			$result = mysqli_query($con, $consulta);
 
 			$row_container = array();
@@ -31,7 +31,7 @@
 		if ($action === "push_markers") {
 
 			$arrayMarkers = $_POST['markers'];
-			if (count($arrayMarkers)>={{markers.maximosAdd}}){
+			if (count($arrayMarkers)>={{opciones.markers.maximosAdd}}){
 				print "false";
 				return;
 			}
@@ -56,7 +56,7 @@
 			else if ($action === "solucionar_markers") {
 
 				$arraySolucionados = $_POST['solucionados'];
-				if (count($arraySolucionados)>={{markers.maximosRemove}}){
+				if (count($arraySolucionados)>={{opciones.markers.maximosRemove}}){
 					print "false";
 					return;
 				}

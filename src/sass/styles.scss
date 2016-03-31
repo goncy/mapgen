@@ -7,8 +7,5 @@ $client-secondary: #222222;
 @import "partials/toastr";
 @import "partials/helpers";
 @import "partials/tags";
-
-#logo-brand {
-  max-height: 32px;
-  margin-top: -4px;
-}
+@import "partials/extras";
+@import "partials/colors";
