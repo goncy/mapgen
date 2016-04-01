@@ -1,0 +1,19 @@
+$fondo: {{opciones.diseno.navbar.fondo}};
+$link: {{opciones.diseno.navbar.texto.link}};
+$hover: {{opciones.diseno.navbar.texto.hover}};
+
+.navbar-default {
+  .navbar-nav {
+    li {
+      a {
+        color: $link;
+        &:hover {
+          color: $hover;
+        }
+      }
+    }
+  }
+
+  background-color: $fondo;
+  border-color: darken($fondo, 5%);
+}
