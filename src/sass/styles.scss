@@ -8,4 +8,5 @@ $client-secondary: #222222;
 @import "partials/helpers";
 @import "partials/tags";
 @import "partials/extras";
-@import "partials/colors";
+
+{% include "./src/sass/partials/templated/colors.scss" %}

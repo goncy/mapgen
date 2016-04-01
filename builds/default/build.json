@@ -82,8 +82,14 @@
       "scaleControl": true,
       "streetViewControl": true
     },
-    diseño: {
-      navbar: "default"
+    "diseño": {
+      "navbar": {
+        "fondo": "white",
+        "texto": {
+          "link": "black",
+          "hover": "grey"
+        }
+      }
     }
   },
   "paths": {

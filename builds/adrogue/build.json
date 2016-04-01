@@ -84,8 +84,14 @@
       "scaleControl": true,
       "streetViewControl": true
     },
-    "diseño": {
-      "navbar": "default"
+    "diseno": {
+      "navbar": {
+        "fondo": "white",
+        "texto": {
+          "link": "black",
+          "hover": "grey"
+        }
+      }
     }
   },
   "paths": {
@@ -93,8 +99,8 @@
   },
   "db":{
     "sv": "localhost",
-    "db": "mapa",
-    "usr": "root",
-    "psw": "root"
+    "db": "adrogue-mapa",
+    "usr": "gpozzo-admin",
+    "psw": "Gonzalo1"
   }
 }
