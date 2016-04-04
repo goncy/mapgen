@@ -6,8 +6,15 @@ var categoriasFijas = [];
 var markerContainer = {};
 
 {% if extras.markers.agregable.state %}
-  var itemSeleccionado = categorias[0].value;
+  var itemSeleccionado;
   var cant_markers = 0;
+
+  categorias.forEach(function (cat) {
+    if (cat.estatica == false) {
+      itemSeleccionado = cat.value;
+      return;
+    }
+  });
 
   {% if extras.markers.solucionable.state %}
     var solucionados = [];
