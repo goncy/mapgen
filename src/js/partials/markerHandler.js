@@ -61,6 +61,8 @@ function loadMarker(location, loadedMarker) {
 {% if extras.markers.agregable.state %}
   function addMarker(location) {
 
+    if (!itemSeleccionado) return;
+
     {% if extras.markers.agregable.max %}
       //Max markers add
       if (cant_markers >= {{extras.markers.agregable.max}}) {
