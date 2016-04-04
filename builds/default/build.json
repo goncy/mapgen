@@ -24,7 +24,7 @@
     "editable": false,
     "solucionable": true,
     "comoLlegar": true,
-    "mostrarRegistros": true,
+    "mostrarAlInicio": true,
     "filtrable": {
       "mostrar": true,
       "fecha": false,
@@ -115,6 +115,6 @@
     "sv": "localhost",
     "db": "mapa",
     "usr": "root",
-    "psw": ""
+    "psw": "root"
   }
 }
