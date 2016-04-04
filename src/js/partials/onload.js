@@ -117,6 +117,13 @@ function setStage() {
 
   {% if extras.markers.agregable.state %}
     //Eventos de marker
+    categorias.forEach(function (cat) {
+      if (cat.estatica == false) {
+        itemSeleccionado = cat.value;
+        return;
+      }
+    });
+
     {% include "./extras/agregable.js" %}
   {% endif %}
 }
