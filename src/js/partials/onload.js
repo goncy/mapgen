@@ -5,12 +5,6 @@ function setStage() {
     window.listaCategorias.push(cat.value);
     if(cat.estatica) window.categoriasFijas.push(cat.value);
 
-    {% if extras.agregable %}
-
-      $("#catList")
-        .append("<li><a role='button' onclick='itemSeleccionado = \"" + cat.value + "\"'>" + cat.label + "</a></li>");
-    {% endif %}
-
     {% if extras.filtrable.mostrar %}
       $("#filtro-categorias")
         .append("<option value='"+cat.value+"'>"+cat.label+"</option>");
@@ -74,7 +68,7 @@ function setStage() {
     }
   );
 
-  {% if extras.mostrarRegistros %}
+  {% if extras.mostrarAlInicio %}
     //Get from db
     $.post('php/dataHandler.php', {
       action: 'get_markers'
@@ -121,7 +115,7 @@ function setStage() {
     {% include "./extras/gps.js" %}
   {% endif %}
 
-  {% if extras.agregable %}
+  {% if extras.markers.agregable.state %}
     //Eventos de marker
     {% include "./extras/agregable.js" %}
   {% endif %}

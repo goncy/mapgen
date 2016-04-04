@@ -1,4 +1,14 @@
 <?php
+	{% if adminPass %}
+	  if(!isset($_SESSION)){
+			session_start();
+		}
+		if(!isset($_SESSION['admin'])){
+			echo "No esta permitida la ejecucion sin autorizacion";
+			exit();
+		}
+	{% endif %}
+
 	include "_db.php";
 	$con = crearConexion();
 
@@ -27,11 +37,11 @@
 			echo $row_container;
 		}
 	{% endif %}
-	{% if extras.agregable %}
+	{% if extras.markers.agregable.state %}
 		if ($action === "push_markers") {
 
 			$arrayMarkers = $_POST['markers'];
-			if (count($arrayMarkers)>={{opciones.markers.maximosAdd}}){
+			if (count($arrayMarkers)>={{extras.markers.agregable.max}}){
 				print "false";
 				return;
 			}
@@ -52,11 +62,11 @@
 			$stmt->close();
 
 		}
-		{% if extras.solucionable %}
+		{% if extras.markers.solucionable.state %}
 			else if ($action === "solucionar_markers") {
 
 				$arraySolucionados = $_POST['solucionados'];
-				if (count($arraySolucionados)>={{opciones.markers.maximosRemove}}){
+				if (count($arraySolucionados)>={{extras.markers.solucionable.max}}){
 					print "false";
 					return;
 				}

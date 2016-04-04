@@ -17,6 +17,7 @@ var cssVendors = {
 gulp.task('build:css', function() {
     if (templateData.admin.panel) {
         var adminTemplateData = _.cloneDeep(templateData);
+        adminTemplateData.adminPass = true;
         _.assignIn(adminTemplateData.extras, adminTemplateData.admin.extras);
         gulp.src(['./src/{sass,css}/**.{scss,css}', cssVendors.toastr, cssVendors.fontAwesome])
             .pipe(data(adminTemplateData))

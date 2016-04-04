@@ -1,4 +1,4 @@
-{% if extras.agregable %}
+{% if extras.markers.agregable.state %}
   //Funcion de guardar
   function guardar() {
     var arrayMarkers = getArrayMarkers();
@@ -15,7 +15,7 @@
       }, "json");
     }
 
-    {% if extras.solucionable %}
+    {% if extras.markers.solucionable.state %}
       var arraySolucionados = getArraySolucionados();
 
       if (arraySolucionados.length > 0) {

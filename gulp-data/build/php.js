@@ -9,6 +9,7 @@ var gulp = require('gulp'),
 gulp.task('build:php', function() {
     if (templateData.admin.panel) {
         var adminTemplateData = _.cloneDeep(templateData);
+        adminTemplateData.adminPass = true;
         _.assignIn(adminTemplateData.extras, adminTemplateData.admin.extras);
         gulp.src('./src/php/**.php')
             .pipe(data(adminTemplateData))

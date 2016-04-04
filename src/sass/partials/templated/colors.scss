@@ -1,8 +1,8 @@
-$fondo: {{opciones.diseno.navbar.fondo}};
-$link: {{opciones.diseno.navbar.texto.link}};
-$hover: {{opciones.diseno.navbar.texto.hover}};
+$fondo: {{opciones.diseño.navbar.fondo}};
+$link: {{opciones.diseño.navbar.texto.link}};
+$hover: {{opciones.diseño.navbar.texto.hover}};
 
-.navbar-default {
+.navbar-{{opciones.diseño.navbar.base}} {
   .navbar-nav {
     li {
       a {
@@ -15,5 +15,5 @@ $hover: {{opciones.diseno.navbar.texto.hover}};
   }
 
   background-color: $fondo;
-  border-color: darken($fondo, 5%);
+  border-color: $fondo;
 }

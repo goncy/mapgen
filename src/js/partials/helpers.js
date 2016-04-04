@@ -2,7 +2,7 @@ function getIcon(categoria) {
   return categoria ? 'img/icons/' + categoria + '.png' : 'img/icons/otro.png';
 }
 
-{% if extras.agregable %}
+{% if extras.markers.agregable.state %}
   function textoReplace(texto) {
     var removeHtml = /(<([^>]+)>)/ig;
     return texto ? texto.replace(removeHtml, "") : "";

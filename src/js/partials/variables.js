@@ -5,11 +5,11 @@ var listaCategorias = [];
 var categoriasFijas = [];
 var markerContainer = {};
 
-{% if extras.agregable %}
+{% if extras.markers.agregable.state %}
   var itemSeleccionado = categorias[0].value;
   var cant_markers = 0;
 
-  {% if extras.solucionable %}
+  {% if extras.markers.solucionable.state %}
     var solucionados = [];
     var cant_solucionados = 0;
   {% endif %}

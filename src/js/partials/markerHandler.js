@@ -15,19 +15,21 @@ function loadMarker(location, loadedMarker) {
   });
 
   //Nunjucks: opciones.markerSolucionable
-  {% if extras.agregable %}
-    {% if extras.solucionable %}
+  {% if extras.markers.agregable.state %}
+    {% if extras.markers.solucionable.state %}
       google.maps.event.addListener(marker, 'rightclick', function() {
 
-          {% if opciones.markers.maximosRemove %}
+          {% if extras.markers.solucionable.max %}
             //Max markers remove
-            if (marker.solucionado == false && cant_solucionados >= {{opciones.markers.maximosRemove}}) {
+            if (marker.solucionado == false && cant_solucionados >= {{extras.markers.solucionable.max}}) {
               toastr.error("¡No podes borrar tantos puntos!");
               return;
             }
           {% endif %}
 
-          if(categoriasFijas.indexOf(marker.tipo) >= 0) return;
+          {% if adminPass != true %}
+            if(categoriasFijas.indexOf(marker.tipo) >= 0) return;
+          {% endif %}
 
           infowindow.close();
           if (marker.solucionado == false) {
@@ -56,12 +58,12 @@ function loadMarker(location, loadedMarker) {
     .removeAllRanges();
 }
 
-{% if extras.agregable %}
+{% if extras.markers.agregable.state %}
   function addMarker(location) {
 
-    {% if opciones.markers.maximosAdd %}
+    {% if extras.markers.agregable.max %}
       //Max markers add
-      if (cant_markers >= {{opciones.markers.maximosAdd}}) {
+      if (cant_markers >= {{extras.markers.agregable.max}}) {
         toastr.error("¡No podes agregar tantos puntos!, por favor, guardá para seguir cargando puntos");
         return;
       }
@@ -79,7 +81,7 @@ function loadMarker(location, loadedMarker) {
       tipo: itemSeleccionado
     });
 
-    {% if extras.solucionable %}
+    {% if extras.markers.solucionable.state %}
       google.maps.event.addListener(marker, 'rightclick', function(event) {
           infowindow.close();
           removeMarker(marker);
@@ -100,7 +102,7 @@ function loadMarker(location, loadedMarker) {
       .removeAllRanges();
   }
 
-  {% if extras.solucionable %}
+  {% if extras.markers.solucionable.state %}
     function removeMarker(marker) {
         marker.setMap(null);
         cant_markers--;
@@ -128,7 +130,7 @@ function loadMarker(location, loadedMarker) {
     return arrayMarkers;
   }
 
-  {% if extras.solucionable %}
+  {% if extras.markers.solucionable.state %}
     function getArraySolucionados(){
         var arraySolucionados = new Array();
         var removeHtml = /(<([^>]+)>)/ig;

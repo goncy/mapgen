@@ -14,12 +14,13 @@
     "descripcion": "descripcion"
   },
   "categorias": [
-    {"label": "Poda y limpieza", "value": "poda", "estatica": true}
+    {"label": "Poda y limpieza", "value": "poda", "estatica": true},
+    {"label": "Iluminacion", "value": "iluminacion", "estatica": false}
   ],
   "extras": {
     "zona": "quilmes",
     "gps": false,
-    "agregable": false,
+    "agregable": true,
     "editable": false,
     "solucionable": true,
     "comoLlegar": true,
@@ -28,6 +29,16 @@
       "mostrar": true,
       "fecha": false,
       "exportar": false
+    },
+    "markers": {
+      "agregable": {
+        "state": true,
+        "max": 3
+      },
+      "solucionable": {
+        "state": true,
+        "max": 2
+      }
     }
   },
   "admin": {
@@ -35,15 +46,23 @@
     "extras": {
       "zona": "",
       "gps": false,
-      "agregable": true,
       "editable": true,
-      "solucionable": true,
       "comoLlegar": true,
-      "mostrarRegistros": true,
+      "mostrarAlInicio": true,
       "filtrable": {
         "mostrar": true,
         "fecha": false,
         "exportar": true
+      },
+      "markers": {
+        "agregable": {
+          "state": true,
+          "max": 3
+        },
+        "solucionable": {
+          "state": true,
+          "max": 2
+        }
       }
     }
   },
@@ -57,10 +76,6 @@
         "nombre": "Agregado",
         "dato": "fecha"
       }]
-    },
-    "markers": {
-      "maximosAdd": 3,
-      "maximosRemove": 2
     },
     "footer": {
       "mostrar": true
@@ -84,10 +99,11 @@
     },
     "diseño": {
       "navbar": {
-        "fondo": "white",
+        "base": "inverse",
+        "fondo": "",
         "texto": {
-          "link": "black",
-          "hover": "grey"
+          "link": "",
+          "hover": ""
         }
       }
     }

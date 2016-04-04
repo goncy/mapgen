@@ -22,6 +22,7 @@ var gulp = require('gulp'),
 gulp.task('build:js', function() {
     if (templateData.admin.panel) {
         var adminTemplateData = _.cloneDeep(templateData);
+        adminTemplateData.adminPass = true;
         _.assignIn(adminTemplateData.extras, adminTemplateData.admin.extras);
         gulp.src(['./src/js/*.{coffee,js}', jsVendors.toastr, jsVendors.bootstrap])
             .pipe(gulpif(adminTemplateData.extras.filtrable.exportar, addsrc(jsVendors.jspdf)))

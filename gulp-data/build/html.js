@@ -13,6 +13,7 @@ var gulp = require('gulp'),
 gulp.task('build:html', function() {
     if (templateData.admin.panel) {
         var adminTemplateData = _.cloneDeep(templateData);
+        adminTemplateData.adminPass = true;
         _.assignIn(adminTemplateData.extras, adminTemplateData.admin.extras);
         gulp.src(['./src/admin/logged.php', './src/index.html'])
             .pipe(concat("index.php"))
