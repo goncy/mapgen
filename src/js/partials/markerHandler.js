@@ -59,7 +59,7 @@ function loadMarker(location, loadedMarker) {
 }
 
 {% if extras.markers.agregable.state %}
-  function addMarker(location) {
+  function addRegistro(location) {
 
     if (!itemSeleccionado) return;
 
