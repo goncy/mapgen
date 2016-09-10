@@ -1,5 +1,5 @@
 {
-  "name": "app-mapa",
+  "name": "mapgen",
   "version": "0.1.0",
   "devDependencies": {
     "bootstrap-sass": "^3.3.6",

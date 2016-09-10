@@ -38,3 +38,9 @@ El *Mapa Interactivo* es un sistema web, en caso de utilizarse internamente en u
 
 # Organizaciones benéficas, proyectos caritativos, sociales, etc.
 El *Mapa Interactivo* será de *implementación gratuita* para estos grupos, no poseeran mantenimiento y se realizará la configuración inicial con mutuo acuerdo. No se realizará ninguna tarea de mantenimiento, *sin excepciones*.
+
+# Build
+```
+npm install
+gulp build --cliente=nombre
+```
