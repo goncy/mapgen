@@ -1,41 +1,31 @@
 {
   "cliente": {
-    "nombre": "Cuartel de Bomberos Junin",
-    "mail": "bomberosdejunin@gmail.com",
-    "web": "",
-    "telefono": "011 42942222"
+    "nombre": "Bomberos voluntarios de Alte. Brown",
+    "mail": "altebrownbomberos@gmail.com",
+    "web": "http://www.bomberosbrown.com/",
+    "telefono": "4252-2222"
   },
   "desarrollador": {
     "nombre": "Gonzalo Pozzo",
     "mail": "gonzalo.pozzo4@gmail.com"
   },
   "meta": {
-    "titulo": "Mapa informativo - Bomberos de Junin",
-    "descripcion": "Mapa informativo para los Bomberos de Junin"
+    "titulo": "Mapa informativo - Bomberos voluntarios de Alte. Brown",
+    "descripcion": "Mapa informativo para los Bomberos voluntarios de Alte. Brown"
   },
   "categorias": [
-    {"label": "Hidrante sobre nivel", "value": "hidrantesn", "estatica": false},
-    {"label": "Hidrante bajo nivel", "value": "hidrantebn", "estatica": false},
-    {"label": "Instituciones deportivas", "value": "instdeportivas", "estatica": false},
-    {"label": "Templos religiosos", "value": "templos", "estatica": false},
-    {"label": "Establecimientos educativos", "value": "escuela", "estatica": false},
-    {"label": "Espacios verdes", "value": "espaciosverdes", "estatica": false},
-    {"label": "Sitios de interes", "value": "interes", "estatica": false},
-    {"label": "Centros de salud", "value": "salud", "estatica": false},
-    {"label": "Complejos habitacionales", "value": "complejos", "estatica": false},
-    {"label": "Hospedaje", "value": "hospedaje", "estatica": false},
-    {"label": "Estaciones de servicio", "value": "estacionservicio", "estatica": false},
-    {"label": "Redes contra incendio humedas", "value": "redhumeda", "estatica": false},
-    {"label": "Redes contra incendio secas", "value": "redseca", "estatica": false}
+    {"label": "Hidrante", "value": "hidrante", "estatica": false},
+    {"label": "Otro", "value": "otro", "estatica": false},
+    {"label": "Incendio", "value": "incendio", "estatica": false}
   ],
   "extras": {
-    "zona": "junin",
+    "zona": "altebrown",
     "gps": false,
     "comoLlegar": true,
     "mostrarAlInicio": true,
     "filtrable": {
       "mostrar": true,
-      "fecha": false,
+      "fecha": true,
       "exportar": true
     },
     "markers": {
@@ -95,8 +85,8 @@
       "initzoom": 13,
       "minzoom": 1,
       "center": {
-        "lat": -34.590067,
-        "lng": -60.95072
+        "lat": -34.8406537,
+        "lng": -58.3767475
       },
       "mapTypeControl": true,
       "disableDefaultUI": true,
@@ -105,9 +95,9 @@
       "streetViewControl": true
     },
     "diseño": {
-      "theme": "superhero",
+      "theme": "yeti",
       "colores": {
-        "primary": "#A3D92B",
+        "primary": "#B81414",
         "success": "#0D812C",
         "info": "",
         "warning": "#F2DEDE",
@@ -119,11 +109,11 @@
     }
   },
   "paths": {
-    "junin": "vxfrEpvyrJsIgr@_zAksAuH~fBaJcKurAySmDBqLzFeF_@mEcTaZ~]kj@yr@snA|aBpg@fq@_h@bq@~TtXac@xv@bNhRfkEtvFr@b@~C_E`DqAxCdC|v@r`Ao@xH`E`Lf@hK_@nPd@cAhcByyBhSr[f_@{f@xm@lv@|u@uS`GsGaDcDdGmIikB_gCpaBawB"
+    "altebrown": "lpjsE`w{bJ~oA~jCtqH}{FfrAn|Cxh@y[|aBlvDoa@tZ|xCfxHcgDrwBwVgk@mgIr}FsjCquG{SnP^nG_M~HemDseIcWpSwoAq|ChrAq|@~}@{g@zAbEpC}C"
   },
   "db":{
     "sv": "localhost",
-    "db": "bomberos-junin",
+    "db": "bomberos-bernal",
     "usr": "gpozzo-admin",
     "psw": "Gonzalo1"
   }
