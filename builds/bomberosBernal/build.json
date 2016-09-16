@@ -1,49 +1,50 @@
 {
   "cliente": {
-    "nombre": "Cliente",
-    "mail": "info@cliente.com",
-    "web": "www.cliente.web",
-    "telefono": "4444-4444"
+    "nombre": "Bomberos voluntarios de Bernal",
+    "mail": "bvbernal@gmail.com",
+    "web": "http://www.bomberosdebernal.com.ar/",
+    "telefono": "4252-2222"
   },
   "desarrollador": {
     "nombre": "Gonzalo Pozzo",
     "mail": "gonzalo.pozzo4@gmail.com"
   },
   "meta": {
-    "titulo": "Mapa",
-    "descripcion": "descripcion"
+    "titulo": "Mapa informativo - Bomberos voluntarios de Bernal",
+    "descripcion": "Mapa informativo para los Bomberos voluntarios de Bernal"
   },
   "categorias": [
-    {"label": "Poda y limpieza", "value": "poda", "estatica": true},
-    {"label": "Iluminacion", "value": "iluminacion", "estatica": false}
+    {"label": "Hidrante", "value": "hidrante", "estatica": false},
+    {"label": "Otro", "value": "otro", "estatica": false},
+    {"label": "Incendio", "value": "incendio", "estatica": false}
   ],
   "extras": {
     "zona": "quilmes",
-    "gps": false,
+    "gps": true,
     "comoLlegar": true,
     "mostrarAlInicio": true,
     "filtrable": {
       "mostrar": true,
-      "fecha": false,
-      "exportar": false
+      "fecha": true,
+      "exportar": true
     },
     "markers": {
       "agregable": {
         "state": true,
-        "max": 3
+        "max": 999
       },
       "solucionable": {
         "state": true,
-        "max": 2
+        "max": 999
       }
     }
   },
   "admin": {
-    "panel": true,
+    "panel": false,
     "extras": {
       "zona": "",
       "gps": false,
-      "comoLlegar": true,
+      "comoLlegar": false,
       "mostrarAlInicio": true,
       "filtrable": {
         "mostrar": true,
@@ -53,11 +54,11 @@
       "markers": {
         "agregable": {
           "state": true,
-          "max": 3
+          "max": 999
         },
         "solucionable": {
           "state": true,
-          "max": 2
+          "max": 999
         }
       }
     }
@@ -74,7 +75,7 @@
       }]
     },
     "footer": {
-      "mostrar": true
+      "mostrar": false
     },
     "analytics": {
       "mostrar": false,
@@ -94,13 +95,16 @@
       "streetViewControl": true
     },
     "diseño": {
+      "theme": "yeti",
+      "colores": {
+        "primary": "#F6BC2F",
+        "success": "#0D812C",
+        "info": "",
+        "warning": "#F2DEDE",
+        "danger": "#C50000"
+      },
       "navbar": {
-        "base": "inverse",
-        "fondo": "",
-        "texto": {
-          "link": "",
-          "hover": ""
-        }
+        "base": "inverse"
       }
     }
   },
@@ -109,8 +113,8 @@
   },
   "db":{
     "sv": "localhost",
-    "db": "mapa",
-    "usr": "root",
-    "psw": "root"
+    "db": "bomberos-bernal",
+    "usr": "gpozzo-admin",
+    "psw": "Gonzalo1"
   }
 }

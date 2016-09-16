@@ -22,24 +22,6 @@ footer {
   background: #ffffff;
 
   p {
-    margin: 8px 0;
-
-    a {
-      &:link {
-        color: #168039;
-      }
-
-      &:visited {
-        color: #044D29;
-      }
-
-      &:hover {
-        color: #45BF55;
-      }
-
-      &:active {
-        color: #00261C;
-      }
-    }
+    margin: 6px 0;
   }
 }

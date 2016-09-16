@@ -1,12 +1,11 @@
-$client-primary: #FF302F;
-$client-secondary: #222222;
-
+{% include "./src/sass/partials/templated/variables.scss" %}
+@import "swatches/{{opciones.diseño.theme}}/variables";
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "swatches/{{opciones.diseño.theme}}/bootswatch";
+
 @import "partials/mains";
 @import "partials/gmaps";
 @import "partials/toastr";
 @import "partials/helpers";
 @import "partials/tags";
 @import "partials/extras";
-
-{% include "./src/sass/partials/templated/colors.scss" %}

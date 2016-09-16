@@ -1,0 +1,21 @@
+{% if opciones.diseño.colores.primary %}
+$brand-primary:         {{opciones.diseño.colores.primary}} !default;
+{% endif %}
+
+{% if opciones.diseño.colores.success %}
+$brand-success:         {{opciones.diseño.colores.success}} !default;
+{% endif %}
+
+{% if opciones.diseño.colores.info %}
+$brand-info:            {{opciones.diseño.colores.info}} !default;
+{% endif %}
+
+{% if opciones.diseño.colores.warning %}
+$brand-warning:         {{opciones.diseño.colores.warning}} !default;
+{% endif %}
+
+{% if opciones.diseño.colores.danger %}
+$brand-danger:          {{opciones.diseño.colores.danger}} !default;
+{% endif %}
+
+$navbar-height:         50px !default;

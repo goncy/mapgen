@@ -12,7 +12,7 @@ var gulp = require('gulp'),
 var cssVendors = {
     toastr: "node_modules/toastr/toastr.scss",
     fontAwesome: "node_modules/font-awesome/css/font-awesome.css"
-}
+};
 
 gulp.task('build:css', function() {
     if (templateData.admin.panel) {

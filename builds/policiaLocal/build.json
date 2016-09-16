@@ -1,9 +1,9 @@
 {
   "cliente": {
-    "nombre": "Cliente",
-    "mail": "info@cliente.com",
-    "web": "www.cliente.web",
-    "telefono": "4444-4444"
+    "nombre": "Policia local",
+    "mail": "policialocalquilmes2016@gmail.com",
+    "web": "www.policialocalquilmes.com.ar",
+    "telefono": "4317-6000 (Int. 20454)"
   },
   "desarrollador": {
     "nombre": "Gonzalo Pozzo",
@@ -14,36 +14,36 @@
     "descripcion": "descripcion"
   },
   "categorias": [
-    {"label": "Poda y limpieza", "value": "poda", "estatica": true},
-    {"label": "Iluminacion", "value": "iluminacion", "estatica": false}
+    {"label": "Inseguridad", "value": "inseguridad", "estatica": false},
+    {"label": "Otro", "value": "otro", "estatica": false}
   ],
   "extras": {
     "zona": "quilmes",
     "gps": false,
-    "comoLlegar": true,
+    "comoLlegar": false,
     "mostrarAlInicio": true,
     "filtrable": {
       "mostrar": true,
       "fecha": false,
-      "exportar": false
+      "exportar": true
     },
     "markers": {
       "agregable": {
         "state": true,
-        "max": 3
+        "max": 999
       },
       "solucionable": {
         "state": true,
-        "max": 2
+        "max": 999
       }
     }
   },
   "admin": {
-    "panel": true,
+    "panel": false,
     "extras": {
       "zona": "",
       "gps": false,
-      "comoLlegar": true,
+      "comoLlegar": false,
       "mostrarAlInicio": true,
       "filtrable": {
         "mostrar": true,
@@ -53,11 +53,11 @@
       "markers": {
         "agregable": {
           "state": true,
-          "max": 3
+          "max": 999
         },
         "solucionable": {
           "state": true,
-          "max": 2
+          "max": 999
         }
       }
     }
@@ -94,13 +94,16 @@
       "streetViewControl": true
     },
     "diseño": {
+      "theme": "paper",
+      "colores": {
+        "primary": "",
+        "success": "",
+        "info": "",
+        "warning": "",
+        "danger": ""
+      },
       "navbar": {
-        "base": "inverse",
-        "fondo": "",
-        "texto": {
-          "link": "",
-          "hover": ""
-        }
+        "base": "default"
       }
     }
   },
@@ -109,8 +112,8 @@
   },
   "db":{
     "sv": "localhost",
-    "db": "mapa",
-    "usr": "root",
-    "psw": "root"
+    "db": "policialocal",
+    "usr": "gpozzo-admin",
+    "psw": "Gonzalo1"
   }
 }
