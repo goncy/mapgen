@@ -52,8 +52,13 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `usuario`, `password`) VALUES
-(1, 'admin', 'admin');
+{% for usuario in admin.usuarios -%}
+  INSERT INTO `usuarios` (`id`, `usuario`, `password`) VALUES
+  ({{loop.index}}, '{{usuario.usuario}}', '{{usuario.password}}');
+{% else %}
+  INSERT INTO `usuarios` (`id`, `usuario`, `password`) VALUES
+  (1, 'admin', 'admin');
+{% endfor %}
 
 --
 -- Índices para tablas volcadas

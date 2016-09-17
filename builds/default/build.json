@@ -1,49 +1,60 @@
 {
   "cliente": {
-    "nombre": "Cliente",
-    "mail": "info@cliente.com",
-    "web": "www.cliente.web",
-    "telefono": "4444-4444"
+    "nombre": "Cuartel de Bomberos Junin",
+    "mail": "bomberosdejunin@gmail.com",
+    "web": "",
+    "telefono": "011 42942222"
   },
   "desarrollador": {
     "nombre": "Gonzalo Pozzo",
     "mail": "gonzalo.pozzo4@gmail.com"
   },
   "meta": {
-    "titulo": "Mapa",
-    "descripcion": "descripcion"
+    "titulo": "Mapa informativo - Bomberos de Junin",
+    "descripcion": "Mapa informativo para los Bomberos de Junin"
   },
   "categorias": [
-    {"label": "Poda y limpieza", "value": "poda", "estatica": true},
-    {"label": "Iluminacion", "value": "iluminacion", "estatica": false}
+    {"label": "Hidrante sobre nivel", "value": "hidrantesn", "estatica": false},
+    {"label": "Hidrante bajo nivel", "value": "hidrantebn", "estatica": false},
+    {"label": "Instituciones deportivas", "value": "instdeportivas", "estatica": false},
+    {"label": "Templos religiosos", "value": "templos", "estatica": false},
+    {"label": "Establecimientos educativos", "value": "escuela", "estatica": false},
+    {"label": "Espacios verdes", "value": "espaciosverdes", "estatica": false},
+    {"label": "Sitios de interes", "value": "interes", "estatica": false},
+    {"label": "Centros de salud", "value": "salud", "estatica": false},
+    {"label": "Complejos habitacionales", "value": "complejos", "estatica": false},
+    {"label": "Hospedaje", "value": "hospedaje", "estatica": false},
+    {"label": "Estaciones de servicio", "value": "estacionservicio", "estatica": false},
+    {"label": "Redes contra incendio humedas", "value": "redhumeda", "estatica": false},
+    {"label": "Redes contra incendio secas", "value": "redseca", "estatica": false}
   ],
   "extras": {
-    "zona": "quilmes",
+    "zona": "junin",
     "gps": false,
     "comoLlegar": true,
     "mostrarAlInicio": true,
     "filtrable": {
       "mostrar": true,
       "fecha": false,
-      "exportar": false
+      "exportar": true
     },
     "markers": {
       "agregable": {
         "state": true,
-        "max": 3
+        "max": 999
       },
       "solucionable": {
         "state": true,
-        "max": 2
+        "max": 999
       }
     }
   },
   "admin": {
-    "panel": true,
+    "panel": false,
     "extras": {
       "zona": "",
       "gps": false,
-      "comoLlegar": true,
+      "comoLlegar": false,
       "mostrarAlInicio": true,
       "filtrable": {
         "mostrar": true,
@@ -53,11 +64,11 @@
       "markers": {
         "agregable": {
           "state": true,
-          "max": 3
+          "max": 999
         },
         "solucionable": {
           "state": true,
-          "max": 2
+          "max": 999
         }
       }
     }
@@ -74,7 +85,7 @@
       }]
     },
     "footer": {
-      "mostrar": true
+      "mostrar": false
     },
     "analytics": {
       "mostrar": false,
@@ -84,8 +95,8 @@
       "initzoom": 13,
       "minzoom": 1,
       "center": {
-        "lat": -34.737911,
-        "lng": -58.292906
+        "lat": -34.590067,
+        "lng": -60.95072
       },
       "mapTypeControl": true,
       "disableDefaultUI": true,
@@ -94,23 +105,27 @@
       "streetViewControl": true
     },
     "diseño": {
+      "theme": "superhero",
+      "colores": {
+        "primary": "#A3D92B",
+        "success": "#0D812C",
+        "info": "#9C27B0",
+        "warning": "#F2DEDE",
+        "danger": "#C50000"
+      },
       "navbar": {
-        "base": "inverse",
-        "fondo": "",
-        "texto": {
-          "link": "",
-          "hover": ""
-        }
+        "base": "inverse"
       }
     }
   },
   "paths": {
+    "junin": "vxfrEpvyrJsIgr@_zAksAuH~fBaJcKurAySmDBqLzFeF_@mEcTaZ~]kj@yr@snA|aBpg@fq@_h@bq@~TtXac@xv@bNhRfkEtvFr@b@~C_E`DqAxCdC|v@r`Ao@xH`E`Lf@hK_@nPd@cAhcByyBhSr[f_@{f@xm@lv@|u@uS`GsGaDcDdGmIikB_gCpaBawB",
     "quilmes": "jctrEnzubJlwBpsC`QdIb{@~~@p~@``AnxBhdChk@eb@fbDssBdEtIxa@ub@zo@_`@fvAoaAkVcPum@s@}FaGm`@uAc{AohDl]iYqlFcbMdA~MuLr@cc@t^oBpG}JNgHfIrArO_JeIw^hZqg@paAcMiC`FhKkRpd@}FvIwW}LvW`VaJ?gSyQhKt^"
   },
   "db":{
     "sv": "localhost",
-    "db": "mapa",
-    "usr": "root",
-    "psw": "root"
+    "db": "db",
+    "usr": "usr",
+    "psw": "psw"
   }
 }

@@ -41,7 +41,7 @@
 		if ($action === "push_markers") {
 
 			$arrayMarkers = $_POST['markers'];
-			if (count($arrayMarkers)>={{extras.markers.agregable.max}}){
+			if (count($arrayMarkers)>{{extras.markers.agregable.max}}){
 				print "false";
 				return;
 			}

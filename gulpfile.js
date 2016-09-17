@@ -13,7 +13,7 @@ gulp.task('clean', ["clean:all"]);
 gulp.task('copy', function(cb){
   runSequence(
     "clean",
-    ["copy:fonts", "copy:img", "copy:db"],
+    ["copy:fonts", "copy:img"],
     cb);
 });
 
@@ -21,7 +21,7 @@ gulp.task('copy', function(cb){
 gulp.task('build', function(cb){
   runSequence(
     ["clean", "copy"],
-    ["build:html", "build:css", "build:js", "build:php"],
+    ["build:html", "build:css", "build:js", "build:php", "build:db"],
     cb);
 });
 

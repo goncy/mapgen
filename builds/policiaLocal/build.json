@@ -1,8 +1,8 @@
 {
   "cliente": {
-    "nombre": "Policia local",
+    "nombre": "Policia local de Quilmes",
     "mail": "policialocalquilmes2016@gmail.com",
-    "web": "www.policialocalquilmes.com.ar",
+    "web": "https://www.facebook.com/Policia-Local-Quilmes-UPPL-628906180599293/?fref=ts",
     "telefono": "4317-6000 (Int. 20454)"
   },
   "desarrollador": {
@@ -10,44 +10,48 @@
     "mail": "gonzalo.pozzo4@gmail.com"
   },
   "meta": {
-    "titulo": "Mapa",
-    "descripcion": "descripcion"
+    "titulo": "Reclamos - Policía local de Quilmes",
+    "descripcion": "Reclamos de seguridad o presencia policial, se parte de la solución, policía local de Quilmes"
   },
   "categorias": [
-    {"label": "Inseguridad", "value": "inseguridad", "estatica": false},
-    {"label": "Otro", "value": "otro", "estatica": false}
+    {"label": "Reclamo de caminante", "value": "caminante", "estatica": false},
+    {"label": "Reclamo de moviles", "value": "movil", "estatica": false},
+    {"label": "Reclamo de operativos", "value": "operativo", "estatica": false}
   ],
   "extras": {
-    "zona": "quilmes",
+    "zona": ["quilmes"],
     "gps": false,
     "comoLlegar": false,
     "mostrarAlInicio": true,
     "filtrable": {
       "mostrar": true,
-      "fecha": false,
+      "fecha": true,
       "exportar": true
     },
     "markers": {
       "agregable": {
         "state": true,
-        "max": 999
+        "max": 1
       },
       "solucionable": {
-        "state": true,
-        "max": 999
+        "state": false,
+        "max": 0
       }
     }
   },
   "admin": {
-    "panel": false,
+    "panel": true,
+    "usuarios": [
+      {"usuario": "andres", "password": "andresdelicia"}
+    ],
     "extras": {
-      "zona": "",
+      "zona": ["quilmes"],
       "gps": false,
       "comoLlegar": false,
       "mostrarAlInicio": true,
       "filtrable": {
         "mostrar": true,
-        "fecha": false,
+        "fecha": true,
         "exportar": true
       },
       "markers": {
@@ -76,9 +80,17 @@
     "footer": {
       "mostrar": true
     },
+    "toast": {
+      "posicion": "derecha"
+    },
     "analytics": {
       "mostrar": false,
       "ua": ""
+    },
+    "bienvenida": {
+      "mostrar": true,
+      "mensaje": "Puede seleccionar agregar reclamo para informar reclamos de seguridad o presencia policial en caminantes, moviles o informantes, cualquier duda, puede comunicarse al 4317-6000 (Int. 20454) o por mail a policialocalquilmes2016@gmail.com",
+      "duracion": 0
     },
     "mapa": {
       "initzoom": 13,
@@ -96,16 +108,17 @@
     "diseño": {
       "theme": "paper",
       "colores": {
-        "primary": "",
+        "primary": "#12387E",
         "success": "",
-        "info": "",
-        "warning": "",
+        "info": "#12387E",
+        "warning": "#EC8042",
         "danger": ""
       },
       "navbar": {
         "base": "default"
       }
-    }
+    },
+    "textoAgregar": "Agregar reclamo"
   },
   "paths": {
     "quilmes": "jctrEnzubJlwBpsC`QdIb{@~~@p~@``AnxBhdChk@eb@fbDssBdEtIxa@ub@zo@_`@fvAoaAkVcPum@s@}FaGm`@uAc{AohDl]iYqlFcbMdA~MuLr@cc@t^oBpG}JNgHfIrArO_JeIw^hZqg@paAcMiC`FhKkRpd@}FvIwW}LvW`VaJ?gSyQhKt^"

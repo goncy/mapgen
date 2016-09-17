@@ -1,4 +1,4 @@
-if("{{paths[extras.zona]}}".length){
+if("{{extras.zona}}".length){
   var path = new google.maps.Polygon({
     strokeColor: "#7790D9",
     fillColor: "#A3BFD9",
@@ -6,6 +6,10 @@ if("{{paths[extras.zona]}}".length){
     strokeWeight: 1,
     fillOpacity: 0.25,
     map: mapa,
-    paths: google.maps.geometry.encoding.decodePath("{{paths[extras.zona]}}")
+    paths: [
+      {% for zona in extras.zona -%}
+        {% if paths[zona] %}google.maps.geometry.encoding.decodePath("{{paths[zona]}}"){% endif %}{{"" if loop.last else ","}}
+      {%- endfor %}
+    ]
   });
 }

@@ -17,7 +17,7 @@ function setStage() {
     debug: false,
     newestOnTop: true,
     progressBar: true,
-    positionClass: "toast-top-right",
+    positionClass: "toast-top-{{ 'left' if opciones.toast.posicion == 'izquierda' else 'right' }}",
     preventDuplicates: false,
     showDuration: "300",
     hideDuration: "200",
@@ -27,7 +27,14 @@ function setStage() {
     hideEasing: "linear",
     showMethod: "slideDown",
     hideMethod: "slideUp"
-  }
+  };
+
+  {% if opciones.bienvenida.mostrar %}
+    toastr.info(
+      '{{opciones.bienvenida.mensaje}}',
+      'Bienvenid@',
+      {timeOut: {{opciones.bienvenida.duracion}} })
+  {% endif %}
 
   window.infowindow = new google.maps.InfoWindow();
   window.mapa = new google.maps.Map(
@@ -105,7 +112,7 @@ function setStage() {
   });
 
   //Extras
-  {% if extras.zona %}
+  {% if extras.zona.length %}
     //Zona
     {% include "./extras/zona.js" %}
   {% endif %}

@@ -19,7 +19,7 @@
     {"label": "Incendio", "value": "incendio", "estatica": false}
   ],
   "extras": {
-    "zona": "altebrown",
+    "zona": ["altebrown"],
     "gps": false,
     "comoLlegar": true,
     "mostrarAlInicio": true,
@@ -41,6 +41,9 @@
   },
   "admin": {
     "panel": false,
+    "usuarios": [
+      {"usuario": "admin", "password": "admin"}
+    ],
     "extras": {
       "zona": "",
       "gps": false,
@@ -77,9 +80,17 @@
     "footer": {
       "mostrar": false
     },
+    "toast": {
+      "posicion": "derecha"
+    },
     "analytics": {
       "mostrar": false,
       "ua": ""
+    },
+    "bienvenida": {
+      "mostrar": false,
+      "mensaje": "",
+      "duracion": 0
     },
     "mapa": {
       "initzoom": 13,
@@ -106,7 +117,8 @@
       "navbar": {
         "base": "inverse"
       }
-    }
+    },
+    "textoAgregar": "Agregar punto"
   },
   "paths": {
     "altebrown": "lpjsE`w{bJ~oA~jCtqH}{FfrAn|Cxh@y[|aBlvDoa@tZ|xCfxHcgDrwBwVgk@mgIr}FsjCquG{SnP^nG_M~HemDseIcWpSwoAq|ChrAq|@~}@{g@zAbEpC}C"

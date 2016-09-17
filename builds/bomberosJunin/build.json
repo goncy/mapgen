@@ -29,7 +29,7 @@
     {"label": "Redes contra incendio secas", "value": "redseca", "estatica": false}
   ],
   "extras": {
-    "zona": "junin",
+    "zona": ["junin"],
     "gps": false,
     "comoLlegar": true,
     "mostrarAlInicio": true,
@@ -51,6 +51,9 @@
   },
   "admin": {
     "panel": false,
+    "usuarios": [
+      {"usuario": "admin", "password": "admin"}
+    ],
     "extras": {
       "zona": "",
       "gps": false,
@@ -87,9 +90,17 @@
     "footer": {
       "mostrar": false
     },
+    "toast": {
+      "posicion": "derecha"
+    },
     "analytics": {
       "mostrar": false,
       "ua": ""
+    },
+    "bienvenida": {
+      "mostrar": false,
+      "mensaje": "",
+      "duracion": 0
     },
     "mapa": {
       "initzoom": 13,
@@ -116,7 +127,8 @@
       "navbar": {
         "base": "inverse"
       }
-    }
+    },
+    "textoAgregar": "Agregar punto"
   },
   "paths": {
     "junin": "vxfrEpvyrJsIgr@_zAksAuH~fBaJcKurAySmDBqLzFeF_@mEcTaZ~]kj@yr@snA|aBpg@fq@_h@bq@~TtXac@xv@bNhRfkEtvFr@b@~C_E`DqAxCdC|v@r`Ao@xH`E`Lf@hK_@nPd@cAhcByyBhSr[f_@{f@xm@lv@|u@uS`GsGaDcDdGmIikB_gCpaBawB"
