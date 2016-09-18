@@ -135,7 +135,7 @@
   },
   "db":{
     "sv": "localhost",
-    "db": "buro",
+    "db": "burodisco",
     "usr": "gpozzo-admin",
     "psw": "Gonzalo1"
   }

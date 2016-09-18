@@ -9,7 +9,7 @@
         markers: arrayMarkers
       }, function(data) {
         if (data == true) alert("{{opciones.textoGuardado}}");
-        if (data == false) alert("{{opciones.textoCorregido}}");
+        if (data == false) alert("Hubo un error, pruebe nuevamente mas tarde, gracias!");
         vaciarArrays();
         location.reload();
       }, "json");
@@ -23,7 +23,7 @@
               action: 'solucionar_markers',
               solucionados: arraySolucionados
           }, function(data) {
-              if (data == true) alert("Corregido, gracias por su colaboracion");
+              if (data == true) alert("{{opciones.textoCorregido}}");
               if (data == false) alert("Hubo un error, pruebe nuevamente mas tarde, gracias!");
               vaciarArrays();
               location.reload();

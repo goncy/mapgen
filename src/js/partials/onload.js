@@ -42,7 +42,7 @@ function setStage() {
       zoom: {{opciones.mapa.initzoom}},
       center: new google.maps.LatLng({{opciones.mapa.center.lat}}, {{opciones.mapa.center.lng}}),
       disableDefaultUI: {{opciones.mapa.disableDefaultUI}},
-      disableDoubleClickZoom: true,
+      disableDoubleClickZoom: {{true if extras.markers.agregable.state else false}},
       mapTypeControl: {{opciones.mapa.mapTypeControl}},
       minZoom: {{opciones.mapa.minzoom}},
       zoomControl: {{opciones.mapa.zoomControl}},
