@@ -1,17 +1,17 @@
 {
   "cliente": {
-    "nombre": "Geek Bar Quilmes",
-    "mail": "info@geek-bar.com",
-    "web": "https://www.geek-bar.com/",
-    "telefono": "011 4257-2320"
+    "nombre": "Buró Disco",
+    "mail": "info@burodisco.com",
+    "web": "https://www.burodisco.com/",
+    "telefono": "011 4254-1700"
   },
   "desarrollador": {
     "nombre": "Gonzalo Pozzo",
     "mail": "gonzalo.pozzo4@gmail.com"
   },
   "meta": {
-    "titulo": "Mapa - Geek Bar Quilmes",
-    "descripcion": "Mapa de Geek Bar Quilmes"
+    "titulo": "Mapa especial aniversario - Buró Disco",
+    "descripcion": "Encontrá las pistas y ganate premios en el aniversario de Buró Disco"
   },
   "categorias": [
     {"label": "Pista", "value": "pista", "estatica": false}
@@ -47,7 +47,7 @@
   "admin": {
     "panel": true,
     "usuarios": [
-      {"usuario": "geek", "password": "geekbar2016"}
+      {"usuario": "burodisco", "password": "aniversario"}
     ],
     "extras": {
       "zona": ["quilmes"],
@@ -60,16 +60,16 @@
       "filtrable": {
         "mostrar": false,
         "fecha": false,
-        "exportar": false
+        "exportar": true
       },
       "markers": {
         "agregable": {
           "state": true,
-          "max": 10
+          "max": 100
         },
         "solucionable": {
           "state": true,
-          "max": 10
+          "max": 100
         }
       }
     }
@@ -97,7 +97,7 @@
     },
     "bienvenida": {
       "mostrar": true,
-      "mensaje": "Encontra todos los stickers de Geek Bar, uni las palabras y mandalas a nuestro Facebook, si sos el/la primero/a ganate x cosa",
+      "mensaje": "Encontrá las pistas y ganate premios en el aniversario de Buró Disco",
       "duracion": 5000
     },
     "mapa": {
@@ -116,14 +116,14 @@
     "diseño": {
       "theme": "yeti",
       "colores": {
-        "primary": "#333",
+        "primary": "#000",
         "success": "",
-        "info": "#333",
+        "info": "#000",
         "warning": "",
         "danger": ""
       },
       "navbar": {
-        "base": "default"
+        "base": "inverse"
       }
     },
     "textoAgregar": "Agregar pista",
@@ -135,7 +135,7 @@
   },
   "db":{
     "sv": "localhost",
-    "db": "geekbar",
+    "db": "buro",
     "usr": "gpozzo-admin",
     "psw": "Gonzalo1"
   }
