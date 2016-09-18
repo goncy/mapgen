@@ -43,6 +43,9 @@
                   {% endif %}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                  {% if extras.linkWeb.mostrar %}
+                    <li><a href="{{cliente.web}}" target="_blank">{{extras.linkWeb.texto}}</a></li>
+                  {% endif %}
                   {% if extras.markers.agregable.state %}
                     <li><a role="button" onclick="guardar()">Guardar datos</a></li>
                   {% endif %}

@@ -83,12 +83,10 @@ function loadMarker(location, loadedMarker) {
       tipo: itemSeleccionado
     });
 
-    {% if extras.markers.solucionable.state %}
-      google.maps.event.addListener(marker, 'rightclick', function(event) {
-          infowindow.close();
-          removeMarker(marker);
-      });
-    {% endif %}
+    google.maps.event.addListener(marker, 'rightclick', function(event) {
+        infowindow.close();
+        removeMarker(marker);
+    });
 
     {% if opciones.infowindow.mostrar %}
       //Mostrar infowindow
@@ -104,14 +102,12 @@ function loadMarker(location, loadedMarker) {
       .removeAllRanges();
   }
 
-  {% if extras.markers.solucionable.state %}
-    function removeMarker(marker) {
-        marker.setMap(null);
-        cant_markers--;
+  function removeMarker(marker) {
+      marker.setMap(null);
+      cant_markers--;
 
-        markerContainer[marker.tipo].splice(markerContainer[marker.tipo].indexOf(marker), 1);
-    }
-  {% endif %}
+      markerContainer[marker.tipo].splice(markerContainer[marker.tipo].indexOf(marker), 1);
+  }
 
   function getArrayMarkers() {
     var arrayMarkers = new Array();

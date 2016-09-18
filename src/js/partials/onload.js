@@ -117,7 +117,7 @@ function setStage() {
     {% include "./extras/zona.js" %}
   {% endif %}
 
-  {% if extras.gps %}
+  {% if extras.gps.mostrar %}
     // GPS
     {% include "./extras/gps.js" %}
   {% endif %}

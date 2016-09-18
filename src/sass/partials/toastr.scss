@@ -6,6 +6,26 @@
   .toast {
     opacity: 1 !important;
   }
+
+  .toast {
+    background-color: $brand-primary;
+  }
+
+  .toast-success {
+    background-color: $brand-success;
+  }
+
+  .toast-error {
+    background-color: $brand-danger;
+  }
+
+  .toast-info {
+    background-color: $brand-info;
+  }
+
+  .toast-warning {
+    background-color: $brand-warning;
+  }
 }
 
 .toast-top-left {

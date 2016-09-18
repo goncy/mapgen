@@ -5,11 +5,13 @@ window.gpsMarker = new google.maps.Marker({
 });
 
 if(navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(function(position) {
-    var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-    mapa.setCenter(pos);
-    mapa.setZoom(16);
-  });
+  {% if extras.gps.ubicar %}
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      mapa.setCenter(pos);
+      mapa.setZoom(16);
+    });
+  {% endif %}
 
   setInterval(function() {
     navigator.geolocation.getCurrentPosition(function(position) {

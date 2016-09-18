@@ -8,8 +8,8 @@
         action: 'push_markers',
         markers: arrayMarkers
       }, function(data) {
-        if (data == true) alert("Agregado correctamente, gracias por su colaboracion");
-        if (data == false) alert("Hubo un error, pruebe nuevamente mas tarde, gracias!");
+        if (data == true) alert("{{opciones.textoGuardado}}");
+        if (data == false) alert("{{opciones.textoCorregido}}");
         vaciarArrays();
         location.reload();
       }, "json");

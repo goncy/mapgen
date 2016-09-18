@@ -1,26 +1,31 @@
 {
   "cliente": {
-    "nombre": "Policia local de Quilmes",
-    "mail": "policialocalquilmes2016@gmail.com",
-    "web": "https://www.facebook.com/Policia-Local-Quilmes-UPPL-628906180599293/?fref=ts",
-    "telefono": "4317-6000 (Int. 20454)"
+    "nombre": "Geek Bar Quilmes",
+    "mail": "info@geek-bar.com",
+    "web": "https://www.geek-bar.com/",
+    "telefono": "011 4257-2320"
   },
   "desarrollador": {
     "nombre": "Gonzalo Pozzo",
     "mail": "gonzalo.pozzo4@gmail.com"
   },
   "meta": {
-    "titulo": "Reclamos - Policía local de Quilmes",
-    "descripcion": "Reclamos de seguridad o presencia policial, se parte de la solución, policía local de Quilmes"
+    "titulo": "Mapa - Geek Bar Quilmes",
+    "descripcion": "Mapa de Geek Bar Quilmes"
   },
   "categorias": [
-    {"label": "Reclamo de caminante", "value": "caminante", "estatica": false},
-    {"label": "Reclamo de moviles", "value": "movil", "estatica": false},
-    {"label": "Reclamo de operativos", "value": "operativo", "estatica": false}
+    {"label": "Pista", "value": "pista", "estatica": false}
   ],
   "extras": {
     "zona": ["quilmes"],
-    "gps": false,
+    "gps": {
+      "mostrar": true,
+      "ubicar": false
+    },
+    "linkWeb": {
+      "mostrar": true,
+      "texto": "Ir a nuestra web"
+    },
     "comoLlegar": false,
     "mostrarAlInicio": true,
     "filtrable": {
@@ -30,8 +35,8 @@
     },
     "markers": {
       "agregable": {
-        "state": true,
-        "max": 1
+        "state": false,
+        "max": 0
       },
       "solucionable": {
         "state": false,
@@ -42,26 +47,29 @@
   "admin": {
     "panel": true,
     "usuarios": [
-      {"usuario": "andres", "password": "andresdelicia"}
+      {"usuario": "geek", "password": "geekbar2016"}
     ],
     "extras": {
       "zona": ["quilmes"],
-      "gps": false,
+      "gps": {
+        "mostrar": true,
+        "ubicar": false
+      },
       "comoLlegar": false,
       "mostrarAlInicio": true,
       "filtrable": {
-        "mostrar": true,
-        "fecha": true,
-        "exportar": true
+        "mostrar": false,
+        "fecha": false,
+        "exportar": false
       },
       "markers": {
         "agregable": {
           "state": true,
-          "max": 0
+          "max": 10
         },
         "solucionable": {
           "state": true,
-          "max": 0
+          "max": 10
         }
       }
     }
@@ -78,7 +86,7 @@
       }]
     },
     "footer": {
-      "mostrar": true
+      "mostrar": false
     },
     "toast": {
       "posicion": "derecha"
@@ -89,8 +97,8 @@
     },
     "bienvenida": {
       "mostrar": true,
-      "mensaje": "Puede seleccionar agregar reclamo para informar reclamos de seguridad o presencia policial en caminantes, moviles o informantes, cualquier duda, puede comunicarse al 4317-6000 (Int. 20454) o por mail a policialocalquilmes2016@gmail.com",
-      "duracion": 0
+      "mensaje": "Encontra todos los stickers de Geek Bar, uni las palabras y mandalas a nuestro Facebook, si sos el/la primero/a ganate x cosa",
+      "duracion": 5000
     },
     "mapa": {
       "initzoom": 13,
@@ -106,26 +114,28 @@
       "streetViewControl": true
     },
     "diseño": {
-      "theme": "paper",
+      "theme": "yeti",
       "colores": {
-        "primary": "#12387E",
+        "primary": "#333",
         "success": "",
-        "info": "#12387E",
-        "warning": "#EC8042",
+        "info": "#333",
+        "warning": "",
         "danger": ""
       },
       "navbar": {
         "base": "default"
       }
     },
-    "textoAgregar": "Agregar reclamo"
+    "textoAgregar": "Agregar pista",
+    "textoGuardado": "Agregado correctamente",
+    "textoCorregido": "Eliminado correctamente"
   },
   "paths": {
     "quilmes": "jctrEnzubJlwBpsC`QdIb{@~~@p~@``AnxBhdChk@eb@fbDssBdEtIxa@ub@zo@_`@fvAoaAkVcPum@s@}FaGm`@uAc{AohDl]iYqlFcbMdA~MuLr@cc@t^oBpG}JNgHfIrArO_JeIw^hZqg@paAcMiC`FhKkRpd@}FvIwW}LvW`VaJ?gSyQhKt^"
   },
   "db":{
     "sv": "localhost",
-    "db": "policialocal",
+    "db": "geekbar",
     "usr": "gpozzo-admin",
     "psw": "Gonzalo1"
   }

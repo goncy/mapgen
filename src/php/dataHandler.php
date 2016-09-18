@@ -21,7 +21,7 @@
 
 	$action = $_POST['action'];
 
-	{% if extras.filtrable.mostrar %}
+	{% if extras.mostrarAlInicio %}
 		if ($action === "get_markers") {
 
 			$consulta = "SELECT * FROM markers WHERE solucionado = 0";
