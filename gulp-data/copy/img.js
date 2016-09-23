@@ -15,5 +15,5 @@ gulp.task('copy:img', function() {
       }]
     })))
     .pipe(gulp.dest('./dist/img/'))
-    .pipe(gulpif(templateData.admin.panel, gulp.dest('./dist/admin/img/')));
+    .pipe(gulpif(templateData.caracteristicas.panel_admin.usar, gulp.dest('./dist/admin/img/')));
 });

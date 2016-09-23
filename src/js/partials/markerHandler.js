@@ -14,14 +14,12 @@ function loadMarker(location, loadedMarker) {
     tipo: loadedMarker.tipo
   });
 
-  //Nunjucks: opciones.markerSolucionable
-  {% if extras.markers.agregable.state %}
-    {% if extras.markers.solucionable.state %}
+  {% if caracteristicas.usuario.registros.agregar.permitir %}
+    {% if caracteristicas.usuario.registros.borrar.permitir %}
       google.maps.event.addListener(marker, 'rightclick', function() {
 
-          {% if extras.markers.solucionable.max %}
-            //Max markers remove
-            if (marker.solucionado == false && cant_solucionados >= {{extras.markers.solucionable.max}}) {
+          {% if caracteristicas.usuario.registros.borrar.maximo %}
+            if (marker.solucionado == false && cant_solucionados >= {{caracteristicas.usuario.registros.agregar.maximo}}) {
               toastr.error("¡No podes borrar tantos puntos!");
               return;
             }
@@ -46,9 +44,7 @@ function loadMarker(location, loadedMarker) {
     {% endif %}
   {% endif %}
 
-  //Nunjucks: opciones.infowindow
-  {% if opciones.infowindow.mostrar %}
-    //Mostrar infowindow
+  {% if configuracion.descripcion.mostrar %}
     {% include "./options/markerContentLoaded.js" %}
   {% endif %}
 
@@ -58,14 +54,13 @@ function loadMarker(location, loadedMarker) {
     .removeAllRanges();
 }
 
-{% if extras.markers.agregable.state %}
+{% if caracteristicas.usuario.registros.agregar.permitir %}
   function addRegistro(location) {
 
     if (!itemSeleccionado) return;
 
-    {% if extras.markers.agregable.max %}
-      //Max markers add
-      if (cant_markers >= {{extras.markers.agregable.max}}) {
+    {% if caracteristicas.usuario.registros.agregar.maximo %}
+      if (cant_markers >= {{caracteristicas.usuario.registros.agregar.maximo}}) {
         toastr.error("¡No podes agregar tantos puntos!, por favor, guardá para seguir cargando puntos");
         return;
       }
@@ -88,8 +83,21 @@ function loadMarker(location, loadedMarker) {
         removeMarker(marker);
     });
 
-    {% if opciones.infowindow.mostrar %}
-      //Mostrar infowindow
+    {% if opciones.zonas.length %}
+      var initialPosition;
+
+      google.maps.event.addListener(marker, 'dragstart', function(event) {
+        initialPosition = event.latLng;
+      });
+
+      google.maps.event.addListener(marker, 'dragend', function(event) {
+        if (!google.maps.geometry.poly.containsLocation(event.latLng, path)) {
+          marker.setPosition(initialPosition);
+        }
+      });
+    {% endif %}
+
+    {% if configuracion.descripcion.mostrar %}
       {% include "./options/markerContentNew.js" %}
     {% endif %}
 
@@ -128,7 +136,7 @@ function loadMarker(location, loadedMarker) {
     return arrayMarkers;
   }
 
-  {% if extras.markers.solucionable.state %}
+  {% if caracteristicas.usuario.registros.borrar.permitir %}
     function getArraySolucionados(){
         var arraySolucionados = new Array();
         var removeHtml = /(<([^>]+)>)/ig;

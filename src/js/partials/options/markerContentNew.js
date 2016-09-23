@@ -8,8 +8,8 @@ google.maps.event.addListener(marker, 'click', function() {
     google.maps.event.addListener(infowindow, 'domready', function() {
       $('#guardar_texto')
         .on('click', function() {
-          marker.texto = $('#obtener_texto')
-            .val();
+          var contenidoMarker = $('#obtener_texto').val();
+          marker.texto = contenidoMarker;
           infowindow.close();
         });
     });

@@ -5,16 +5,16 @@ var listaCategorias = [];
 var categoriasFijas = [];
 var markerContainer = {};
 
-{% if extras.markers.agregable.state %}
+{% if caracteristicas.usuario.registros.agregar.permitir %}
   var itemSeleccionado;
   var cant_markers = 0;
 
-  {% if extras.markers.solucionable.state %}
+  {% if caracteristicas.usuario.registros.borrar.permitir %}
     var solucionados = [];
     var cant_solucionados = 0;
   {% endif %}
 {% endif %}
 
-{% if extras.comoLlegar %}
+{% if opciones.como_llegar %}
   var avisoBorrado = false;
 {% endif %}

@@ -31,4 +31,5 @@ gulp.task('watch', function () {
   gulp.watch(['src/**/*.{css,scss}', 'node_modules/**/*.{css,scss}'], ['build:css']);
   gulp.watch(['src/js/**/*.js'], ['build:js']);
   gulp.watch(['src/php/**/*.php'], ['build:php']);
+  gulp.watch(['builds/**/*.json'], ['build']);
 });

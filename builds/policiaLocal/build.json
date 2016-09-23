@@ -1,132 +1,140 @@
 {
-  "cliente": {
-    "nombre": "Policia local de Quilmes",
+  "texto": {
+    "nombre": "Policía local de Quilmes",
     "mail": "policialocalquilmes2016@gmail.com",
     "web": "https://www.facebook.com/Policia-Local-Quilmes-UPPL-628906180599293/?fref=ts",
-    "telefono": "4317-6000 (Int. 20454)"
-  },
-  "desarrollador": {
-    "nombre": "Gonzalo Pozzo",
-    "mail": "gonzalo.pozzo4@gmail.com"
-  },
-  "meta": {
+    "telefono": "4317-6000 (Int. 20454)",
     "titulo": "Reclamos - Policía local de Quilmes",
-    "descripcion": "Reclamos de seguridad o presencia policial, se parte de la solución, policía local de Quilmes"
+    "descripcion": "Reclamos de seguridad o presencia policial, se parte de la solución, policía local de Quilmes",
+    "bienvenida": "Puede seleccionar agregar reclamo para informar reclamos de seguridad o presencia policial en caminantes, moviles o informantes, cualquier duda, puede comunicarse al 4317-6000 (Int. 20454) o por mail a policialocalquilmes2016@gmail.com",
+    "footer": "Desarrollado por <a href='mailto:gonzalo.pozzo4@gmail.com'>Gonzalo Pozzo</a>",
+    "link_web": "Nuestro Facebook",
+    "agregar": "Agregar reclamo",
+    "guardado": "Reclamo ingresado correctamente",
+    "eliminado": "Reclamo eliminado correctamente"
   },
   "categorias": [
     {"label": "Reclamo de caminante", "value": "caminante", "estatica": false},
     {"label": "Reclamo de moviles", "value": "movil", "estatica": false},
     {"label": "Reclamo de operativos", "value": "operativo", "estatica": false}
   ],
-  "extras": {
-    "zona": ["quilmes"],
-    "gps": false,
-    "comoLlegar": false,
-    "mostrarAlInicio": true,
-    "filtrable": {
-      "mostrar": false,
-      "fecha": false,
-      "exportar": false
-    },
-    "markers": {
-      "agregable": {
-        "state": true,
-        "max": 1
-      },
-      "solucionable": {
-        "state": false,
-        "max": 0
-      }
+  "diseño": {
+    "tema": "paper",
+    "navbar": "default",
+    "colores": {
+      "primary": "#12387E",
+      "success": "",
+      "info": "#12387E",
+      "warning": "#EC8042",
+      "danger": ""
     }
   },
-  "admin": {
-    "panel": true,
-    "usuarios": [
-      {"usuario": "andres", "password": "andresdelicia"}
-    ],
-    "extras": {
-      "zona": ["quilmes"],
-      "gps": false,
-      "comoLlegar": false,
-      "mostrarAlInicio": true,
-      "filtrable": {
+  "opciones": {
+    "zonas": ["quilmes"],
+    "link_web": true,
+    "como_llegar": false,
+    "mostrar_registros": true,
+    "footer": true,
+    "bienvenida": true,
+    "analytics": {
+      "usar": false,
+      "ua": ""
+    }
+  },
+  "caracteristicas": {
+    "panel_admin": {
+      "usar": true,
+      "usuarios": [
+        {"usuario": "andres", "password": "andresdelicia"}
+      ]
+    },
+    "usuario": {
+      "exportar": false,
+      "gps": {
         "mostrar": true,
-        "fecha": true,
-        "exportar": true
+        "ubicar": false
       },
-      "markers": {
-        "agregable": {
-          "state": true,
-          "max": 0
+      "filtrar": {
+        "mostrar": false,
+        "por_fecha": false
+      },
+      "registros": {
+        "agregar": {
+          "permitir": true,
+          "maximo": 2
         },
-        "solucionable": {
-          "state": true,
-          "max": 0
+        "borrar": {
+          "permitir": false,
+          "maximo": 0
+        }
+      }
+    },
+    "admin": {
+      "exportar": true,
+      "gps": {
+        "mostrar": true,
+        "ubicar": false
+      },
+      "filtrar": {
+        "mostrar": true,
+        "por_fecha": true
+      },
+      "registros": {
+        "agregar": {
+          "permitir": true,
+          "maximo": 100
+        },
+        "borrar": {
+          "permitir": true,
+          "maximo": 100
         }
       }
     }
   },
-  "opciones": {
-    "infowindow": {
-      "mostrar": true,
-      "datos": [{
-        "nombre": "ID",
-        "dato": "id"
-      }, {
-        "nombre": "Agregado",
-        "dato": "fecha"
-      }]
-    },
-    "footer": {
-      "mostrar": true
-    },
-    "toast": {
-      "posicion": "derecha"
-    },
-    "analytics": {
-      "mostrar": false,
-      "ua": ""
-    },
-    "bienvenida": {
-      "mostrar": true,
-      "mensaje": "Puede seleccionar agregar reclamo para informar reclamos de seguridad o presencia policial en caminantes, moviles o informantes, cualquier duda, puede comunicarse al 4317-6000 (Int. 20454) o por mail a policialocalquilmes2016@gmail.com",
-      "duracion": 0
+  "configuracion": {
+    "base_de_datos":{
+      "server": "localhost",
+      "database": "policialocal",
+      "user": "gpozzo-admin",
+      "password": "Gonzalo1"
     },
     "mapa": {
-      "initzoom": 13,
-      "minzoom": 1,
-      "center": {
+      "zoom_inicial": 13,
+      "zoom_minimo": 1,
+      "centro": {
         "lat": -34.737911,
         "lng": -58.292906
       },
-      "mapTypeControl": true,
-      "disableDefaultUI": true,
-      "zoomControl": true,
-      "scaleControl": true,
-      "streetViewControl": true
+      "control_zoom": true,
+      "street_view": true,
+      "control_escala": true,
+      "tipo_de_mapa": true,
+      "deshabilitar_extras": true
     },
-    "diseño": {
-      "theme": "paper",
-      "colores": {
-        "primary": "#12387E",
-        "success": "",
-        "info": "#12387E",
-        "warning": "#EC8042",
-        "danger": ""
-      },
-      "navbar": {
-        "base": "default"
-      }
+    "descripcion": {
+      "mostrar": true,
+      "permitir_vacio": false,
+      "datos": [
+        {
+          "nombre": "ID",
+          "clave": "id"
+        },
+        {
+          "nombre": "Agregado",
+          "clave": "fecha"
+        },
+        {
+          "nombre": "Categoria",
+          "clave": "tipo"
+        }
+      ]
     },
-    "textoAgregar": "Agregar reclamo"
+    "notificaciones": {
+      "posicion": "derecha",
+      "duracion": 10000
+    }
   },
-  "paths": {
+  "zonas": {
     "quilmes": "jctrEnzubJlwBpsC`QdIb{@~~@p~@``AnxBhdChk@eb@fbDssBdEtIxa@ub@zo@_`@fvAoaAkVcPum@s@}FaGm`@uAc{AohDl]iYqlFcbMdA~MuLr@cc@t^oBpG}JNgHfIrArO_JeIw^hZqg@paAcMiC`FhKkRpd@}FvIwW}LvW`VaJ?gSyQhKt^"
-  },
-  "db":{
-    "sv": "localhost",
-    "db": "policialocal",
-    "usr": "gpozzo-admin",
-    "psw": "Gonzalo1"
   }
 }

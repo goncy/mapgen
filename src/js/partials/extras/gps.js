@@ -5,7 +5,7 @@ window.gpsMarker = new google.maps.Marker({
 });
 
 if(navigator.geolocation) {
-  {% if extras.gps.ubicar %}
+  {% if caracteristicas.usuario.gps.ubicar %}
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       mapa.setCenter(pos);

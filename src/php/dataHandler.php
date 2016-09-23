@@ -21,7 +21,7 @@
 
 	$action = $_POST['action'];
 
-	{% if extras.mostrarAlInicio %}
+	{% if opciones.mostrar_registros %}
 		if ($action === "get_markers") {
 
 			$consulta = "SELECT * FROM markers WHERE solucionado = 0";
@@ -37,11 +37,11 @@
 			echo $row_container;
 		}
 	{% endif %}
-	{% if extras.markers.agregable.state %}
+	{% if caracteristicas.usuario.registros.agregar.permitir %}
 		if ($action === "push_markers") {
 
 			$arrayMarkers = $_POST['markers'];
-			if (count($arrayMarkers)>{{extras.markers.agregable.max}}){
+			if (count($arrayMarkers)>{{caracteristicas.usuario.registros.agregar.maximo}}){
 				print "false";
 				return;
 			}
@@ -62,11 +62,11 @@
 			$stmt->close();
 
 		}
-		{% if extras.markers.solucionable.state %}
+		{% if caracteristicas.usuario.registros.borrar.permitir %}
 			else if ($action === "solucionar_markers") {
 
 				$arraySolucionados = $_POST['solucionados'];
-				if (count($arraySolucionados)>={{extras.markers.solucionable.max}}){
+				if (count($arraySolucionados)>={{caracteristicas.usuario.registros.agregar.maximo}}){
 					print "false";
 					return;
 				}

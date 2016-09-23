@@ -15,10 +15,10 @@ var cssVendors = {
 };
 
 gulp.task('build:css', function() {
-    if (templateData.admin.panel) {
+    if (templateData.caracteristicas.panel_admin.usar) {
         var adminTemplateData = _.cloneDeep(templateData);
         adminTemplateData.adminPass = true;
-        _.assignIn(adminTemplateData.extras, adminTemplateData.admin.extras);
+        _.assignIn(adminTemplateData.caracteristicas.usuario, adminTemplateData.caracteristicas.admin);
         gulp.src(['./src/{sass,css}/**.{scss,css}', cssVendors.toastr, cssVendors.fontAwesome])
             .pipe(data(adminTemplateData))
             .pipe(nunjucksRender({ ext: '.scss' }))

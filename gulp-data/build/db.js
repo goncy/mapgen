@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     templateData = require('../../builds/' + argv.cliente + '/build.json');
 
 gulp.task('build:db', function() {
-    if (templateData.admin.panel) {
+    if (templateData.caracteristicas.panel_admin.usar) {
         return gulp.src('./src/full.sql')
             .pipe(data(templateData))
             .pipe(nunjucksRender({ ext: '.sql' }))

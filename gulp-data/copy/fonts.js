@@ -6,5 +6,5 @@ var gulp = require('gulp'),
 gulp.task('copy:fonts', function() {
   gulp.src('./src/assets/fonts/**')
     .pipe(gulp.dest('./dist/fonts/'))
-    .pipe(gulpif(templateData.admin.panel, gulp.dest('./dist/admin/fonts/')));
+    .pipe(gulpif(templateData.caracteristicas.panel_admin.usar, gulp.dest('./dist/admin/fonts/')));
 });

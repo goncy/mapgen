@@ -1,7 +1,7 @@
 {% include "./src/sass/partials/templated/variables.scss" %}
-@import "swatches/{{opciones.diseño.theme}}/variables";
+@import "swatches/{{diseño.tema}}/variables";
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-@import "swatches/{{opciones.diseño.theme}}/bootswatch";
+@import "swatches/{{diseño.tema}}/bootswatch";
 
 @import "partials/mains";
 @import "partials/gmaps";

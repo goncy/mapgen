@@ -5,7 +5,7 @@ function setStage() {
     window.listaCategorias.push(cat.value);
     if(cat.estatica) window.categoriasFijas.push(cat.value);
 
-    {% if extras.filtrable.mostrar %}
+    {% if caracteristicas.usuario.filtrar.mostrar %}
       $("#filtro-categorias")
         .append("<option value='"+cat.value+"'>"+cat.label+"</option>");
     {% endif %}
@@ -17,45 +17,44 @@ function setStage() {
     debug: false,
     newestOnTop: true,
     progressBar: true,
-    positionClass: "toast-top-{{ 'left' if opciones.toast.posicion == 'izquierda' else 'right' }}",
+    positionClass: "toast-top-{{ 'left' if configuracion.notificaciones.posicion == 'izquierda' else 'right' }}",
     preventDuplicates: false,
     showDuration: "300",
     hideDuration: "200",
-    timeOut: "7000",
-    extendedTimeOut: "7000",
+    timeOut: "{{configuracion.notificaciones.duracion}}",
+    extendedTimeOut: "{{configuracion.notificaciones.duracion}}",
     showEasing: "linear",
     hideEasing: "linear",
     showMethod: "slideDown",
     hideMethod: "slideUp"
   };
 
-  {% if opciones.bienvenida.mostrar %}
+  {% if opciones.bienvenida %}
     toastr.info(
-      '{{opciones.bienvenida.mensaje}}',
+      '{{texto.bienvenida}}',
       'Bienvenid@',
-      {timeOut: {{opciones.bienvenida.duracion}} })
+      {timeOut: {{configuracion.notificaciones.duracion}} })
   {% endif %}
 
   window.infowindow = new google.maps.InfoWindow();
   window.mapa = new google.maps.Map(
     document.getElementById('map'), {
-      zoom: {{opciones.mapa.initzoom}},
-      center: new google.maps.LatLng({{opciones.mapa.center.lat}}, {{opciones.mapa.center.lng}}),
-      disableDefaultUI: {{opciones.mapa.disableDefaultUI}},
-      disableDoubleClickZoom: {{true if extras.markers.agregable.state else false}},
-      mapTypeControl: {{opciones.mapa.mapTypeControl}},
-      minZoom: {{opciones.mapa.minzoom}},
-      zoomControl: {{opciones.mapa.zoomControl}},
+      zoom: {{configuracion.mapa.zoom_inicial}},
+      center: new google.maps.LatLng({{configuracion.mapa.centro.lat}}, {{configuracion.mapa.centro.lng}}),
+      disableDefaultUI: {{configuracion.mapa.deshabilitar_extras}},
+      disableDoubleClickZoom: {{true if caracteristicas.usuario.registros.agregar.permitir else false}},
+      mapTypeControl: {{configuracion.mapa.tipo_de_mapa}},
+      minZoom: {{configuracion.mapa.zoom_minimo}},
+      zoomControl: {{configuracion.mapa.control_zoom}},
       zoomControlOptions: {
         style: google.maps.ZoomControlStyle.LARGE,
         position: google.maps.ControlPosition.RIGHT_TOP
       },
-      scaleControl: {{opciones.mapa.scaleControl}},
-      streetViewControl: {{opciones.mapa.streetViewControl}},
+      scaleControl: {{configuracion.mapa.control_escala}},
+      streetViewControl: {{configuracion.mapa.street_view}},
       streetViewControlOptions: {
         position: google.maps.ControlPosition.RIGHT_TOP
       },
-      mapTypeControl: {{opciones.mapa.mapTypeControl}},
       mapTypeControlOptions: {
         position: google.maps.ControlPosition.BOTTOM_CENTER,
         style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
@@ -75,7 +74,7 @@ function setStage() {
     }
   );
 
-  {% if extras.mostrarAlInicio %}
+  {% if opciones.mostrar_registros %}
     //Get from db
     $.post('php/dataHandler.php', {
       action: 'get_markers'
@@ -112,17 +111,17 @@ function setStage() {
   });
 
   //Extras
-  {% if extras.zona.length %}
+  {% if opciones.zonas.length %}
     //Zona
     {% include "./extras/zona.js" %}
   {% endif %}
 
-  {% if extras.gps.mostrar %}
+  {% if caracteristicas.usuario.gps.mostrar %}
     // GPS
     {% include "./extras/gps.js" %}
   {% endif %}
 
-  {% if extras.markers.agregable.state %}
+  {% if caracteristicas.usuario.registros.agregar.permitir %}
     //Eventos de marker
     categorias.forEach(function (cat) {
       if (cat.estatica == false) {

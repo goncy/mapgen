@@ -63,7 +63,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{cliente.nombre}} - Login</title>
+    <title>{{texto.nombre}} - Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/gpozzo.css">
 </head>
@@ -72,7 +72,7 @@
     <div class="container">
         <div class="col-md-3 col-md-offset-4">
             <div class="row">
-                <h1 style="text-align:center">{{cliente.nombre}}</h1>
+                <h1 style="text-align:center">{{texto.nombre}}</h1>
             </div>
             <div class="row">
                 <div class="well">

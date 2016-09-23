@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-{% for usuario in admin.usuarios -%}
+{% for usuario in caracteristicas.panel_admin.usuarios -%}
   INSERT INTO `usuarios` (`id`, `usuario`, `password`) VALUES
   ({{loop.index}}, '{{usuario.usuario}}', '{{usuario.password}}');
 {% else %}

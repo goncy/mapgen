@@ -1,4 +1,4 @@
-{% if extras.filtrable.exportar %}
+{% if caracteristicas.usuario.exportar %}
 
   function exportar () {
 
@@ -7,10 +7,10 @@
     if (!confirmar) return;
 
     var cliente = {
-      nombre: "{{cliente.nombre}}",
-      mail: "{{cliente.mail}}",
-      web: "{{cliente.web}}",
-      telefono: "{{cliente.telefono}}"
+      nombre: "{{texto.nombre}}",
+      mail: "{{texto.mail}}",
+      web: "{{texto.web}}",
+      telefono: "{{texto.telefono}}"
     };
 
     var registrosImportados = 0;

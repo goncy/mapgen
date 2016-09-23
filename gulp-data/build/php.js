@@ -7,10 +7,10 @@ var gulp = require('gulp'),
     templateData = require('../../builds/' + argv.cliente + '/build.json');
 
 gulp.task('build:php', function() {
-    if (templateData.admin.panel) {
+    if (templateData.caracteristicas.panel_admin.usar) {
         var adminTemplateData = _.cloneDeep(templateData);
         adminTemplateData.adminPass = true;
-        _.assignIn(adminTemplateData.extras, adminTemplateData.admin.extras);
+        _.assignIn(adminTemplateData.caracteristicas.usuario, adminTemplateData.caracteristicas.admin);
         gulp.src('./src/php/**.php')
             .pipe(data(adminTemplateData))
             .pipe(nunjucksRender({ ext: '.php' }))

@@ -1,10 +1,10 @@
 ﻿<?php
     function crearConexion(){
         //Datos para la conexión con el servidor
-        $servidor   = "{{db.sv}}";
-        $nombreBD   = "{{db.db}}";
-        $usuario    = "{{db.usr}}";
-        $contrasena = "{{db.psw}}";
+        $servidor   = "{{configuracion.base_de_datos.server}}";
+        $nombreBD   = "{{configuracion.base_de_datos.database}}";
+        $usuario    = "{{configuracion.base_de_datos.user}}";
+        $contrasena = "{{configuracion.base_de_datos.password}}";
         //Creando la conexión, nuevo objeto mysqli
         $conexion = new mysqli($servidor,$usuario,$contrasena,$nombreBD);
         $conexion -> set_charset("utf8mb4");

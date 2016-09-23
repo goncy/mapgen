@@ -1,4 +1,4 @@
-{% if extras.filtrable.mostrar %}
+{% if caracteristicas.usuario.filtrar.mostrar %}
   function filtrar() {
       infowindow.close();
 

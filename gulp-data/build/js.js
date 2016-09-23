@@ -20,12 +20,12 @@ var gulp = require('gulp'),
     }
 
 gulp.task('build:js', function() {
-    if (templateData.admin.panel) {
+    if (templateData.caracteristicas.panel_admin.usar) {
         var adminTemplateData = _.cloneDeep(templateData);
         adminTemplateData.adminPass = true;
-        _.assignIn(adminTemplateData.extras, adminTemplateData.admin.extras);
+        _.assignIn(adminTemplateData.caracteristicas.usuario, adminTemplateData.caracteristicas.admin);
         gulp.src(['./src/js/*.{coffee,js}', jsVendors.toastr, jsVendors.bootstrap])
-            .pipe(gulpif(adminTemplateData.extras.filtrable.exportar, addsrc(jsVendors.jspdf)))
+            .pipe(gulpif(adminTemplateData.caracteristicas.usuario.exportar, addsrc(jsVendors.jspdf)))
             .pipe(data(adminTemplateData))
             .pipe(nunjucksRender())
             .pipe(concat("gpozzo.js"))
@@ -34,7 +34,7 @@ gulp.task('build:js', function() {
     }
 
     return gulp.src(['./src/js/*.{coffee,js}', jsVendors.toastr, jsVendors.bootstrap])
-        .pipe(gulpif(templateData.extras.filtrable.exportar, addsrc(jsVendors.jspdf)))
+        .pipe(gulpif(templateData.caracteristicas.usuario.exportar, addsrc(jsVendors.jspdf)))
         .pipe(data(templateData))
         .pipe(nunjucksRender())
         .pipe(concat("gpozzo.js"))

@@ -1,39 +1,42 @@
 {
   "texto": {
-    "agregar": "Agregar pista",
-    "guardado": "Pista agregada correctamente",
-    "eliminado": "Pista eliminada correctamente",
-    "bienvenida": "Encontrá las pistas y ganate premios para el aniversario de Buró Disco",
-    "link_web": "Ir a nuestra web",
-    "footer": "Desarrollado por Gonzalo Pozzo",
-    "titulo": "Mapa especial aniversario - Buró Disco",
-    "descripcion": "Encontrá las pistas y ganate premios en el aniversario de Buró Disco",
-    "nombre": "Buró Disco",
-    "mail": "info@burodisco.com",
-    "web": "https://www.burodisco.com/",
-    "telefono": "011 4254-1700"
+    "nombre": "CADERO",
+    "mail": "comunicacion@cadero.com.ar",
+    "web": "http://cadero.com.ar/",
+    "telefono": "4856-5272",
+    "titulo": "Mapa Interactivo de radios online de la República Argentina",
+    "descripcion": "Mapa Interactivo de radios online de la República Argentina",
+    "bienvenida": "",
+    "footer": "Desarrollado por <a href='mailto:gonzalo.pozzo4@gmail.com'>Gonzalo Pozzo</a>",
+    "link_web": "Nuestra web",
+    "agregar": "Agregar radio",
+    "guardado": "Radio ingresada correctamente",
+    "eliminado": "Radio eliminada correctamente"
   },
   "categorias": [
-    {"label": "Pista", "value": "pista", "estatica": false}
+    {"label": "Radio Online", "value": "online", "estatica": false},
+    {"label": "Radio AM", "value": "am", "estatica": false},
+    {"label": "Radio FM", "value": "fm", "estatica": false},
+    {"label": "Podcast", "value": "podcast", "estatica": false}
   ],
   "diseño": {
-    "tema": "yeti",
-    "navbar": "inverse",
+    "tema": "paper",
+    "navbar": "default",
     "colores": {
-      "primary": "#000",
+      "primary": "#084454",
       "success": "",
-      "info": "#000",
-      "warning": "",
+      "info": "#089D9F",
+      "warning": "#741D68",
       "danger": ""
     }
   },
   "opciones": {
-    "zonas": ["quilmes"],
+    "zonas": [],
     "link_web": true,
     "como_llegar": false,
     "mostrar_registros": true,
-    "footer": false,
-    "bienvenida": true,
+    "footer": true,
+    "bienvenida": false,
     "analytics": {
       "usar": false,
       "ua": ""
@@ -43,13 +46,13 @@
     "panel_admin": {
       "usar": true,
       "usuarios": [
-        {"usuario": "burodisco", "password": "aniversario"}
+        {"usuario": "cadero", "password": "caderoadmin"}
       ]
     },
     "usuario": {
       "exportar": false,
       "gps": {
-        "mostrar": true,
+        "mostrar": false,
         "ubicar": false
       },
       "filtrar": {
@@ -58,8 +61,8 @@
       },
       "registros": {
         "agregar": {
-          "permitir": true,
-          "maximo": 2
+          "permitir": false,
+          "maximo": 0
         },
         "borrar": {
           "permitir": false,
@@ -70,21 +73,21 @@
     "admin": {
       "exportar": true,
       "gps": {
-        "mostrar": true,
+        "mostrar": false,
         "ubicar": false
       },
       "filtrar": {
-        "mostrar": false,
-        "por_fecha": false
+        "mostrar": true,
+        "por_fecha": true
       },
       "registros": {
         "agregar": {
-          "permitir": false,
-          "maximo": 0
+          "permitir": true,
+          "maximo": 100
         },
         "borrar": {
-          "permitir": false,
-          "maximo": 0
+          "permitir": true,
+          "maximo": 100
         }
       }
     }
@@ -92,16 +95,16 @@
   "configuracion": {
     "base_de_datos":{
       "server": "localhost",
-      "database": "burodisco",
+      "database": "cadero",
       "user": "gpozzo-admin",
       "password": "Gonzalo1"
     },
     "mapa": {
-      "zoom_inicial": 13,
+      "zoom_inicial": 5,
       "zoom_minimo": 1,
       "centro": {
-        "lat": -34.737911,
-        "lng": -58.292906
+        "lat": -37.5118105,
+        "lng": -65.5916612
       },
       "control_zoom": true,
       "street_view": true,
@@ -111,7 +114,6 @@
     },
     "descripcion": {
       "mostrar": true,
-      "permitir_vacio": false,
       "datos": [
         {
           "nombre": "ID",
@@ -129,10 +131,8 @@
     },
     "notificaciones": {
       "posicion": "derecha",
-      "duracion": 0
+      "duracion": 10000
     }
   },
-  "zonas": {
-    "quilmes": "jctrEnzubJlwBpsC`QdIb{@~~@p~@``AnxBhdChk@eb@fbDssBdEtIxa@ub@zo@_`@fvAoaAkVcPum@s@}FaGm`@uAc{AohDl]iYqlFcbMdA~MuLr@cc@t^oBpG}JNgHfIrArO_JeIw^hZqg@paAcMiC`FhKkRpd@}FvIwW}LvW`VaJ?gSyQhKt^"
-  }
+  "zonas": {}
 }
