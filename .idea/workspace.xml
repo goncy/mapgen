@@ -1,48 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="752f0698-f4cd-4672-9058-ea8631f75302" name="Default" comment="Arregla error en mensaje de guardado">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/builds/cadero/img/favicon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/builds/cadero/img/icons/am.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/builds/cadero/img/icons/fm.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/builds/cadero/img/icons/online.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/builds/cadero/img/icons/podcast.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/builds/cadero/img/icons/tilde.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/builds/cadero/img/logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/builds/cadero/build.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/builds/buro/build.json" afterPath="$PROJECT_DIR$/builds/buro/build.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/builds/policiaLocal/build.json" afterPath="$PROJECT_DIR$/builds/policiaLocal/build.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp-data/build/css.js" afterPath="$PROJECT_DIR$/gulp-data/build/css.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp-data/build/db.js" afterPath="$PROJECT_DIR$/gulp-data/build/db.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp-data/build/html.js" afterPath="$PROJECT_DIR$/gulp-data/build/html.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp-data/build/js.js" afterPath="$PROJECT_DIR$/gulp-data/build/js.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp-data/build/php.js" afterPath="$PROJECT_DIR$/gulp-data/build/php.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp-data/copy/fonts.js" afterPath="$PROJECT_DIR$/gulp-data/copy/fonts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp-data/copy/img.js" afterPath="$PROJECT_DIR$/gulp-data/copy/img.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/admin/login.php" afterPath="$PROJECT_DIR$/src/admin/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/full.sql" afterPath="$PROJECT_DIR$/src/full.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/html/partials/filtros.html" afterPath="$PROJECT_DIR$/src/html/partials/filtros.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/html/partials/footer.html" afterPath="$PROJECT_DIR$/src/html/partials/footer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/html/partials/header.html" afterPath="$PROJECT_DIR$/src/html/partials/header.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/partials/extras/agregable.js" afterPath="$PROJECT_DIR$/src/js/partials/extras/agregable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/partials/extras/exportar.js" afterPath="$PROJECT_DIR$/src/js/partials/extras/exportar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/partials/extras/filtrar.js" afterPath="$PROJECT_DIR$/src/js/partials/extras/filtrar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/partials/extras/gps.js" afterPath="$PROJECT_DIR$/src/js/partials/extras/gps.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/partials/extras/zona.js" afterPath="$PROJECT_DIR$/src/js/partials/extras/zona.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/partials/functions/save.js" afterPath="$PROJECT_DIR$/src/js/partials/functions/save.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/partials/helpers.js" afterPath="$PROJECT_DIR$/src/js/partials/helpers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/partials/markerHandler.js" afterPath="$PROJECT_DIR$/src/js/partials/markerHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/partials/onload.js" afterPath="$PROJECT_DIR$/src/js/partials/onload.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/partials/options/markerContentLoaded.js" afterPath="$PROJECT_DIR$/src/js/partials/options/markerContentLoaded.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/partials/options/markerContentNew.js" afterPath="$PROJECT_DIR$/src/js/partials/options/markerContentNew.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/partials/variables.js" afterPath="$PROJECT_DIR$/src/js/partials/variables.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/php/_db.php" afterPath="$PROJECT_DIR$/src/php/_db.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/php/dataHandler.php" afterPath="$PROJECT_DIR$/src/php/dataHandler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sass/partials/templated/variables.scss" afterPath="$PROJECT_DIR$/src/sass/partials/templated/variables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sass/styles.scss" afterPath="$PROJECT_DIR$/src/sass/styles.scss" />
+    <list default="true" id="752f0698-f4cd-4672-9058-ea8631f75302" name="Default" comment="Usa nuevo build para cadero">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
     </list>
     <ignored path="mapgen.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -174,28 +134,6 @@
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-          <State>
-            <id>Code style issuesJavaScript</id>
-          </State>
-          <State>
-            <id>JavaScript</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>CoffeeScript</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
-  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
@@ -256,18 +194,6 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="FullScreen" value="true" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/builds" />
-      <recent name="$PROJECT_DIR$/builds/policiaLocal" />
-      <recent name="$PROJECT_DIR$/gulp-data/build" />
-      <recent name="$PROJECT_DIR$/src/sass/partials/templated" />
-      <recent name="$PROJECT_DIR$/src/sass/swatches" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/sass" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
@@ -326,9 +252,6 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
-  <component name="SvnConfiguration">
-    <configuration>C:\Users\GoncyRlz\AppData\Roaming\Subversion</configuration>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="752f0698-f4cd-4672-9058-ea8631f75302" name="Default" comment="" />
@@ -350,7 +273,7 @@
       <workItem from="1474490437765" duration="2869000" />
       <workItem from="1474543721809" duration="71000" />
       <workItem from="1474565435175" duration="2336000" />
-      <workItem from="1474635987359" duration="29000" />
+      <workItem from="1474635987359" duration="116000" />
     </task>
     <task id="LOCAL-00001" summary="Agrega la posibilidad de tener multiples zonas">
       <created>1474139436396</created>
@@ -380,29 +303,27 @@
       <option name="project" value="LOCAL" />
       <updated>1474229415651</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Usa nuevo build para cadero">
+      <created>1474636037741</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1474636037741</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54110000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
+    <option name="totallyTimeSpent" value="54197000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31994364" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31994364" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932693" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32692307" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960254" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33533654" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -434,7 +355,8 @@
     <MESSAGE value="Agrega la posibilidad de tener multiples zonas" />
     <MESSAGE value="Agrega las imagenes de policia local" />
     <MESSAGE value="Arregla error en mensaje de guardado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arregla error en mensaje de guardado" />
+    <MESSAGE value="Usa nuevo build para cadero" />
+    <option name="LAST_COMMIT_MESSAGE" value="Usa nuevo build para cadero" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -716,6 +638,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-352">
           <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -745,6 +668,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -796,20 +720,5 @@
         </state>
       </provider>
     </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
