@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  if(isset($_SESSION['admin'])) {
+  if(isset($_SESSION['{{ texto.nombre }}'])) {
     header('Location: index.php');
     exit();
   }
@@ -52,7 +52,7 @@
 
 	if ($login == 1) {
 		session_start();
-		$_SESSION['admin'] = $usuario;
+		$_SESSION['{{ texto.nombre }}'] = $usuario;
 		header("Location: index.php");
 	}
 ?>

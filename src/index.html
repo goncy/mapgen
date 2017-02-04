@@ -43,6 +43,9 @@
                   {% endif %}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                  {% if adminPass %}
+                    <li><a href='./logout.php'>Cerrar sesión</a></li>
+                  {% endif %}
                   {% if opciones.link_web %}
                     <li><a href="{{texto.web}}" target="_blank">{{texto.link_web}}</a></li>
                   {% endif %}

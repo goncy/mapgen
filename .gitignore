@@ -26,3 +26,6 @@ node_modules
 # Webstorm
 .idea
 .DS_Store
+.idea
+builds/
+.history

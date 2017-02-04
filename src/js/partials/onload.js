@@ -79,10 +79,19 @@ function setStage() {
     $.post('php/dataHandler.php', {
       action: 'get_markers'
     }, function(data) {
+      var bounds = new google.maps.LatLngBounds();
       for (var i = data.length - 1; i >= 0; i--) {
         var markerLatlng = new google.maps.LatLng(data[i].lat, data[i].lng);
         loadMarker(markerLatlng, data[i]);
+        bounds.extend( markerLatlng );
       };
+
+      {% if opciones.centrar_registros %}
+        if (data.length) {
+          window.mapa.fitBounds(bounds);
+        }
+      {% endif %}
+
     }, "json");
   {% endif %}
 
